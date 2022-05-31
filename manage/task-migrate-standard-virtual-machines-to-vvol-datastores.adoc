@@ -1,0 +1,25 @@
+---
+permalink: manage/task-migrate-standard-virtual-machines-to-vvol-datastores.html 
+sidebar: sidebar 
+keywords: migrate, traditional, virtual, machines, datastores, 
+summary: 您可以將虛擬機器從傳統的資料存放區移轉到虛擬磁碟區（vVols）資料存放區、以善用原則型VM管理和其他vVols功能。vVols資料存放區可讓您滿足不斷增加的工作負載需求。 
+---
+= 將傳統虛擬機器移轉至vVols資料存放區
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您可以將虛擬機器從傳統的資料存放區移轉到虛擬磁碟區（vVols）資料存放區、以善用原則型VM管理和其他vVols功能。vVols資料存放區可讓您滿足不斷增加的工作負載需求。
+
+您必須確保VASA Provider不會在您打算移轉的任何虛擬機器上執行。如果您將執行VASA Provider的虛擬機器移轉至vVols資料存放區、則無法執行任何管理作業、包括啟動vVols資料存放區上的虛擬機器。
+
+當您從傳統資料存放區移轉至VVOL資料存放區時、vCenter Server會在從VMFS資料存放區移轉資料時、使用vStorage API進行陣列整合（VAAI）卸載、但不會從NFS VMDK檔案移除資料。VAAI通常會卸載、減少主機上的負載。
+
+.步驟
+. 在您要移轉的虛擬機器上按一下滑鼠右鍵、然後按一下*移轉*。
+. 選擇*變更僅儲存設備*、然後按一下*下一步*。
+. 選取符合您要移轉之資料存放區功能的虛擬磁碟格式、VM儲存原則和VVOL資料存放區、然後按一下*「下一步*」。
+. 檢閱設定、然後按一下「*完成*」。
+

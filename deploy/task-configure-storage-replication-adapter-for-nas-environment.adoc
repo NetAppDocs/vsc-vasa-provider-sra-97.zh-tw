@@ -1,0 +1,38 @@
+---
+permalink: deploy/task-configure-storage-replication-adapter-for-nas-environment.html 
+sidebar: sidebar 
+keywords: configuring, storage, replication, adapter, nas, environment, 
+summary: 您必須先設定儲存系統、再執行VMware vCenter Site Recovery Manager（SRM）的儲存複寫介面卡（SRA）。 
+---
+= 設定NAS環境的儲存複寫介面卡
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您必須先設定儲存系統、再執行VMware vCenter Site Recovery Manager（SRM）的儲存複寫介面卡（SRA）。
+
+您必須在受保護的站台和恢復站台上安裝下列程式：
+
+* SRM
++
+如需安裝SRM的相關文件、請參閱VMware網站。
+
++
+https://www.vmware.com/support/pubs/srm_pubs.html["VMware Site Recovery Manager文件"^]
+
+* SRA
++
+介面卡安裝在SRM和SRA伺服器上。
+
+
+
+.步驟
+. 確認受保護站台的資料存放區包含已向vCenter Server註冊的虛擬機器。
+. 確認受保護站台的ESXi主機已從掛載NFS匯出磁碟區。
+. 使用「* Array Manager*」精靈將陣列新增至SRM時、請確認「* NFS Addresses *（* NFS位址*）」欄位中已指定有效位址、例如有NFS匯出的IP位址、主機名稱或FQDN。
+. 在恢復站台的每個ESXi主機上使用「ping」命令、驗證主機是否有VMkernel連接埠、可存取用於從匯出NFS的IP位址。
+
+
+https://mysupport.netapp.com/site/["NetApp支援"^]

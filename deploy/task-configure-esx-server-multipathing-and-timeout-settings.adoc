@@ -1,0 +1,30 @@
+---
+permalink: deploy/task-configure-esx-server-multipathing-and-timeout-settings.html 
+sidebar: sidebar 
+keywords: configuring, esxi, server, multipathing, timeout, settings, 
+summary: 適用於VMware vSphere的虛擬儲存主控台會檢查並設定ESXi主機多重路徑設定、以及最適合儲存系統的HBA逾時設定。 
+---
+= 設定ESXi伺服器多重路徑和逾時設定
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+適用於VMware vSphere的虛擬儲存主控台會檢查並設定ESXi主機多重路徑設定、以及最適合儲存系統的HBA逾時設定。
+
+視組態和系統負載而定、此程序可能需要很長時間。工作進度會顯示在「*近期工作*」面板中。工作完成時、主機狀態警示圖示會以正常圖示或「等待重新開機」圖示取代。
+
+.步驟
+. 在VMware vSphere Web Client *主頁*頁面中、按一下功能表：vCenter[hosts]。
+. 以滑鼠右鍵按一下主機、然後選取功能表：「Actions（動作）」[NetApp VSC >「Set Recommended Values（設定建議值）」。
+. 在「* NetApp Recommended Settings*（* NetApp建議設定*）」對話方塊中、選取最適合您系統的值。
++
+預設會設定建議的標準值。
+
++
+image::../media/vsc-recommended-hosts-settings.gif[VSC建議的主機設定]
+
+. 按一下「*確定*」。
+

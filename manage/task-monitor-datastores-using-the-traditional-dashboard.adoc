@@ -1,0 +1,44 @@
+---
+permalink: manage/task-monitor-datastores-using-the-traditional-dashboard.html 
+sidebar: sidebar 
+keywords: monitoring, datastores, virtual, machines, using, the, traditional, dashboard, 
+summary: 您可以使用虛擬應用裝置的傳統儀表板、監控傳統的資料存放區和虛擬機器、以供虛擬儲存主控台、VASA Provider和儲存複寫介面卡使用。儀表板資料可讓您分析資料存放區使用量、並採取修正行動、防止虛擬機器在空間相關限制條件下執行。 
+---
+= 使用傳統儀表板監控資料存放區和虛擬機器
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您可以使用虛擬應用裝置的傳統儀表板、監控傳統的資料存放區和虛擬機器、以供虛擬儲存主控台、VASA Provider和儲存複寫介面卡使用。儀表板資料可讓您分析資料存放區使用量、並採取修正行動、防止虛擬機器在空間相關限制條件下執行。
+
+您應該在「設定儲存I/O控制」對話方塊中選取「啟用儲存I/O控制與統計資料收集*」或「停用儲存I/O控制但啟用統計資料收集*」選項。只有在擁有VMware的Enterprise Plus授權時、才能啟用「儲存I/O控制」。
+
+https://docs.vmware.com/en/VMware-vSphere/6.5/com.vmware.vsphere.resmgmt.doc/GUID-BB5D9BAB-9E0E-4204-A76A-54634CD8AD51.html["VMware vSphere文件：啟用儲存I/O控制"^]
+
+VSC儀表板會顯示從vCenter Server取得的IOPS、空間使用量、延遲和已認可容量度量。支援使用者可在VSC儀表板上提供磁碟區空間節約指標。ONTAP這些效能參數可讓您識別虛擬環境中的效能瓶頸、並採取修正行動來解決問題。
+
+VSC、VASA Provider和SRA虛擬應用裝置的傳統儀表板可讓您檢視NFS資料存放區或VMFS資料存放區。您可以按一下資料存放區、導覽至vCenter Server執行個體提供的資料存放區詳細資料檢視、以檢視及修正vCenter Server中資料存放區的任何問題。
+
+.步驟
+. 在vSphere Client主頁中、按一下*虛擬儲存主控台*。
+. 使用* vCenter Server*下拉式功能表選取所需的vCenter Server、以檢視資料存放區。
+. 按一下*傳統儀表板*。
++
+*資料存放區*入口小程序提供下列詳細資料：
+
++
+** 在vCenter Server執行個體中、由VSC管理的傳統資料存放區數量及其效能指標
+** 前五大資料存放區是根據可修改的資源使用量和效能參數、如果需要、您可以根據使用空間、IOPS或延遲、以及所需的順序來變更資料存放區清單。
+
+
++
+*虛擬機器*入口小程序提供下列詳細資料：
+
++
+** 在vCenter Server中使用NetApp資料存放區的虛擬機器數量
+** 前五大虛擬機器是根據承諾的容量、延遲和正常運作時間
+
+
+

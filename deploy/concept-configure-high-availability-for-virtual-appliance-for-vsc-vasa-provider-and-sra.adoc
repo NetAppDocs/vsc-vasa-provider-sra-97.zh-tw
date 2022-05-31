@@ -1,0 +1,32 @@
+---
+permalink: deploy/concept-configure-high-availability-for-virtual-appliance-for-vsc-vasa-provider-and-sra.html 
+sidebar: sidebar 
+keywords: configuring, high, availability, virtual, appliance, vsc, vasa, provider, sra, 
+summary: 適用於虛擬儲存主控台（VSC）、VASA Provider及儲存複寫介面卡（SRA）的虛擬應用裝置支援（HA）組態、可在故障期間提供VSC、VASA Provider及SRA不中斷的功能。 
+---
+= 為VSC、VASA Provider及SRA設定虛擬應用裝置的高可用度
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+適用於虛擬儲存主控台（VSC）、VASA Provider及儲存複寫介面卡（SRA）的虛擬應用裝置支援（HA）組態、可在故障期間提供VSC、VASA Provider及SRA不中斷的功能。
+
+VSC、VASA Provider和SRA的虛擬應用裝置仰賴VMware vSphere（HA）功能和vSphere容錯（FT）功能來提供。（HA）解決方案可讓您從下列原因造成的停機中快速恢復：
+
+* 主機故障
+* 網路故障
+* 虛擬機器故障（客體作業系統故障）
+* 應用程式（VSC、VASA Provider和SRA）當機
+
+
+虛擬應用裝置不需要額外的組態即可提供。只有vCenter Server和ESXi主機必須根據需求、設定VMware vSphere HA功能或vSphere FT功能。HA和FT都需要叢集式主機搭配共用儲存設備。FT有額外的要求和限制。
+
+除了VMware vSphere HA解決方案和vSphere FT解決方案之外、虛擬應用裝置也有助於維持VSC、VASA Provider和SRA服務隨時運作。虛擬應用裝置監控程序會定期監控這三項服務、並在偵測到任何故障時自動重新啟動。這有助於預防應用程式故障。
+
+[NOTE]
+====
+VSC、VASA Provider及SRA的虛擬應用裝置不支援vCenter HA。
+
+====

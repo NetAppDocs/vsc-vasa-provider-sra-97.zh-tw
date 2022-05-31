@@ -1,0 +1,24 @@
+---
+permalink: manage/concept-what-reports-do.html 
+sidebar: sidebar 
+keywords: what, reports, do, 
+summary: 報告會顯示有關資料存放區和虛擬機器的詳細資訊、讓您能夠檢閱及識別vCenter Server中資料存放區和虛擬機器的潛在問題。 
+---
+= 報告的功能
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+報告會顯示有關資料存放區和虛擬機器的詳細資訊、讓您能夠檢閱及識別vCenter Server中資料存放區和虛擬機器的潛在問題。
+
+您可以檢視、排序及匯出報告。
+
+虛擬儲存主控台（VSC）提供下列預先定義的報告：
+
+* 資料存放區報告
+* 虛擬機器報告
+* VVOL資料存放區報告
+* VVOL虛擬機器報告
+

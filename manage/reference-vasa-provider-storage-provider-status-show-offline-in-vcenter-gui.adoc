@@ -1,0 +1,25 @@
+---
+permalink: manage/reference-vasa-provider-storage-provider-status-show-offline-in-vcenter-gui.html 
+sidebar: sidebar 
+keywords: vasa, provider, status, shows, as, Offline, in, vcenter, server, gui, 
+summary: 重新啟動VASA Provider服務之後、VASA Provider ONTAP for VMware的狀態可能會在vCenter Server GUI中顯示為「離線」。 
+---
+= VASA Provider狀態在vCenter Server GUI中顯示為「離線」
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+重新啟動VASA Provider服務之後、VASA Provider for ONTAP VMware的狀態可能會在vCenter Server GUI中顯示為「離線」。
+
+
+
+== 因應措施
+
+. 從虛擬儲存主控台（VSC）、VASA Provider及儲存複寫介面卡（SRA）的虛擬應用裝置檢查VASA Provider的狀態、並確保VASA Provider處於作用中狀態。
+. 在vCenter Server的VSC頁面中、瀏覽至功能表：組態[管理擴充功能]、確認已啟用VASA Provider。
+. 在vCenter Server上、檢查/var/log/VMware/VMware-sps/sps.log檔案、查看VASA Provider是否有任何連線錯誤。
+. 如果有任何錯誤、請重新啟動「'VMware-spsps」服務。
+

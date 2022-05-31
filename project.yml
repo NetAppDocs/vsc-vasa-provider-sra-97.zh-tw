@@ -1,0 +1,43 @@
+---
+settings:
+  name: VSC, VASA Provider, and SRA 9.7
+  internal:
+    pdf_enabled: true
+  prod:
+    pdf_enabled: true
+    harmony_enabled: false
+  langs: zh-tw,us-en,ja-jp,zh-cn,ko-kr
+sidebar:
+  entries:
+  - title: VSC、VASA Provider及SRA文件
+    url: "/index.html"
+  - title: 版本資訊
+    url: release-notes.html
+  - title: 快速入門
+    url: qsg.html
+  - section: deploy
+  - section: manage
+  - title: 法律聲明
+    url: "/legal-notices.html"
+homepage:
+  tiles:
+  - title: 開始使用
+    links:
+    - title: 版本資訊
+      url: "/release-notes.html"
+    - title: 快速入門
+      url: "/qsg.html"
+    - title: 部署與升級
+      url: "/deploy/concept-virtual-storage-console-overview.html"
+    - title: 管理
+      url: "/manage/concept-workflow-for-configuring-the-unified-appliance.html"
+  - title: 更多資源
+    links:
+    - title: VSC、VASA Provider及SRA的舊版文件
+      url: https://mysupport.netapp.com/documentation/productlibrary/index.html?productID=30048
+    - title: NetApp知識庫：VSC、VASA Provider和SRA
+      url: https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Software/VSC_and_VASA_Provider
+    - title: NetApp匯入公用程式-影片
+      url: https://www.youtube.com/watch?v=CEQmIEzNVfA
+    - title: NetApp社群：VSC、VASA供應商及SRA
+      url: https://community.netapp.com/t5/VMware-Solutions-Discussions/bd-p/vmware-solutions-discussions

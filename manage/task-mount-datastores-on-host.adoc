@@ -1,0 +1,27 @@
+---
+permalink: manage/task-mount-datastores-on-host.html 
+sidebar: sidebar 
+keywords: mounting, datastore, on, additional, hosts, 
+summary: 安裝資料存放區可讓儲存設備存取其他主機。將主機新增至VMware環境之後、即可將資料存放區掛載到其他主機上。 
+---
+= 在其他主機上掛載資料存放區
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+安裝資料存放區可讓儲存設備存取其他主機。將主機新增至VMware環境之後、即可將資料存放區掛載到其他主機上。
+
+您必須確保ESXi所裝載之所有網路的子網路詳細資料都輸入到「Kaminoprefs.xml」中。
+
+請參閱_VSC 9.6部署與設定指南_中的啟用跨不同子網路的資料存放區裝載一節。
+
+.步驟
+. 在vSphere Client *主頁*中、按一下*主機與叢集*。
+. 在導覽窗格中、選取包含主機的資料中心。
+. 對任何其他主機重複步驟2。
+. 在主機上按一下滑鼠右鍵、然後選取功能表：NetApp VSC[Mount Datastores]。
+. 選取您要掛載的資料存放區、然後按一下「*確定*」。
+

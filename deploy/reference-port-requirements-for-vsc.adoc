@@ -1,0 +1,60 @@
+---
+permalink: deploy/reference-port-requirements-for-vsc.html 
+sidebar: sidebar 
+keywords: port, requirements, vsc 
+summary: 根據預設、（VSC）會使用指定的連接埠來啟用其元件（包括儲存系統和VMware vCenter Server）之間的通訊。如果您已啟用防火牆、則必須確定防火牆已設定為允許例外。 
+---
+= VSC的連接埠需求
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+根據預設、（VSC）會使用指定的連接埠來啟用其元件（包括儲存系統和VMware vCenter Server）之間的通訊。如果您已啟用防火牆、則必須確定防火牆已設定為允許例外。
+
+對於Windows以外的防火牆、您應該手動授予VSC使用的特定連接埠存取權。如果您未授予存取這些連接埠的權限、則會顯示下列錯誤訊息。
+
+無法與server_通訊
+
+VSC使用下列預設雙向TCP連接埠：
+
+[cols="1a,1a"]
+|===
+| 預設連接埠號碼 | 說明 
+
+
+ a| 
+9083.
+ a| 
+啟用時、VASA Provider和Storage Replication Adapter（SRA）都會使用此連接埠與vCenter Server通訊。取得TCP/IP設定也需要此連接埠。
+
+
+
+ a| 
+443..
+ a| 
+根據您設定認證的方式、VMware vCenter Server和儲存系統會偵聽此連接埠上的安全通訊。
+
+
+
+ a| 
+8143.
+ a| 
+VSC會偵聽此連接埠上的安全通訊。
+
+
+
+ a| 
+7.
+ a| 
+VSC會傳送回應要求給ONTAP Sing、以驗證可連線性、而且只有在新增儲存系統時才需要、之後才能停用。
+
+|===
+[NOTE]
+====
+在部署VSC、VASA Provider和SRA的虛擬應用裝置之前、您應該先啟用網際網路控制訊息傳輸協定（ICMP）。
+
+如果停用ICMP、則VSC、VASA Provider和SRA的虛擬應用裝置初始組態會失敗、而VSC則無法在部署後啟動VSC和VASA Provider服務。您必須在部署後手動啟用VSC和VASA Provider服務。
+
+====

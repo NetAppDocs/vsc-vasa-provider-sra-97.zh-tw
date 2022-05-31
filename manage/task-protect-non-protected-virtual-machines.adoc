@@ -1,0 +1,33 @@
+---
+permalink: manage/task-protect-non-protected-virtual-machines.html 
+sidebar: sidebar 
+keywords: virtual, machines, configuring, protection, protecting, unprotected, virtual, machines, 
+summary: 您可以設定現有未受保護的虛擬機器保護、這些虛擬機器是使用停用複寫的VM儲存原則所建立。若要提供保護、您應該變更VM儲存原則並指派複寫群組。 
+---
+= 保護未受保護的虛擬機器
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您可以設定現有未受保護的虛擬機器保護、這些虛擬機器是使用停用複寫的VM儲存原則所建立。若要提供保護、您應該變更VM儲存原則並指派複寫群組。
+
+如果SVM同時擁有IPV4和IPv6 LIF、則您應該停用IPv6 LIF、然後再執行災難恢復工作流程。
+
+.步驟
+. 按一下所需的虛擬機器、然後確認其已設定預設的VM儲存原則。
+. 在選取的虛擬機器上按一下滑鼠右鍵、然後按一下功能表：VM Policies（VM原則）[編輯VM Storage Policies（VM儲存原則）]。
+. 從「* VM儲存原則*」下拉式清單中選取已啟用複寫的VM儲存原則。
+. 從「*複寫群組*」下拉式清單中選取複寫群組、然後按一下「*確定*」。
++
+驗證虛擬機器的摘要、確認虛擬機器受到保護。
+
++
+[NOTE]
+====
+此版本的VSC、VASA Provider和SRA虛擬應用裝置不支援受保護虛擬機器的熱複製。您應該關閉虛擬機器電源、然後執行實體複本作業。
+
+====
+

@@ -1,0 +1,37 @@
+---
+permalink: manage/reference-file-creation-error-while-virtual-machine-provisioning-on-vvol-datastore-issue-we-are-unable-to-create-virtual-machine-using-the-default-vs0-svm-caus.html 
+sidebar: sidebar 
+keywords: error, provisioning, virtual, machine, troubleshooting, error, 
+summary: 在VVOL資料存放區上配置虛擬機器時發生檔案建立錯誤 
+---
+= 在VVOL資料存放區上配置虛擬機器時發生檔案建立錯誤
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+
+
+== 問題
+
+無法使用預設的儲存虛擬機器（SVM）或任何同時設定了IPv6和IPv4資料生命量的混合式儲存虛擬機器（SVM）來建立虛擬機器。
+
+
+
+== 原因
+
+發生此問題的原因是預設vs0同時具有IPv6和IPv4資料生命期、而非純IPV4資料存放區。
+
+
+
+== 修正行動
+
+您可以使用vs0配置虛擬機器、步驟如下：
+
+. 使用System Manager應用程式來停用所有IPv6 LIF。
+. 重新探索叢集。
+. 在VVOL資料存放區上配置虛擬機器、而該資料存放區的資源配置失敗。
++
+已成功配置虛擬機器。
+
+

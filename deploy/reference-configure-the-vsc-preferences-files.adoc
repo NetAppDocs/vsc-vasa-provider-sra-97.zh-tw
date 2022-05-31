@@ -1,0 +1,22 @@
+---
+permalink: deploy/reference-configure-the-vsc-preferences-files.html 
+sidebar: sidebar 
+keywords: preferences, files, configuring, vsc, preferences, files, 
+summary: 喜好設定檔案包含可控制VMware vSphere作業虛擬儲存主控台的設定。在大多數情況下、您不需要修改這些檔案中的設定。瞭解哪些偏好設定檔（VSC）會很有幫助。 
+---
+= 設定VSC喜好設定檔案
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+喜好設定檔案包含可控制VMware vSphere作業虛擬儲存主控台的設定。在大多數情況下、您不需要修改這些檔案中的設定。瞭解哪些偏好設定檔（VSC）會很有幫助。
+
+VSC有多個偏好設定檔。這些檔案包含可決定VSC執行各種作業的輸入金鑰和值。以下是VSC使用的部分偏好設定檔：
+
+「/opt/NetApp/vscserver/etc/kamino/kaminoprefs.xml」
+
+「/opt/NetApp/vscserver/etc/Vsc/vscpets.xml」
+
+在某些情況下、您可能必須修改偏好設定檔。例如、如果您使用iSCSI或NFS、而且ESXi主機和儲存系統之間的子網路不同、則必須修改喜好設定檔。如果您未修改喜好設定檔中的設定、則由於VSC無法掛載資料存放區、資料存放區資源配置會失敗。

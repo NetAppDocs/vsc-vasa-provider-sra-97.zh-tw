@@ -1,0 +1,54 @@
+---
+permalink: deploy/reference-set-ipv4-or-ipv6.html 
+sidebar: sidebar 
+keywords: setting, ipv4, ipv6, 
+summary: 您可以在喜好設定檔kaminoprefs.xml中新增一個選項、設定為所有新增至VSC的儲存系統都支援IPV4或IPV6。 
+---
+= 設定IPV4或IPV6
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您可以將喜好設定檔「kaminoprefs.xml」新增一個選項、設定為針對所有新增至VSC的儲存系統、啟用支援IPV4或IPV6。
+
+* 「default.override.option.provision.mount.datastore.address.family`參數已新增至「kaminoprefs.xml」偏好檔案、以設定資料存放區資源配置的偏好資料LIF傳輸協定。
++
+此偏好選項適用於所有新增至VSC的儲存系統。
+
+* 新選項的值包括「ipv4」、「ipv6」和「nONE」。
+* 預設值設為「無」。
+
+
+[cols="1a,1a"]
+|===
+| 價值 | 說明 
+
+
+ a| 
+無
+ a| 
+* 資源配置會使用與新增儲存設備所用叢集類型或管理LIF相同的IPv6或IPv4位址類型資料LIF。
+* 如果中沒有相同的IPv6或IPv4位址類型的資料LIF、則資源配置會透過其他類型的資料LIF（如果有）進行。
+
+
+
+
+ a| 
+IPV4
+ a| 
+* 資源配置是使用所選中的IPV4資料LIF進行。
+* 如果沒有IPV4資料LIF、則資源配置會透過IPv6資料LIF進行（如果可在中使用）。
+
+
+
+
+ a| 
+IPv6
+ a| 
+* 資源配置是使用所選中的IPv6資料LIF進行。
+* 如果沒有IPv6資料LIF、則資源配置會透過IPv4資料LIF進行（如果可在中使用）。
+
+
+|===

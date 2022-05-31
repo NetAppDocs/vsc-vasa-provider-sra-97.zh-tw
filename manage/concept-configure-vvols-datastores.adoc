@@ -1,0 +1,71 @@
+---
+permalink: manage/concept-configure-vvols-datastores.html 
+sidebar: sidebar 
+keywords: configuring, vvols, datastores, virtual, volumes 
+summary: 您可以使用VASA Provider ONTAP for VMware來建立及管理VMware虛擬磁碟區（vVols）。您可以配置、編輯、掛載及刪除vVols資料存放區。您也可以將儲存設備新增至vVols資料存放區、或從vVols資料存放區移除儲存設備。提供更大的靈活度。您可以配置及管理每個虛擬機器及相關的VMDK。 
+---
+= 設定vVols資料存放區
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您可以使用VASA Provider ONTAP for VMware來建立及管理VMware虛擬磁碟區（vVols）。您可以配置、編輯、掛載及刪除vVols資料存放區。您也可以將儲存設備新增至vVols資料存放區、或從vVols資料存放區移除儲存設備。提供更大的靈活度。您可以配置及管理每個虛擬機器及相關的VMDK。
+
+vVols資料存放區是由FlexVol 儲存容器內的一個或多個支援區所組成（也稱為「備用儲存設備」）。虛擬機器可分散在一個vVols資料存放區或多個vVols資料存放區。
+
+雖然您可以建立一個具有多FlexVol 個VMware磁碟區的vVols資料存放區、FlexVol 但儲存容器內的所有VMware磁碟區都必須使用相同的傳輸協定（NFS、iSCSI或FCP）和相同的儲存虛擬機器（SVM）。
+
+您不需要詳細瞭解基礎儲存設備。例如、您不需要識別特定FlexVol 的功能區即可容納儲存設備。在FlexVol vVols資料存放區中新增支援磁碟區之後、儲存容器會管理儲存需求、並在VM資源配置期間、防止將VM資源 配置到無容量的備用磁碟區。
+
+[NOTE]
+====
+在FlexVol vVols資料存放區中納入多個支援VMware的實務做法、以提供優異的效能和靈活度。由於支援LUN數量限制的因素包括多個支援VMware的磁碟區、因此您可以在vVols資料存放區中儲存更多虛擬機器。FlexVol FlexVol
+
+====
+在設定程序中、您必須為要建立的vVols資料存放區指定儲存功能設定檔。您可以為vVols資料存放區選取一或多個VASA Provider儲存功能設定檔。您也可以為自動在該儲存容器中建立的任何vVols資料存放區、指定預設的儲存功能設定檔。
+
+VASA Provider會在虛擬機器資源配置或VMDK建立期間視需要建立不同類型的vVols。
+
+* *組態*
++
+VMware vSphere使用此vVols資料存放區來儲存組態資訊。
+
++
+在SAN（區塊）實作中、儲存設備是4 GB LUN。
+
++
+在NFS實作中、此目錄包含VM組態檔、例如vmx檔案和指向其他vVols資料存放區的指標。
+
+* *資料*
++
+此vVols包含作業系統資訊和使用者檔案。
+
++
+在SAN實作中、這是虛擬磁碟大小的LUN。
+
++
+在NFS實作中、這是虛擬磁碟大小的檔案。
+
+* *交換*
++
+此vVols是在虛擬機器開機時建立、並在虛擬機器關機時刪除。
+
++
+在SAN實作中、這是虛擬記憶體大小的LUN。
+
++
+在NFS實作中、這是虛擬記憶體大小的檔案。
+
+* *記憶體*
++
+如果在建立VM快照時選取記憶體快照選項、就會建立此vVols。
+
++
+在SAN實作中、這是虛擬記憶體大小的LUN。
+
++
+在NFS實作中、這是虛擬記憶體大小的檔案。
+
+

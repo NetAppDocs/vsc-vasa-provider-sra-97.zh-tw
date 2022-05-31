@@ -1,0 +1,32 @@
+---
+permalink: manage/concept-considerations-for-creating-and-editing-storage-capability-profiles.html 
+sidebar: sidebar 
+keywords: considerations, for, creating, and, editing, storage, capability, profiles, 
+summary: 您應該瞭解建立和編輯儲存功能設定檔的考量事項。 
+---
+= 建立及編輯儲存功能設定檔的考量事項
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您應該瞭解建立和編輯儲存功能設定檔的考量事項。
+
+* 您只能在AFF 靜態系統上設定最低IOPS。
+* 您可以在虛擬磁碟區（VVOL）資料存放區層級設定QoS度量。
++
+此功能可為虛擬資料存放區上配置的同一部虛擬機器的不同VMDK指派不同的QoS度量、提供更大的靈活度。
+
+* 您可以設定FAS 用於資料不二和AFF 不二的儲存功能設定檔。
++
+對於部分系統、您可以將空間保留區設定為厚或薄、但對於部分系統而言、空間保留區只能設定為精簡。FAS AFF
+
+* 您可以使用儲存功能設定檔為資料存放區提供加密功能。
+* 從Virtual Storage Console（VSC）、VASA Provider及Storage Replication Adapter（SRA）的舊版虛擬應用裝置升級至VSC、VASA Provider及SRA的最新版虛擬應用裝置後、您無法修改現有的儲存功能設定檔。
++
+保留舊版儲存功能設定檔、以提供向下相容性。如果未使用預設範本、則在升級至VSC、VASA Provider及SRA的最新版虛擬應用裝置時、會覆寫現有的範本、以反映與儲存功能設定檔效能相關的新QoS指標。
+
+* 您無法修改或使用舊版儲存功能設定檔來配置新的虛擬資料存放區或VM儲存原則。
+* 您必須為所有新的資料存放區使用新的儲存功能設定檔。
+

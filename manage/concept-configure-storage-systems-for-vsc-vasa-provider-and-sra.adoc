@@ -1,0 +1,14 @@
+---
+permalink: manage/concept-configure-storage-systems-for-vsc-vasa-provider-and-sra.html 
+sidebar: sidebar 
+keywords: configuring, storage, systems, for, vsc, vasa, provider, sra, 
+summary: 您應該使用VSC介面、將儲存系統新增至虛擬應用裝置、並視需要設定預設認證資料。 
+---
+= 設定VSC、VASA Provider和SRA的儲存系統
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您應該使用VSC介面、將儲存系統新增至虛擬應用裝置、並視需要設定預設認證資料。

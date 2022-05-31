@@ -1,0 +1,49 @@
+---
+permalink: manage/reference-verify-vvol-dashboard-data-requirements.html 
+sidebar: sidebar 
+keywords: vVol, dashboard, data, requirements, 
+summary: 您必須驗證vVol儀表板的一些重要需求、以顯示VMware虛擬磁碟區（vVols）資料存放區和虛擬機器的動態詳細資料。 
+---
+= VVOL儀表板資料需求
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您必須驗證vVol儀表板的一些重要需求、以顯示VMware虛擬磁碟區（vVols）資料存放區和虛擬機器的動態詳細資料。
+
+下表概述您應該驗證vVol儀表板是否未顯示已配置SAN vVols資料存放區和虛擬機器的效能指標。
+
+[cols="1a,1a"]
+|===
+| 考量 | 說明 
+
+
+ a| 
+第一次部署OnCommand 功能
+ a| 
+* 如果您使用ONTAP 的是9.6或更早版本的叢集、那麼您將使用OnCommand 的是《不含任何功能的應用程式集介面服務2.1或更新版本。
++
+如果您使用的是更新版本的版本、則OnCommand 不需要向VASA Provider註冊任何不含更新版本的API服務ONTAP 。
+
+* 從NetApp支援網站下載並安裝完《_ OnCommand 關於API服務的安裝與設定指南_》中提供的安裝說明OnCommand 、您必須遵守這些指示。
+* 每個VASA Provider執行個體都必須有專屬OnCommand 的EAPI服務執行個體。
++
+不能在多個VASA Provider執行個體或vCenter Server之間共享此API服務。OnCommand
+
+* 執行及存取的是無法存取的部分API服務。OnCommand
+
+
+
+
+ a| 
+儲存系統
+ a| 
+* 您使用ONTAP 的是版本不含更新版本的。
+* 您使用的是儲存系統的適當認證資料。
+* 您的儲存系統已啟用且可供存取。
+* 您選取的虛擬機器必須至少使用一個vVols資料存放區、而且I/O作業會在虛擬機器的磁碟上執行。
+
+
+|===

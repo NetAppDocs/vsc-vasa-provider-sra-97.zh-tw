@@ -1,0 +1,62 @@
+---
+permalink: deploy/concept-standard-roles-packaged-with-virtual-appliance-for-vsc-vp-and-sra.html 
+sidebar: sidebar 
+keywords: standard, roles, packaged, virtual, appliance, vsc, vasa, provider, sra, 
+summary: 為了簡化vCenter Server權限與角色型存取控制（RBAC）的使用、（VSC）提供標準VSC角色、讓您能夠執行關鍵VSC工作。此外、也有唯讀角色可讓您檢視VSC資訊、但無法執行任何工作。 
+---
+= 虛擬應用裝置隨附的標準角色、適用於VSC、VASA Provider及SRA
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+為了簡化vCenter Server權限與角色型存取控制（RBAC）的使用、（VSC）提供標準VSC角色、讓您能夠執行關鍵VSC工作。此外、也有唯讀角色可讓您檢視VSC資訊、但無法執行任何工作。
+
+標準VSC角色具有必要的VSC專屬權限、以及使用者執行VSC工作所需的原生vCenter Server權限。此外、這些角色也會設定成擁有所有受支援版本vCenter Server所需的權限。
+
+身為管理員、您可以視需要指派這些角色給使用者。
+
+[NOTE]
+====
+當您將VSC升級至最新版本時、系統會自動升級標準角色、以搭配新版VSC使用。
+
+====
+您可以按一下vSphere Client *主頁*頁面上的*角色*、以檢視VSC標準角色。
+
+VSC提供的角色可讓您執行下列工作：
+
+[cols="1a,1a"]
+|===
+| 角色 | 說明 
+
+
+ a| 
+VSC管理員
+ a| 
+提供執行所有VSC工作所需的所有原生vCenter Server權限和VSC專屬權限。
+
+
+
+ a| 
+VSC唯讀
+ a| 
+提供VSC的唯讀存取權。
+
+這些使用者無法執行任何存取控制的VSC動作。
+
+
+
+ a| 
+VSC配置
+ a| 
+提供配置儲存設備所需的所有原生vCenter Server權限和VSC專屬權限。
+
+您可以執行下列工作：
+
+* 建立新的資料存放區
+* 銷毀資料存放區
+* 檢視儲存功能設定檔的相關資訊
+
+
+|===

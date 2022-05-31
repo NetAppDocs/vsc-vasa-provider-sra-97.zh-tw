@@ -1,0 +1,39 @@
+---
+permalink: deploy/task-configure-vasa-provider-to-use-ssh-for-remote-diag-access.html 
+sidebar: sidebar 
+keywords: configuring, virtual, appliance, vsc, vasa, provider, sra, use, ssh, for, remote, diag, access, 
+summary: 您可以針對虛擬儲存主控台（VSC）、VASA Provider和儲存複寫介面卡（SRA）設定虛擬應用裝置、以啟用診斷使用者的SSH存取。 
+---
+= 將VSC、VASA Provider和SRA的虛擬應用裝置設定為使用SSH進行遠端診斷存取
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您可以針對虛擬儲存主控台（VSC）、VASA Provider和儲存複寫介面卡（SRA）設定虛擬應用裝置、以啟用診斷使用者的SSH存取。
+
+您的vCenter Server執行個體必須啟用VASA Provider擴充功能。
+
+使用SSH存取診斷使用者具有下列限制：
+
+* 每次啟動SSH時、您只能登入一次。
+* 發生下列其中一種情況時、會停用對診斷使用者的SSH存取：
++
+** 時間到了。
++
+登入工作階段僅在隔天午夜之前有效。
+
+** 您可以使用SSH再次以診斷使用者身分登入。
+
+
+
+
+.步驟
+. 從vCenter Server開啟主控台至VASA Provider。
+. 以主要使用者身分登入。
+. 輸入「4」以選擇*支援與診斷*。
+. 輸入「3」以選取*啟用遠端診斷存取*。
+. 在「*確認*」對話方塊中輸入「y」以啟用遠端診斷存取。
+. 輸入遠端診斷存取密碼。
+

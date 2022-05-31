@@ -1,0 +1,59 @@
+---
+permalink: deploy/reference-deploment-customization-requirements.html 
+sidebar: sidebar 
+keywords: deployment, customization, considerations, 
+summary: 在自訂VSC、VASA Provider及SRA的虛擬應用裝置部署時、您必須考量幾項限制。 
+---
+= 部署自訂考量
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+在自訂VSC、VASA Provider及SRA的虛擬應用裝置部署時、您必須考量幾項限制。
+
+
+
+== 應用裝置管理員使用者密碼
+
+您不得在系統管理員密碼中使用任何空格。
+
+
+
+== 應用裝置維護主控台認證資料
+
+您必須使用「maint」使用者名稱來存取維護主控台。您可以在部署期間設定「maint」使用者的密碼。您可以使用VSC、VASA Provider和SRA虛擬應用裝置維護主控台的*應用程式組態*功能表來變更密碼。
+
+
+
+== vCenter Server管理員認證
+
+您可以在部署VSC、VASA Provider及SRA的虛擬應用裝置時、設定vCenter Server的管理員認證。
+
+如果vCenter Server的密碼有所變更、您可以使用下列URL來更新管理員的密碼：「_https_//<ip>:8143/Register.html」、其中IP位址是您在部署期間提供的VSC、VASA Provider和SRA虛擬應用裝置的IP位址。
+
+
+
+== vCenter Server IP位址
+
+* 您應該提供vCenter Server執行個體的IP位址（IPv4或IPv6）、以便將虛擬應用裝置登錄為VSC、VASA Provider和SRA。
++
+所產生的VSC和VASA憑證類型取決於部署期間所提供的IP位址（IPv4或IPv6）。在部署VSC、VASA Provider和SRA的虛擬應用裝置時、如果您尚未輸入任何靜態IP詳細資料、而且您的DHCP、則網路會同時提供IPv6位址。
+
+* VSC、VASA Provider和SRA IP位址用於向vCenter Server註冊的虛擬應用裝置、取決於在部署精靈中輸入的vCenter Server IP位址類型（IPv6或IPv6）。
++
+VSC和VASA憑證都會使用vCenter Server登錄期間所使用的相同類型IP位址來產生。
+
+
+
+[NOTE]
+====
+僅vCenter Server 6.7及更新版本才支援IPv6。
+
+====
+
+
+== 應用裝置網路內容
+
+如果您不使用DHCP、請為VSC、VASA Provider、SRA及其他網路參數指定有效的DNS主機名稱（非合格）、以及虛擬應用裝置的靜態IP位址。所有這些參數都是正確安裝和操作所需的參數。

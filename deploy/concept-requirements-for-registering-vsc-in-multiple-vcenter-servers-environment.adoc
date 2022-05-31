@@ -1,0 +1,47 @@
+---
+permalink: deploy/concept-requirements-for-registering-vsc-in-multiple-vcenter-servers-environment.html 
+sidebar: sidebar 
+keywords: requirements, registering, vsc, multiple, vcenter, servers, environment, 
+summary: 如果您是在單一VMware vSphere HTML5用戶端環境中、使用適用於VMware vSphere的Virtual Storage Console。在管理多個vCenter Server執行個體時、您必須在每個vCenter Server上登錄一個VSC執行個體、以便VSC與vCenter Server之間進行一對一配對。如此一來、您就能從單一vSphere HTML5用戶端、以連結模式和非連結模式、同時管理執行vCenter 6.0或更新版本的所有伺服器。 
+---
+= 在多個vCenter Server環境中登錄VSC的需求
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+如果您是在單一VMware vSphere HTML5用戶端環境中、使用適用於VMware vSphere的Virtual Storage Console。在管理多個vCenter Server執行個體時、您必須在每個vCenter Server上登錄一個VSC執行個體、以便VSC與vCenter Server之間進行一對一配對。如此一來、您就能從單一vSphere HTML5用戶端、以連結模式和非連結模式、同時管理執行vCenter 6.0或更新版本的所有伺服器。
+
+[NOTE]
+====
+如果您想要將VSC搭配vCenter Server使用、則必須為每個想要管理的vCenter Server執行個體設定或登錄一個VSC執行個體。每個登錄的VSC執行個體必須為相同版本。
+
+====
+連結模式會在vCenter Server部署期間自動安裝。連結模式使用Microsoft Active Directory應用程式模式（ADAM）、在多個vCenter Server系統之間儲存及同步資料。
+
+若要使用vSphere HTML5用戶端在多個vCenter Server上執行VSC工作、必須具備下列條件：
+
+* 您要管理的VMware庫存中的每個vCenter Server、都必須以獨特的一對一配對方式、在其中註冊單一VSC伺服器。
++
+例如、您可以將VSC伺服器A登錄至vCenter Server A、將VSC伺服器B登錄至vCenter Server B、將VSC伺服器C登錄至vCenter Server C等。
+
++
+您*無法*將VSC伺服器A登錄至vCenter Server A和vCenter Server B
+
++
+如果VMware庫存包含未註冊VSC伺服器的vCenter Server、但有一或多個vCenter Server已註冊VSC、 然後您可以檢視VSC的執行個體、並針對已登錄VSC的vCenter Server執行VSC作業。
+
+* 您必須擁有登錄至單一登入（SSO）之每個vCenter Server的VSC專屬檢視權限。
++
+您也必須擁有正確的RBAC權限。
+
+
+
+當您執行需要指定vCenter Server的工作時、* vCenter Server*下拉式方塊會以英數字元順序顯示可用的vCenter Server。預設vCenter Server永遠是下拉式清單中的第一個伺服器。
+
+如果已知儲存位置（例如、當您使用*資源配置*精靈、且資料存放區位於由特定vCenter Server管理的主機上時）、vCenter Server清單會顯示為唯讀選項。只有在您使用滑鼠右鍵選項選取vSphere Web Client中的項目時、才會發生此情況。
+
+VSC會在您嘗試選取未管理的物件時發出警告。
+
+您可以從VSC摘要頁面、根據特定vCenter Server篩選儲存系統。每個登錄到vCenter Server的VSC執行個體都會顯示摘要頁面。您可以管理與特定VSC執行個體和vCenter Server相關聯的儲存系統、但如果您執行多個VSC執行個體、則應將每個儲存系統的登錄資訊分開。

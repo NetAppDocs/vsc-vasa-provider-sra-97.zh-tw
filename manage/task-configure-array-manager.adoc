@@ -1,0 +1,75 @@
+---
+permalink: manage/task-configure-array-manager.html 
+sidebar: sidebar 
+keywords: configuring, sra, using, array, manager, 
+summary: 您可以使用Site Recovery Manager（SRM）的Array Manager精靈來設定儲存複寫介面卡（SRA）、以啟用SRM與儲存虛擬機器（SVM）之間的互動。 
+---
+= 使用Array Manager設定SRA
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您可以使用Site Recovery Manager（SRM）的* Array Manager*精靈來設定儲存複寫介面卡（SRA）、以啟用SRM與儲存虛擬機器（SVM）之間的互動。
+
+.開始之前
+* 您必須在SRM中配對受保護的站台和恢復站台。
+* 您必須先設定儲存設備、才能設定陣列管理程式。
+* 您必須設定並複寫受保護站台與恢復站台之間的SnapMirror關係。
+* 您必須啟用SVM管理生命期、才能啟用多租戶。
+
+
+SRA支援叢集層級的管理和SVM層級的管理。如果您在叢集層級新增儲存設備、則可以探索及執行叢集中所有SVM的作業。如果您在SVM層級新增儲存設備、則只能管理該特定SVM。
+
+[NOTE]
+====
+VMware不支援SRM的NFS4.1傳輸協定。
+
+====
+.步驟
+. 在SRM中、按一下「* Array Manager*」、然後按一下「*新增Array Manager*」。
+. 輸入以下資訊、以說明SRM中的陣列：
++
+.. 在「*顯示名稱*」欄位中輸入識別陣列管理程式的名稱。
+.. 在「* SRA類型*」欄位中、選取*《NetApp儲存複寫介面卡for ONTAP Rise*》。
+.. 輸入連線至叢集或SVM的資訊：
++
+*** 如果您要連線至叢集、應輸入叢集管理LIF。
+*** 如果您直接連線至SVM、則應輸入SVM管理LIF的IP位址。
++
+[NOTE]
+====
+在設定陣列管理程式時、您必須在虛擬儲存主控台的*儲存系統*功能表中、針對用於新增儲存系統的儲存系統使用相同的連線和認證。例如、如果陣列管理程式組態為SVM範圍、則必須在SVM層級新增VSC下的儲存設備。
+
+====
+
+
+.. 如果您要連線至叢集、請在* SVM名稱*欄位中輸入SVM的名稱。
++
+您也可以將此欄位留白。
+
+.. *可選：*在「* Volume Include list*（* Volume包含清單*）」欄位中輸入要探索的磁碟區。
++
+您可以在受保護的站台輸入來源磁碟區、並在還原站台輸入複寫的目的地磁碟區。您可以輸入完整Volume名稱或部分Volume名稱。
+
++
+例如、如果您想要探索與Volume _DST_vol1_處於SnapMirror關係的Volume _SR_vol1_、您必須在受保護的站台欄位中指定_SR_vol1_、並在還原站台欄位中指定_DST_vol1_。
+
+.. *可選：*在* Volume exclude list*（* Volume排除清單*）欄位中輸入要從探索中排除的磁碟區。
++
+您可以在受保護的站台輸入來源磁碟區、並在還原站台輸入複寫的目的地磁碟區。您可以輸入完整Volume名稱或部分Volume名稱。
+
++
+例如、如果您想要排除與Volume _DST_vol1_有SnapMirror關係的Volume _SR_vol1_、您必須在受保護的站台欄位中指定_SR_vol1_、並在還原站台欄位中指定_DST_vol1_。
+
+.. 在*使用者名稱*欄位中輸入叢集層級帳戶或SVM層級帳戶的使用者名稱。
+.. 在*密碼*欄位中輸入使用者帳戶的密碼。
+
+
+. 單擊 * 下一步 * 。
+. 驗證是否已發現陣列並顯示在* Add Array Manager*（添加陣列管理器）窗口的底部。
+. 單擊*完成*。
+
+
+您可以使用適當的SVM管理IP位址和認證、對還原站台執行相同的步驟。在「*新增Array Manager*」精靈的「*啟用陣列配對*」畫面中、您應該確認已選取正確的陣列配對、而且該配對顯示為「準備好啟用」。

@@ -1,0 +1,41 @@
+---
+permalink: deploy/task-configure-user-role-and-privileges.html 
+sidebar: sidebar 
+keywords: user, roles, configuring, user, roles, and, privileges, 
+summary: 您可以使用虛擬應用裝置隨附的Json檔案、為VSC、VASA Provider、SRA和ONTAP SRA供System Manager使用、來設定管理儲存系統的新使用者角色。 
+---
+= 設定使用者角色和權限
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您可以使用虛擬應用裝置隨附的Json檔案、為VSC、VASA Provider、SRA和ONTAP SRA供System Manager使用、來設定管理儲存系統的新使用者角色。
+
+.開始之前
+* 您應該ONTAP 已經使用「+https://{virtual_appliance_IP}:9083/vsc/config/VSC_ONTAP_User_Privileges.zip+`」、從VSC、VASA Provider和SRA的虛擬應用裝置下載了「SRAT權限」檔案。
+* 您應該已設定ONTAP 好「更新系統管理程式」。
+* 您應該已以系統管理員權限登入儲存系統。
+
+
+.步驟
+. 解壓縮下載的「+https://{virtual_appliance_IP}:9083/vsc/config/VSC_ONTAP_User_Privileges.zip+`」檔案。
+. 存取ONTAP 《系統管理程式》。
+. 按一下功能表：叢集[設定>使用者與角色]。
+. 按一下*新增使用者*。
+. 在「*新增使用者*」對話方塊中、選取*虛擬化產品*。
+. 按一下「*瀏覽*」以選取並上傳ONTAP 「恢復能力Json」檔案。
++
+產品欄位會自動填入。
+
+. 從「*產品功能*」下拉式功能表中選取所需的功能。
++
+「*角色*」欄位會根據所選的產品功能自動填入。
+
+. 輸入所需的使用者名稱和密碼。
+. 選取使用者所需的權限（探索、建立儲存設備、修改儲存設備、銷毀儲存設備）、然後按一下*新增*。
+
+
+新的角色和使用者隨即新增、您可以在已設定的角色下查看詳細權限。

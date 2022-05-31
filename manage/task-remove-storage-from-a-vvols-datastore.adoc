@@ -1,0 +1,33 @@
+---
+permalink: manage/task-remove-storage-from-a-vvols-datastore.html 
+sidebar: sidebar 
+keywords: removing, storage, from, a, vvols, datastore, 
+summary: 如果VMware虛擬磁碟區（vVols）資料存放區有多FlexVol 個支援VMware的磁碟區、您可以從FlexVol vVols資料存放區移除一或多個支援VMware的磁碟區、而不需刪除資料存放區。 
+---
+= 從vVols資料存放區移除儲存設備
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+如果VMware虛擬磁碟區（vVols）資料存放區有多FlexVol 個支援VMware的磁碟區、您可以從FlexVol vVols資料存放區移除一或多個支援VMware的磁碟區、而不需刪除資料存放區。
+
+VVols資料存放區存在、直到FlexVol 資料存放區上至少有一個支援的Volume為止。
+
+.步驟
+. 在vSphere Client *主頁*中、按一下*主機與叢集*。
+. 以滑鼠右鍵按一下您要修改的vVols資料存放區、然後選取功能表：NetApp VSC[從vVol Datastore移除儲存設備]。
++
+將顯示「從VVol Datastor*移除儲存設備」對話方塊。
+
+. 選取FlexVol 您要從vVols資料存放區移除的「功能區」、然後按一下「*移除*」。
+. 按一下確認對話方塊中的*確定*。
++
+[NOTE]
+====
+如果您選取所有FlexVol 的功能區、就會顯示錯誤訊息、表示作業將會失敗。
+
+====
+

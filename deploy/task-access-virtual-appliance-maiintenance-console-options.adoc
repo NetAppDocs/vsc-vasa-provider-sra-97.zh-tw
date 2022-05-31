@@ -1,0 +1,111 @@
+---
+permalink: deploy/task-access-virtual-appliance-maiintenance-console-options.html 
+sidebar: sidebar 
+keywords: accessing, maintenance, console, options, virtual, appliance, vsc, vasa, provider, sra, 
+summary: 您可以使用虛擬儲存主控台（VSC）、VASA Provider和儲存複寫介面卡（SRA）的虛擬應用程式維護主控台、來管理應用程式、系統和網路組態。您可以變更系統管理員密碼和維護密碼。您也可以產生支援服務包、設定不同的記錄層級、檢視及管理TLS組態、以及啟動遠端診斷。 
+---
+= 存取VSC、VASA Provider和SRA虛擬應用裝置的維護主控台選項
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您可以使用虛擬儲存主控台（VSC）、VASA Provider和儲存複寫介面卡（SRA）的虛擬應用程式維護主控台、來管理應用程式、系統和網路組態。您可以變更系統管理員密碼和維護密碼。您也可以產生支援服務包、設定不同的記錄層級、檢視及管理TLS組態、以及啟動遠端診斷。
+
+您必須在部署VSC、VASA Provider和SRA的虛擬應用裝置之後、安裝VMware工具。
+
+.關於這項工作
+* 您必須使用「maint」做為部署期間設定的使用者名稱和密碼、才能登入VSC、VASA Provider和SRA虛擬應用裝置的維護主控台。
+* 啟用遠端診斷時、您必須為「diag」使用者設定密碼。
+
+
+.步驟
+. 存取已部署虛擬應用裝置的* Summary（摘要）*索引標籤。
+. 按一下 image:../media/launch-maintenance-console.gif[""] 以啟動維護主控台。
++
+您可以存取下列維護主控台選項：
+
++
+** *應用程式組態*
++
+提供下列選項：
+
++
+*** 顯示伺服器狀態摘要
+*** 啟動虛擬儲存主控台服務
+*** 停止虛擬儲存主控台服務
+*** 啟動VASA Provider和SRA服務
+*** 停止VASA Provider和SRA服務
+*** 變更「系統管理員」使用者密碼
+*** 重新產生憑證
+*** 硬重設金鑰儲存區和憑證
+*** 硬重設資料庫
+*** 變更虛擬儲存主控台服務的記錄層級
+*** 變更VASA Provider和SRA服務的記錄層級
+*** 顯示TLS組態
+*** 啟用TLS傳輸協定
+*** 停用TLS傳輸協定
+
+
+** *系統組態*
++
+提供下列選項：
+
++
+*** 重新開機虛擬機器
+*** 關閉虛擬機器
+*** 變更「maint」使用者密碼
+*** 變更時區
+*** 變更NTP伺服器
++
+您可以為NTP伺服器提供IPv6位址。
+
+*** 啟用/停用SSH存取
+*** 增加監獄磁碟大小（/監獄）
+*** 升級
+*** 安裝VMware Tools
+
+
+** *網路組態*
++
+提供下列選項：
+
++
+*** 顯示IP位址設定
+*** 變更IP位址設定
++
+您可以使用此選項、將部署後的IP位址變更為IPv6。
+
+*** 顯示網域名稱搜尋設定
+*** 變更網域名稱搜尋設定
+*** 顯示靜態路由
+*** 變更靜態路由
++
+您可以使用此選項來新增IPv6路由。
+
+*** 提交變更
+*** Ping主機
++
+您可以使用此選項ping IPv6主機。
+
+*** 還原預設設定
+
+
+** *支援與診斷*
++
+提供下列選項：
+
++
+*** 產生支援服務組合
+*** 存取診斷Shell
+*** 啟用遠端診斷存取
+
+
+
+
+
+
+*相關資訊*
+
+xref:concept-virtual-storage-console-and-vasa-provider-log-files.adoc[VSC和VASA Provider記錄檔]

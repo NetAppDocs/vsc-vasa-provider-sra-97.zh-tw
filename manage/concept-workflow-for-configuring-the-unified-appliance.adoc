@@ -1,0 +1,16 @@
+---
+permalink: manage/concept-workflow-for-configuring-the-unified-appliance.html 
+sidebar: sidebar 
+keywords: workflow, for, configuring, the, virtual, appliance, for, vsc, vasa, provider, and, sra, 
+summary: 設定VSC、VASA Provider和SRA的虛擬機器、包括設定儲存系統、建立儲存功能設定檔、配置資料存放區、以及選擇性地設定SRA以進行災難恢復。 
+---
+= 設定VSC、VASA Provider及SRA虛擬應用裝置的工作流程
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+設定VSC、VASA Provider和SRA的虛擬機器、包括設定儲存系統、建立儲存功能設定檔、配置資料存放區、以及選擇性地設定SRA以進行災難恢復。
+
+image::../media/use-case-vsc-users.gif[使用案例VSC使用者]

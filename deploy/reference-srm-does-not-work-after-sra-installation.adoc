@@ -1,0 +1,31 @@
+---
+permalink: deploy/reference-srm-does-not-work-after-sra-installation.html 
+sidebar: sidebar 
+keywords: netapp, storage, replication, adapter, ontap, appear, site, recovery, manager, appliance, 
+summary: Site Recovery Manager應用裝置並未顯示適用於ONTAP NetApp的Storage Replication Adapter for NetApp 
+---
+= Site Recovery Manager應用裝置並未顯示適用於ONTAP NetApp的Storage Replication Adapter for NetApp
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+
+
+== 問題
+
+儲存複寫介面卡（SRA）在上傳和設定SRA之後、不會出現在Site Recovery Manager（SRM）應用裝置介面上。
+
+
+
+== 原因
+
+使用下列命令設定SRA時、若使用錯誤的SRA認證（使用者名稱或密碼）、則不會顯示錯誤訊息。
+
+「perl command.pl -I <SRA-server_ip><VP_username><VP_passwd>'
+
+
+
+== 修正行動
+
+使用下列命令更新SRA的組態詳細資料：「perl command.pl -U <SRA-server_ip><VP_username><VP_passwd>'

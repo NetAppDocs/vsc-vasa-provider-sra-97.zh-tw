@@ -1,0 +1,38 @@
+---
+permalink: deploy/task-configure-storage-replication-adapter-for-san-environment.html 
+sidebar: sidebar 
+keywords: configuring, storage, replication, adapter, san, environment, 
+summary: 您必須先設定儲存系統、再執行Site Recovery Manager（SRM）的儲存複寫介面卡（SRA）。 
+---
+= 設定SAN環境的儲存複寫介面卡
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您必須先設定儲存系統、再執行Site Recovery Manager（SRM）的儲存複寫介面卡（SRA）。
+
+您必須在受保護的站台和恢復站台上安裝下列程式：
+
+* SRM
++
+有關安裝SRM的說明文件、請參閱VMware網站。
+
++
+https://www.vmware.com/support/pubs/srm_pubs.html["VMware Site Recovery Manager文件"^]
+
+* SRA
++
+介面卡安裝在SRM上。
+
+
+
+.步驟
+. 確認主ESXi主機已連線至受保護站台上主要儲存系統的LUN。
+. 驗證LUN是否位於igroup中、且主儲存系統上的「* ostype*」選項設為「_VMware_」。
+. 驗證恢復站點上的ESXi主機是否具有與適當的FC或iSCSI連接。
++
+您可以驗證ESXi主機上是否連接了本機LUN、或使用上的「FCP show啟動器」命令或「iSCSI show啟動器」命令來執行此作業。
+
+

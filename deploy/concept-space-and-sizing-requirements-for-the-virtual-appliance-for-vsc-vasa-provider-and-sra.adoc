@@ -1,0 +1,29 @@
+---
+permalink: deploy/concept-space-and-size-requirements-for-the-virtual-appliance-for-vsc-vasa-provider-and-sra.html 
+sidebar: sidebar 
+keywords: virtual, storage, console, storage, replication, adapter, space, sizing, requirements, virtual, appliance, vsc, vasa, provider, sra, 
+summary: 在部署虛擬儲存主控台（VSC）、VASA Provider和儲存複寫介面卡（SRA）的虛擬應用裝置之前、您應該先熟悉部署套件的空間需求、以及一些基本的主機系統需求。 
+---
+= VSC、VASA Provider及SRA的虛擬應用裝置空間與大小需求
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+在部署虛擬儲存主控台（VSC）、VASA Provider和儲存複寫介面卡（SRA）的虛擬應用裝置之前、您應該先熟悉部署套件的空間需求、以及一些基本的主機系統需求。
+
+* *安裝套件空間需求*
++
+** 2.1 GB、適用於精簡配置的安裝
+** 54.0 GB、適用於完整配置的安裝
+
+
+* *主機系統規模調整需求*
++
+** ESXi 6.5U2或更新版本
+** 建議記憶體：12 GB RAM
+** 建議的CPU：2.
+
+
+

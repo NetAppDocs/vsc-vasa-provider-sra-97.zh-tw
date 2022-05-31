@@ -1,0 +1,23 @@
+---
+permalink: deploy/concept-configure-vsc-for-vmware-vsphere-environment.html 
+sidebar: sidebar 
+keywords: configuring, your, virtual, storage, console, vmware, vsphere, environment, 
+summary: （VSC）支援多種環境。這些環境中的某些功能可能需要額外的組態。 
+---
+= 設定VMware vSphere環境的虛擬儲存主控台
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+（VSC）支援多種環境。這些環境中的某些功能可能需要額外的組態。
+
+您可能必須執行下列部分工作、才能設定ESXi主機、客體作業系統和VSC：
+
+* 驗證ESXi主機設定、包括取消對應設定
+* 新增來賓作業系統的逾時值
+* 重新產生VSC SSL憑證
+* 建立儲存功能設定檔和臨界值警示
+* 修改喜好設定檔、以便在不同的子網路上裝載資料存放區
+

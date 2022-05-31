@@ -1,0 +1,124 @@
+---
+permalink: deploy/reference-esx-host-values-set-by-vsc-for-vmware-vsphere.html 
+sidebar: sidebar 
+keywords: esxi, host, values, set, using, virtual, storage, console, vmware, vsphere, 
+summary: 您可以使用VMware vSphere的虛擬儲存主控台、在ESXi主機上設定逾時和其他值、以確保最佳效能和成功容錯移轉。虛擬儲存主控台（VSC）設定的值是以內部測試為基礎。 
+---
+= 使用VMware vSphere虛擬儲存主控台設定的ESXi主機值
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您可以使用VMware vSphere的虛擬儲存主控台、在ESXi主機上設定逾時和其他值、以確保最佳效能和成功容錯移轉。虛擬儲存主控台（VSC）設定的值是以內部測試為基礎。
+
+您可以在ESXi主機上設定下列值：
+
+
+
+== ESXi進階組態
+
+* *《硬體加速器鎖定》*
++
+您應該將此值設為1。
+
+* *《支援的BlockDelete》*
++
+您應該將此值設為0。
+
+
+
+
+
+== NFS設定
+
+* * Net.TcpipHeapSiz*
++
+如果您使用的是vSphere 6.0或更新版本、則應將此值設為32。
+
+* * Net.TcpipHeapMax*
++
+如果您使用的是vSphere 6.0或更新版本、則應將此值設為1536。
+
+* * NFS.MaxVolumes.*
++
+如果您使用的是vSphere 6.0或更新版本、則應將此值設為256。
+
+* * NFS41.MaxVolumes.*
++
+如果您使用的是vSphere 6.0或更新版本、則應將此值設為256。
+
+* * NFS.MaxQuesteDepet深度*
++
+如果您使用的是vSphere 6.0或更新版本的ESXi主機、則應將此值設為128或更新版本、以避免出現佇列瓶頸。
+
++
+對於6.0之前的vSphere版本、您應該將此值設為64。
+
+* * NFS.HeartbeatMaxFailures *
++
+您應該將所有NFS組態的此值設為10。
+
+* * NFS.HeartbeatFrequency*
++
+您應該將所有NFS組態的此值設為12。
+
+* * NFS.Heartbeattimeout*
++
+您應該將所有NFS組態的此值設為5。
+
+
+
+
+
+== FC/FCoE設定
+
+* *路徑選擇原則*
++
+當使用具有ALUA的FC路徑時、您應該將此值設為「'RR」（循環配置資源）。
+
++
+對於所有其他組態、您應該將此值設為「固定」。
+
++
+將此值設為「RR」有助於在所有主動/最佳化路徑之間提供負載平衡。「固定」值用於舊版非ALUA組態、有助於防止Proxy I/O
+
+* *磁碟.QFullSampleSize*
++
+您應該將所有組態的此值設為32。設定此值有助於避免I/O錯誤。
+
+* *磁碟QFullTrresh*
++
+您應該將所有組態的此值設為8。設定此值有助於避免I/O錯誤。
+
+* * Emulex FC HBA超時*
++
+使用預設值。
+
+* * QLogic FC HBA逾時*
++
+使用預設值。
+
+
+
+
+
+== iSCSI設定
+
+* *路徑選擇原則*
++
+您應該將所有iSCSI路徑的此值設為「'RR」。
+
++
+將此值設為「RR」有助於在所有主動/最佳化路徑之間提供負載平衡。
+
+* *磁碟.QFullSampleSize*
++
+您應該將所有組態的此值設為32。設定此值有助於避免I/O錯誤。
+
+* *磁碟QFullTrresh*
++
+您應該將所有組態的此值設為8。設定此值有助於避免I/O錯誤。
+
+

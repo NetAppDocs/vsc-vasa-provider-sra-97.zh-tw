@@ -1,0 +1,14 @@
+---
+permalink: manage/concept-configure-traditional-datastores.html 
+sidebar: sidebar 
+keywords: configuring, traditional, datastores, and, virtual, machines, 
+summary: 您可以使用虛擬儲存主控台（VSC）來設定vCenter Server中的資料存放區和虛擬機器。VSC配置的資料存放區和虛擬機器會顯示在VSC的儀表板上。這可讓您輕鬆監控及管理這些資料存放區和虛擬機器。 
+---
+= 設定傳統的資料存放區和虛擬機器
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您可以使用虛擬儲存主控台（VSC）來設定vCenter Server中的資料存放區和虛擬機器。VSC配置的資料存放區和虛擬機器會顯示在VSC的儀表板上。這可讓您輕鬆監控及管理這些資料存放區和虛擬機器。

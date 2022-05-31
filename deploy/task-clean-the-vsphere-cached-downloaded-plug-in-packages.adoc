@@ -1,0 +1,66 @@
+---
+permalink: deploy/task-clean-the-vsphere-cached-downloaded-plug-in-packages.html 
+sidebar: sidebar 
+keywords: clean, up, browser, cache, cleaning, the, vsphere, cached, downloaded, plug-in, packages, 
+summary: 如果在部署或升級VSC、VASA Provider和SRA的虛擬應用裝置之後、外掛程式並未自動更新、您應該在瀏覽器和vCenter Server上清理快取的下載外掛程式套件、以解決vCenter Server外掛程式問題。 
+---
+= 清除vSphere快取下載的外掛程式套件
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+如果在部署或升級VSC、VASA Provider和SRA的虛擬應用裝置之後、外掛程式並未自動更新、您應該在瀏覽器和vCenter Server上清理快取的下載外掛程式套件、以解決vCenter Server外掛程式問題。
+
+.步驟
+. 從現有vSphere Web用戶端或vSphere Client登出。
+. 移除瀏覽器快取。
+. 移除vSphere Client快取外掛程式套件。
++
+[cols="1a,1a"]
+|===
+| 如果您使用... | 執行下列動作... 
+
+
+ a| 
+Windows vCenter伺服器
+ a| 
+移除下列資料夾：com.netapp.vasa.vvol.webclient-x.x.x.xxxx、com.netapp.nvpf.webclient-x.x.x.xxxx和com.netapp.vsch5-x.x.x.xxxx、網址為：
+
+** vSphere Web用戶端路徑：C：\ProgramData\VMware\vCenterServer\cfg/vSphere-client\vc-packages\vSphere-client-recreation
+** vSphere用戶端（HTML5）路徑：C：\ProgramData \VMware\vCenterServer\cfg/vSphere-ui\vc-packages.vSphere-client-reminity
+
+
+
+
+ a| 
+VCSA
+ a| 
+.. SSH加入VCSA應用裝置。
+.. 使用「CD /etc/VMware/vSphere-client/vC-packages/vSphere-client-nility」將目錄變更為vCenter Web用戶端UI副檔名目錄
+.. 使用下列命令移除快取的外掛程式套件：
++
+*** 《Rm -RF com.netapp.vasa.vvol.webclient-x.x.x.xxxx`》
+*** 《Rm -RF com.netapp.nvpf.webclient-x.x.x.xxxx`》
+*** 《Rm -RF com.netapp.vsch5-x.x.x.xxxx`》
+
+
+.. 使用「CD /etc/VMware/vSphere-ui/vC-packages/vSphere-client-nility」、將目錄變更為vCenter用戶端（HTML5）UI副檔名目錄
+.. 使用下列命令移除快取的外掛程式套件：
++
+*** 《Rm -RF com.netapp.vasa.vvol.webclient-x.x.x.xxxx`》
+*** 《Rm -RF com.netapp.nvpf.webclient-x.x.x.xxxx`》
+*** 《Rm -RF com.netapp.vsch5-x.x.x.xxxx`》
+
+
+
+
+|===
+. 使用下列命令登入vSphere、然後重新啟動vSphere Web用戶端和vSphere Client服務：
++
+** 「服務控制-停止vSphere-Client vSphere-UI」
+** 「服務控制-啟動vSphere-Client vSphere-UI」
+
+
+

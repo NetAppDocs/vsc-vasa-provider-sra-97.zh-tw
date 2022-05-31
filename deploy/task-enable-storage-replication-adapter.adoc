@@ -1,0 +1,69 @@
+---
+permalink: deploy/task-enable-storage-replication-adapter.html 
+sidebar: sidebar 
+keywords: enabling, storage, replication, adapter, 
+summary: 適用於虛擬儲存主控台（VSC）、VASA供應商及儲存複寫介面卡（SRA）的虛擬應用裝置、可讓SRA功能與VSC搭配使用、以設定災難恢復。 
+---
+= 啟用儲存複寫介面卡
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+適用於虛擬儲存主控台（VSC）、VASA供應商及儲存複寫介面卡（SRA）的虛擬應用裝置、可讓SRA功能與VSC搭配使用、以設定災難恢復。
+
+.開始之前
+* 您必須設定vCenter Server執行個體並設定ESXi。
+* 您必須已為VSC、VASA Provider及SRA部署虛擬應用裝置。
+* 您必須下載SRA外掛程式的「.msi」檔案、或SRM應用裝置的「.tar.gz」檔案、才能設定Site Recovery Manager（SRM）災難恢復解決方案。
++
+https://docs.vmware.com/en/Site-Recovery-Manager/8.2/com.vmware.srm.install_config.doc/GUID-B3A49FFF-E3B9-45E3-AD35-093D896596A0.html["Site Recovery Manager安裝與組態Site Recovery Manager 8.2"^] 有更多資訊。
+
+
+
+啟用VASA Provider和SRA功能的靈活度、可讓您只執行企業所需的工作流程。
+
+.步驟
+. 登入VMware vSphere的網路使用者介面。
+. 在vSphere Client中、按一下功能表：功能表[虛擬儲存主控台]。
+. 按一下 * 設定 * 。
+. 按一下*管理設定*索引標籤中的*管理功能*。
+. 在「*管理功能*」對話方塊中、選取要啟用的SRA副檔名。
+. 輸入VSC、VASA Provider和SRA的虛擬應用裝置IP位址和管理員密碼、然後按一下「*套用*」。
+. 您可以使用下列其中一種方法來部署SRA：
++
+[cols="1a,1a"]
+|===
+| 選項 | 說明 
+
+
+ a| 
+適用於Windows SRM
+ a| 
+.. 按兩下下載的SRA外掛程式「.msi-」安裝程式。
+.. 依照螢幕上的指示操作。
+.. 輸入已部署虛擬應用裝置的IP位址和密碼。
+
+
+
+
+ a| 
+適用於SRM應用裝置
+ a| 
+.. 存取SRM應用裝置頁面、然後前往SRM應用裝置的*儲存複寫介面卡*頁面。
+.. 按一下「*新增介面卡*」。
+.. 將SRA外掛程式的.tar.gz安裝程式上傳至SRM。
+.. 重新掃描介面卡、確認已在「SRM *儲存複寫介面卡*」頁面中更新詳細資料。
+
+
+|===
++
+您必須登出vSphere Client、然後再次登入、以驗證所選的擴充功能是否可供組態使用。
+
+
+
+*相關資訊*
+
+xref:concept-configure-storage-replication-adapter-for-disaster-recovery.adoc[設定儲存複寫介面卡以進行災難恢復]

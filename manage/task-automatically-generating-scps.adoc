@@ -1,0 +1,31 @@
+---
+permalink: manage/task-automatically-generate-scps.html 
+sidebar: sidebar 
+keywords: generating, storage, capability, profiles, automatically, 
+summary: Vasa Provider for ONTAP 功能更新可讓您自動為現有的傳統資料存放區產生儲存功能設定檔。當您選取資料存放區的自動產生選項時、VASA Provider會建立一個設定檔、其中包含該資料存放區所使用的儲存功能。 
+---
+= 自動產生儲存功能設定檔
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Vasa Provider for ONTAP 功能更新可讓您自動為現有的傳統資料存放區產生儲存功能設定檔。當您選取資料存放區的自動產生選項時、VASA Provider會建立一個設定檔、其中包含該資料存放區所使用的儲存功能。
+
+.開始之前
+* 您必須已向虛擬儲存主控台（VSC）註冊VASA Provider執行個體。
+* VSC必須已探索到您的儲存設備。
+
+
+建立儲存功能設定檔之後、您可以修改設定檔以納入更多功能。「*建立儲存功能設定檔*」精靈提供設定檔中可包含的功能相關資訊。
+
+.步驟
+. 在VSC主頁中、按一下*儲存對應*。
+. 從可用清單中選取資料存放區。
+. 從「*動作*」功能表中、選取*自動產生*。
+. 自動產生程序完成時、請重新整理畫面以檢視新設定檔的相關資訊。
++
+新設定檔會列在*相關設定檔*欄中。新設定檔的名稱取決於設定檔中的資源。如有需要、您可以重新命名設定檔。
+
+

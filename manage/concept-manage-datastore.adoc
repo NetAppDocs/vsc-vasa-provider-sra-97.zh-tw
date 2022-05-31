@@ -1,0 +1,14 @@
+---
+permalink: manage/concept-manage-datastore.html 
+sidebar: sidebar 
+keywords: managing, traditional, and, vvols, datastores, 
+summary: 您可以使用VSC介面來管理傳統和VMware虛擬磁碟區（vVols）資料存放區、並執行掛載、調整大小、編輯和移除資料存放區作業。 
+---
+= 管理傳統和vVols資料存放區
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您可以使用VSC介面來管理傳統和VMware虛擬磁碟區（vVols）資料存放區、並執行掛載、調整大小、編輯和移除資料存放區作業。

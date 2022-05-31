@@ -1,0 +1,29 @@
+---
+permalink: manage/task-resize-datastores.html 
+sidebar: sidebar 
+keywords: resizing, datastores, 
+summary: 調整資料存放區大小可讓您增加或減少虛擬機器檔案的儲存空間。隨著基礎架構需求的變更、您可能需要變更資料存放區的大小。 
+---
+= 調整資料存放區大小
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+調整資料存放區大小可讓您增加或減少虛擬機器檔案的儲存空間。隨著基礎架構需求的變更、您可能需要變更資料存放區的大小。
+
+如果您希望VSC在調整VMFS資料存放區的大小時、調整包含的磁碟區大小、則在初始配置VMFS資料存放區時、不應使用「* Storage attributes*」區段下的「*使用現有磁碟區*」選項、而是讓它自動為每個資料存放區建立新的磁碟區。
+
+您可以增加或減少NFS資料存放區的大小。您只能增加VMFS資料存放區的大小。
+
+.步驟
+. 在vSphere Client *主頁*中、按一下*主機與叢集*。
+. 在導覽窗格中、選取包含資料存放區的資料中心。
+. 在資料存放區上按一下滑鼠右鍵、然後選取功能表：NetApp VSC[Resize（NetApp VSC[Resize）]。
+. 在「*調整大小*」對話方塊中、指定資料存放區的新大小、然後按一下「*確定*」。
++
+您可以執行*儲存系統*功能表中的*重新探索全部*選項、手動更新儲存系統和儀表板下的儲存清單、或等待下次排程的重新整理。
+
+

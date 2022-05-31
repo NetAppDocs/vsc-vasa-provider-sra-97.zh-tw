@@ -1,0 +1,26 @@
+---
+permalink: manage/reference-error-while-accessing-the-vsc-summary-page-of-virtual-appliance.html 
+sidebar: sidebar 
+keywords: error, while, accessing, the, vsc, summary, page, of, virtual, appliance, 
+summary: 在部署虛擬儲存主控台（VSC）、VASA Provider及儲存複寫介面卡（SRA）的虛擬應用裝置之後、當您嘗試存取VSC Summary（摘要）頁面時、可能會顯示錯誤訊息「/opp/NetApp/vscserver/etc/Vsc/performance．json（無此類檔案或目錄）」。 
+---
+= 存取虛擬應用裝置的VSC摘要頁面時發生錯誤
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+當您在部署虛擬儲存主控台（VSC）、VASA Provider及儲存複寫介面卡（SRA）的虛擬應用裝置之後、嘗試存取VSC Summary頁面時、可能會顯示錯誤訊息「/opt /NetApp/vscserver/etc/Vsc/performance．json（無此類檔案或目錄）」。
+
+
+
+== 說明
+
+當您在部署VSC、VASA Provider和SRA的虛擬應用裝置之後、嘗試存取VSC儀表板時、可能會遇到錯誤、因為排程器初始化程序尚未完成。
+
+
+
+== 因應措施
+
+部署虛擬應用裝置後、您必須等待數秒、才能完成效能排程器初始化程序、然後按一下 image:../media/dashboard-refresh-icon.gif[""] 按鈕以取得最新資料。

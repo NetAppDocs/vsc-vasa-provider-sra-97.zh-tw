@@ -1,0 +1,29 @@
+---
+permalink: manage/reference-datastore-inaccessible-when-volume-status-is-changed-to-offline.html 
+sidebar: sidebar 
+keywords: datastore, inaccessible, when, volume, status, is, changed, to, offline, 
+summary: 當Volume狀態變更為離線時、無法存取資料存放區 
+---
+= 當Volume狀態變更為離線時、無法存取資料存放區
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+
+
+== 問題
+
+當資料存放區的磁碟區離線時、資料存放區將無法存取。即使磁碟區上線、VSC仍無法探索資料存放區。在vSphere Client上、如果以滑鼠右鍵按一下資料存放區、則不會有任何VSC動作可用。
+
+
+
+== 原因
+
+當磁碟區從叢集離線時、磁碟區會先卸載、然後設為離線或受限。當磁碟區離線且資料存放區無法存取時、會移除交會路徑。如果磁碟區設為線上、則交會路徑預設為無法使用、也不會掛載於。這是ONTAP 不正常現象。
+
+
+
+== 修正行動
+
+您應該將磁碟區上線、然後以與之前相同的交會路徑手動掛載磁碟區。您可以執行儲存探索、查看資料存放區已被探索、且資料存放區的動作可供使用。

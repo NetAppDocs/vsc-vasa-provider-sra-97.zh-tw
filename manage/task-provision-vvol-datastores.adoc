@@ -1,0 +1,117 @@
+---
+permalink: manage/task-provision-vvol-datastores.html 
+sidebar: sidebar 
+keywords: provisioning, vvols, datastores, 
+summary: 只有在VSC、VASA Provider和SRA的虛擬應用裝置中啟用VASA Provider、您才能使用資源配置資料存放區精靈來配置VVols資料存放區。 
+---
+= 配置vVols資料存放區
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+只有在VSC、VASA Provider和SRA的虛擬應用裝置中啟用VASA Provider、您才能使用*資源配置資料庫*精靈來配置VVols資料存放區。
+
+.開始之前
+* 您應確保ESXi所裝載之所有網路的子網路詳細資料均輸入「Kaminoprefs.xml」。
++
+請參閱_VSC 9.7部署與設定指南_中的*啟用跨不同子網路的資料存放區裝載*一節。
+
+* 您應該在來源站台和目標站台的資料存放區上設定類似的複寫原則和排程、以便順利進行反向複寫。
+
+
+「*資源配置資料庫*」功能表可讓您指定資料存放區的儲存功能設定檔、協助您指定一致的服務層級目標（SLO）、並簡化資源配置程序。只有啟用VASA Provider、才能指定儲存功能設定檔。
+
+僅當用作備用儲存設備的S25 Volume執行版本為更新版本時、才會顯示在VVol儀表板上。FlexVol ONTAP您不應使用vCenter Server * New Datastore*精靈來配置vVols資料存放區。
+
+* 您必須使用叢集認證來建立vVols資料存放區。
++
+您無法使用SVM認證來建立vVols資料存放區。
+
+* VASA Provider不支援將裝載於VVols資料存放區的虛擬機器複製到另一個具有不同傳輸協定的資料存放區。
+* 您應該已經完成來源站台和目的地站台上的叢集配對和SVM配對。
+
+
+.步驟
+. 從vSphere Client首頁、按一下*主機與叢集*。
+. 在導覽窗格中、選取您要在其中配置資料存放區的資料中心。
+. 指定要掛載資料存放區的主機。
++
+[cols="1a,1a"]
+|===
+| 若要讓資料存放區可供... | 執行此動作... 
+
+
+ a| 
+資料中心內的所有主機
+ a| 
+以滑鼠右鍵按一下資料中心、然後選取功能表：NetApp VSC[資源存放區資源配置]。
+
+
+
+ a| 
+叢集中的所有主機
+ a| 
+以滑鼠右鍵按一下叢集、然後選取功能表：NetApp VSC[資源存放區資源配置]。
+
+
+
+ a| 
+單一主機
+ a| 
+以滑鼠右鍵按一下主機、然後選取功能表：NetApp VSC[資源存放區資源配置]。
+
+|===
+. 填寫「*新資料存放區*」對話方塊中的欄位、以建立資料存放區。
++
+對話方塊中的大部分欄位都是不言自明的。下表說明您可能需要指引的部分欄位。
+
++
+[cols="1a,1a"]
+|===
+| 區段 | 說明 
+
+
+ a| 
+一般
+ a| 
+「*新資料存放區*」對話方塊的「*一般*」區段提供選項、可輸入新資料存放區的位置、名稱、說明、類型和傳輸協定。vVols資料存放區類型是用來設定vVols資料存放區。
+
+[NOTE]
+====
+如果您要配置iSCSI vVols資料存放區以進行vVols複寫、則在目標站台建立vVols資料存放區之前、您需要執行SnapMirror更新和叢集重新探索。
+
+====
+
+
+ a| 
+儲存系統
+ a| 
+此區段可讓您選取是否要讓vVols資料存放區啟用或停用複寫。此版本僅允許非同步類型複寫設定檔。然後您可以選取列出的一或多個儲存功能設定檔。系統會自動填入配對*儲存系統*和*儲存VM*的建議值。建議的值只有在ONTAP 進行了配對時才會填入。您可以視需要修改這些值。
+
+[NOTE]
+====
+在FlexVol 以功能區建立功能區時ONTAP 、您應確保使用您想要在儲存功能設定檔中選取的屬性來建立這些功能區。讀取寫入和資料保護FlexVol 功能的功能區應該具有類似的屬性。
+
+====
+建立完包含SnapMirror的磁碟區、並在其中初始化SnapMirror之後、您應該在VSC中執行儲存設備重新探索、才能看到新的磁碟區。FlexVol ONTAP
+
+
+
+ a| 
+儲存屬性
+ a| 
+您應該從FlexVol 現有清單中選取SnapMirror的排程和所需的流通量。此排程應類似於「VM儲存原則」頁面中選取的排程。使用者應該已在FlexVol 列舉的SnapMirror上建立了ONTAP 有關功能的功能區。您可以使用*預設儲存功能設定檔*選項、選取用來建立vVols的預設儲存功能設定檔。
+
+|===
+. 在「*摘要*」區段中、按一下「*完成*」。
++
+設定vVols資料存放區時、會在後端建立複寫群組。
+
+
+
+*相關資訊*
+
+xref:reference-verify-vvol-dashboard-data-requirements.adoc[VVOL儀表板資料需求]

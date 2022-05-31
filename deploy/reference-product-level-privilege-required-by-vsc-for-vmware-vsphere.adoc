@@ -1,0 +1,36 @@
+---
+permalink: deploy/reference-product-level-privilege-required-by-vsc-for-vmware-vsphere.html 
+sidebar: sidebar 
+keywords: product-level, privilege, required, vsc, vmware, vsphere, 
+summary: 若要存取VMware vSphere GUI的虛擬儲存主控台、您必須在正確的vSphere物件層級指派產品層級的VSC特定檢視權限。如果您在沒有此權限的情況下登入、VSC會在您按一下NetApp圖示時顯示錯誤訊息、並防止您存取VSC。 
+---
+= VSC需要VMware vSphere的產品層級權限
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+若要存取VMware vSphere GUI的虛擬儲存主控台、您必須在正確的vSphere物件層級指派產品層級的VSC特定檢視權限。如果您在沒有此權限的情況下登入、VSC會在您按一下NetApp圖示時顯示錯誤訊息、並防止您存取VSC。
+
+下列資訊說明VSC產品層級檢視權限：
+
+[cols="1a,1a,1a"]
+|===
+| 權限 | 說明 | 工作分派層級 
+
+
+ a| 
+檢視
+ a| 
+您可以存取VSC GUI。此權限無法讓您在VSC內執行工作。若要執行任何VSC工作、您必須擁有正確的VSC專屬及原生vCenter Server權限、才能執行這些工作。
+ a| 
+指派層級決定您可以看到的UI部分。
+
+在根物件（資料夾）上指派檢視權限、可讓您按一下NetApp圖示進入VSC。
+
+您可以將「檢視」權限指派給另一個vSphere物件層級、但這樣做會限制您可以查看及使用的VSC功能表。
+
+根物件是指派任何包含檢視權限的權限的建議位置。
+
+|===

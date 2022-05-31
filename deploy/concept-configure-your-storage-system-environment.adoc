@@ -1,0 +1,34 @@
+---
+permalink: deploy/concept-configure-your-storage-system-environment.html 
+sidebar: sidebar 
+keywords: configuring, virtual, storage, console, vmware, vsphere, storage, system, environment, 
+summary: 適用於VMware vSphere的虛擬儲存主控台提供單一機制、可探索儲存系統並設定儲存認證。認證資料提供ONTAP 必要的資訊、讓虛擬儲存主控台（VSC）使用者能夠使用儲存系統執行工作。 
+---
+= 設定VMware vSphere儲存系統環境的虛擬儲存主控台
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+適用於VMware vSphere的虛擬儲存主控台提供單一機制、可探索儲存系統並設定儲存認證。認證資料提供ONTAP 必要的資訊、讓虛擬儲存主控台（VSC）使用者能夠使用儲存系統執行工作。
+
+VSC必須先探索儲存系統、才能顯示及管理儲存資源。在探索過程中、您必須提供ONTAP 儲存系統的不必要資訊。這些是與指派給每個儲存系統的使用者名稱和密碼配對相關聯的權限（或角色）。這些使用者名稱和密碼配對使用ONTAP 以角色為基礎的存取控制（RBAC）、而且必須從ONTAP 下列項目中設定：您無法在VSC內變更這些認證資料。您可以ONTAP 使用來定義RBAC角色。
+
+[NOTE]
+====
+如果您以系統管理員的身分登入、您就會自動擁有該儲存系統的所有權限。
+
+====
+將儲存系統新增至VSC時、您必須提供儲存系統的IP位址、以及與該系統相關聯的使用者名稱和密碼配對。您可以設定VSC在儲存系統探索過程中使用的預設認證、也可以在發現儲存系統時手動輸入認證資料。新增至VSC的儲存系統詳細資料會自動推送至您在部署中啟用的擴充功能。您不需要手動將儲存設備新增至VASA Provider和儲存複寫介面卡（SRA）。VSC和SRA都支援在叢集層級和層級新增認證。VASA Provider僅支援新增儲存系統的叢集層級認證。
+
+如果您的環境包含多個vCenter Server執行個體、當您從「儲存系統」頁面將儲存系統新增至VSC時、「新增儲存系統」對話方塊會顯示vCenter Server方塊、您可以在其中指定要新增儲存系統的vCenter Server執行個體。如果您以滑鼠右鍵按一下資料中心名稱來新增儲存系統、您將無法選擇指定vCenter Server執行個體、因為該伺服器已與該資料中心建立關聯。
+
+探索是以下列其中一種方式進行。在每種情況下、您都必須為任何新發現的儲存系統提供認證資料。
+
+* VSC服務啟動時、VSC會開始自動背景探索程序。
+* 您可以按一下「Storage Systems（儲存系統）」頁面或主機或資料中心上的*重新探索All（全部）按鈕、從* Actions（動作）*功能表（功能表：Actions（動作）[NetApp VSC > Update Host and Storage Data]（更新主機與儲存資料）中選取。您也可以按一下「總覽」區段「使用入門」索引標籤上的*「探索」。
+
+
+所有VSC功能都需要特定權限才能執行工作。您可以根據與ONTAP 該職務相關的認證資料來限制使用者可以執行的工作。擁有相同儲存系統使用者名稱和密碼配對的所有使用者、都會共用一組儲存系統認證資料、並可執行相同的作業。

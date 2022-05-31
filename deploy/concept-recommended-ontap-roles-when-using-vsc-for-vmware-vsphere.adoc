@@ -1,0 +1,52 @@
+---
+permalink: deploy/concept-recommended-ontap-roles-when-using-vsc-for-vmware-vsphere.html 
+sidebar: sidebar 
+keywords: recommended, ontap, roles, when, using, vsc, vmware, vsphere, 
+summary: 您可以設定數ONTAP 個建議的VMware vCenter功能、以搭配VMware vSphere的虛擬儲存主控台和角色型存取控制（RBAC）。這些角色包含ONTAP 執行（VSC）工作所執行之必要儲存作業所需的功能。 
+---
+= 使用VSC for VMware vSphere時的推薦ONTAP 功能
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您可以設定數ONTAP 個建議的VMware vCenter功能、以搭配VMware vSphere的虛擬儲存主控台和角色型存取控制（RBAC）。這些角色包含ONTAP 執行（VSC）工作所執行之必要儲存作業所需的功能。
+
+若要建立新的使用者角色、您必須以系統管理員身分登入執行ONTAP 效益分析的儲存系統。您可以ONTAP 使用下列其中一項來建立功能：
+
+* 9.7或更新版本
++
+link:task-configure-user-role-and-privileges.html["設定使用者角色和權限"]
+
+* RBAC使用者建立工具ONTAP （若使用ONTAP 的是32個以上版本）
++
+https://community.netapp.com/t5/Virtualization-Articles-and-Resources/RBAC-User-Creator-tool-for-VSC-VASA-Provider-and-Storage-Replication-Adapter-7-0/ta-p/133203["適用於VSC、VASA Provider和Storage Replication Adapter 7.0的RBAC使用者建立工具、適用於VMware vSphere"^]
+
+
+
+每ONTAP 個功能都有一個相關的使用者名稱和密碼配對、構成該角色的認證資料。如果您未使用這些認證登入、則無法存取與該角色相關的儲存作業。
+
+作為安全措施、VSC特定ONTAP 的功能性角色會依階層順序排列。這表示第一個角色是最嚴格的角色、只有與最基本的VSC儲存作業集相關的權限。下一個角色同時包含自己的權限、以及與先前角色相關的所有權限。對於支援的儲存作業、每個額外角色的限制都較少。
+
+以下是ONTAP 使用VSC時建議使用的部分RBAC角色。建立這些角色之後、您可以將角色指派給必須執行儲存相關工作的使用者、例如資源配置虛擬機器。
+
+. 探索
++
+此角色可讓您新增儲存系統。
+
+. 建立儲存設備
++
+此角色可讓您建立儲存設備。此角色也包含與探索角色相關的所有權限。
+
+. 修改儲存設備
++
+此角色可讓您修改儲存設備。此角色也包含與探索角色和建立儲存角色相關的所有權限。
+
+. 摧毀儲存設備
++
+此角色可讓您銷毀儲存設備。此角色也包含與探索角色、建立儲存角色及修改儲存角色相關的所有權限。
+
+
+
+如果您使用VASA Provider ONTAP 來執行功能、也應該設定原則型管理（PBM）角色。此角色可讓您使用儲存原則來管理儲存設備。這項職務要求您也必須設定「探索」角色。

@@ -1,0 +1,43 @@
+---
+permalink: deploy/reference-configure-storage-replication-adapter-for-highly-scaled-environment.html 
+sidebar: sidebar 
+keywords: configuration, storage, replication, adapter, highly, scaled, environment, 
+summary: 您必須根據儲存複寫介面卡（SRA）的建議設定來設定儲存逾時時間間隔、以在高度擴充的環境中達到最佳效能。 
+---
+= 設定儲存複寫介面卡、適用於高度擴充的環境
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您必須根據儲存複寫介面卡（SRA）的建議設定來設定儲存逾時時間間隔、以在高度擴充的環境中達到最佳效能。
+
+
+
+== 儲存供應商設定
+
+* 您必須將「儲存供應商.重新 簽名逾時」設定的值從900秒增加至12000秒。
+* 您必須啟用「torageProvider.autoResignatureMode`」選項。
+
+
+如需修改儲存供應商設定的詳細資訊、請參閱VMware文件。
+
+https://docs.vmware.com/en/Site-Recovery-Manager/6.5/com.vmware.srm.admin.doc/GUID-E4060824-E3C2-4869-BC39-76E88E2FF9A0.html["VMware vSphere文件：變更儲存供應商設定"^]
+
+
+
+== 儲存設定
+
+您必須將高度擴充環境的「最短torage.commandTimeout`逾時時間間隔」值設定為12、000秒。
+
+[NOTE]
+====
+指定的逾時時間間隔為最大值。您不需要等待達到最大逾時時間。大多數命令都會在設定的最大逾時時間間隔內完成。
+
+====
+https://kb.netapp.com/app/answers/answer_view/a_id/1001111["NetApp知識庫答案100111111：《ONTAP NetApp儲存複寫介面卡4.0/7.X for VMware Sizing Guide》"^]
+
+有關修改SAN Provider設定的VMware文件有更多資訊。
+
+https://docs.vmware.com/en/Site-Recovery-Manager/6.5/com.vmware.srm.admin.doc/GUID-711FD223-50DB-414C-A2A7-3BEB8FAFDBD9.html["VMware Site Recovery Manager文件：變更儲存設定"^]

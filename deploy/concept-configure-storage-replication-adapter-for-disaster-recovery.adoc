@@ -1,0 +1,18 @@
+---
+permalink: deploy/concept-configure-storage-replication-adapter-for-disaster-recovery.html 
+sidebar: sidebar 
+keywords: configuring, storage, replication, adapter, disaster, recovery, 
+summary: 如果您要設定vCenter Server進行災難恢復、則必須在部署虛擬儲存主控台（VSC）、VASA Provider及儲存複寫介面卡（SRA）的虛擬應用裝置之後、啟用儲存複寫介面卡（SRA）。虛擬應用裝置的部署預設會安裝VSC。部署虛擬應用裝置之後、您必須為vCenter Server啟用SRA。 
+---
+= 設定儲存複寫介面卡以進行災難恢復
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+如果您要設定vCenter Server進行災難恢復、則必須在部署虛擬儲存主控台（VSC）、VASA Provider及儲存複寫介面卡（SRA）的虛擬應用裝置之後、啟用儲存複寫介面卡（SRA）。虛擬應用裝置的部署預設會安裝VSC。部署虛擬應用裝置之後、您必須為vCenter Server啟用SRA。
+
+*相關資訊*
+
+xref:task-enable-storage-replication-adapter.adoc[啟用儲存複寫介面卡]

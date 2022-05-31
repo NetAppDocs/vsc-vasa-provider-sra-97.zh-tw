@@ -1,0 +1,44 @@
+---
+permalink: manage/task-configure-resource-mappings.html 
+sidebar: sidebar 
+keywords: configuring, resource, mappings, 
+summary: 您必須在受保護的站台和還原站台上對應資源、以便將虛擬機器設定為容錯移轉到一組主機或另一組主機。 
+---
+= 設定資源對應
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您必須在受保護的站台和還原站台上對應資源、以便將虛擬機器設定為容錯移轉到一組主機或另一組主機。
+
+您必須連線到受保護和恢復站台。
+
+++++
+
+[NOTE]
+====
+在Site Recovery Manager（SRM）中、資源可以是資源集區、ESXi主機或vSphere叢集。
+
+====
+.步驟
+. 登入vCenter Server、然後按一下功能表：Site Recovery[站台]。
+. 選取您的受保護網站、然後按一下*管理*。
+. 在Manage（管理）選項卡中，選擇* Resource Mappings（資源映射）*。
+. 按一下 image:../media/new-resource-mappings.gif[""] 圖示以建立新的資源對應。
++
+此時會出現「建立資源對應」精靈。
+
+. 在「*建立資源對應*」精靈中、執行下列步驟：
++
+.. 選擇*自動準備名稱相符的資源對應*、然後按*下一步*。
+.. 選取受保護和恢復站台所需的資料中心物件、然後按一下*「Add Mappings」（新增對應）*。
+.. 成功建立對應後、請按一下*「下一步*」。
+.. 選取先前用來建立反轉對應的物件、然後按一下「*完成*」。
+
+
+
+
+「資源對應」頁面會顯示受保護的站台資源和恢復站台資源。您可以針對環境中的其他網路執行相同的步驟。

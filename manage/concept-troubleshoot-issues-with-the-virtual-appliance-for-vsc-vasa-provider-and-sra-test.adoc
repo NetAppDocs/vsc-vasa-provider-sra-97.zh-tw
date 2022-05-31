@@ -1,0 +1,14 @@
+---
+permalink: manage/concept-troubleshoot-issues-with-the-virtual-appliance-for-vsc-vasa-provider-and-sra-test.html 
+sidebar: sidebar 
+keywords: troubleshooting,, issues with, the, virtual, appliance, for, vsc, vasa, provider, and, sra, 
+summary: 如果您在虛擬儲存主控台（VSC）、VASA Provider及儲存複寫介面卡（SRA）的虛擬應用裝置組態或管理期間遇到非預期的行為、您可以依照特定的疑難排解程序來識別及解決此類問題的原因。 
+---
+= 疑難排解VSC、VASA Provider及SRA的虛擬應用裝置問題
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+如果您在虛擬儲存主控台（VSC）、VASA Provider及儲存複寫介面卡（SRA）的虛擬應用裝置組態或管理期間遇到非預期的行為、您可以依照特定的疑難排解程序來識別及解決此類問題的原因。

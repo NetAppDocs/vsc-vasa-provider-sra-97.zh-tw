@@ -1,0 +1,39 @@
+---
+permalink: deploy/reference-error-during-fresh-deployment-of-virtual-appliance-for-vsc-vasa-provider-and-sra.html 
+sidebar: sidebar 
+keywords: error, during, fresh, deployment, virtual, appliance, vsc, vasa, provider, sra, 
+summary: 針對VSC、VASA Provider及SRA重新部署虛擬應用裝置時發生錯誤 
+---
+= 針對VSC、VASA Provider及SRA重新部署虛擬應用裝置時發生錯誤
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+
+
+== 問題
+
+使用無效的vCenter ServerIPv4位址時、在VSC、VASA Provider及SRA的虛擬應用裝置全新部署期間、會顯示錯誤記錄「找不到VMware工具OVF vCenter組態」。
+
+
+
+== 原因
+
+VSC、VASA Provider和SRA的虛擬應用裝置支援IPV4和IPv6位址。如果使用者為vCenter Server提供網路中無法使用的IPv4位址、而且未提供IPv6位址、則這些記錄程式訊息會顯示在維護主控台上。
+
+
+
+== 修正行動
+
+您應該執行下列步驟來移除錯誤：
+
+. 登入維護主控台。
+. 存取診斷Shell。
+. 使用「show」命令將使用者從「diag」變更為「root」。
+. 使用VI編輯器「VI /etc/network/interface'」編輯介面檔案。
+. 移除「'inet6'」項目。
+. 儲存檔案、然後重新啟動VSC、VASA Provider和SRA的虛擬應用裝置。
+
+
+重新啟動虛擬應用裝置之後、並未發現任何錯誤訊息。

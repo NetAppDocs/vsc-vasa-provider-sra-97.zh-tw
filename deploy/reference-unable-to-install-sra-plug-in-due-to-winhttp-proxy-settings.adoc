@@ -1,0 +1,38 @@
+---
+permalink: deploy/reference-unable-to-install-sra-plug-in-due-to-winhttp-proxy-settings.html 
+sidebar: sidebar 
+keywords: unable, to, install, the, sra, plug-in, 
+summary: 無法安裝SRA外掛程式 
+---
+= 無法安裝SRA外掛程式
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+
+
+== 問題
+
+安裝儲存複寫介面卡（SRA）外掛程式期間、系統會在伺服器IP位址和密碼畫面停止、並顯示下列錯誤訊息：「您輸入的認證資料無效。請輸入有效的主機名稱和密碼。
+
+
+
+== 原因
+
+此錯誤可能是因為下列原因之一所致：
+
+* 您輸入的系統管理員認證資料不正確。
+* WinHTTP Proxy設定不正確。
+
+
+
+
+== 修正行動
+
+* 驗證您的系統管理員認證資料。
+* 知識庫文章提供更多有關解決WinHTTP Proxy設定問題的資訊。
++
+https://kb.netapp.com/app/answers/answer_view/a_id/1005074["NetApp知識庫答案1005074：安裝SRA 4.0P1用戶端外掛程式（NetApp_SRA_4.0P1_ONTAP_64bit）時、伺服器IP與密碼畫面會掛起"^]
+
+

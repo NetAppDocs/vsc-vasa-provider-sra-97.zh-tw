@@ -1,0 +1,24 @@
+---
+permalink: deploy/task-configure-vasa-provider-to-work-with-ssh.html 
+sidebar: sidebar 
+keywords: configuring, vasa, provider, work, with, ssh, 
+summary: 您可以設定VASA Provider使用SSH進行安全存取、方法是設定虛擬儲存主控台（VSC）、VASA Provider及儲存複寫介面卡（SRA）的虛擬應用裝置。 
+---
+= 設定VASA Provider以搭配SSH使用
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您可以設定VASA Provider使用SSH進行安全存取、方法是設定虛擬儲存主控台（VSC）、VASA Provider及儲存複寫介面卡（SRA）的虛擬應用裝置。
+
+設定SSH時、您必須以維護使用者的身分登入。這是因為已停用VASA Provider的root存取權。如果您使用其他登入認證、則無法使用SSH存取VASA Provider。
+
+.步驟
+. 從vCenter Server開啟VSC、VASA Provider及SRA的主控台至虛擬應用裝置。
+. 以維護使用者身分登入。
+. 輸入「3」選擇*系統組態*。
+. 輸入「6」以選取*「啟用SSH存取」*。
+. 在確認對話方塊中輸入「y」。
+

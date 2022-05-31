@@ -1,0 +1,109 @@
+---
+permalink: deploy/reference-components-that-make-up-vcenter-server-permissions.html 
+sidebar: sidebar 
+keywords: components, vcenter, server, permissions, 
+summary: vCenter Server可辨識權限、而非權限。每個vCenter Server權限均由三個元件組成。 
+---
+= vCenter Server權限的元件
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+vCenter Server可辨識權限、而非權限。每個vCenter Server權限均由三個元件組成。
+
+vCenter Server具有下列元件：
+
+* 一或多個權限（角色）
++
+權限定義使用者可以執行的工作。
+
+* vSphere物件
++
+物件是工作的目標。
+
+* 使用者或群組
++
+使用者或群組會定義可以執行工作的人員。
+
+
+
+如下圖所示、您必須擁有所有三個元素、才能取得權限。
+
+[NOTE]
+====
+在此圖中、灰色方塊表示vCenter Server中存在的元件、而白色方塊則表示vCenter Server執行所在作業系統中存在的元件。
+
+====
+image::../media/permission-updated-graphic.png[權限更新圖形]
+
+
+
+== 權限
+
+兩種權限與VMware vSphere的虛擬儲存主控台有關：
+
+* 原生vCenter Server權限
++
+這些權限隨附於vCenter Server。
+
+* VSC專屬權限
++
+這些權限是針對特定VSC工作所定義。VSC獨一無二。
+
+
+
+VSC工作需要VSC專屬權限和vCenter Server原生權限。這些權限構成使用者的「角色」。權限可以有多個權限。這些權限適用於登入vCenter Server的使用者。
+
+[NOTE]
+====
+為了簡化vCenter Server RBAC作業、VSC提供多種標準角色、其中包含執行VSC工作所需的所有VSC專屬和原生權限。
+
+====
+如果您變更權限內的權限、則與該權限相關的使用者應登出、然後登入以啟用更新的權限。
+
+[cols="1a,1a,1a"]
+|===
+| 權限 | 角色 | 工作 
+
+
+ a| 
+功能表：NetApp虛擬儲存主控台[檢視]
+ a| 
+* VSC管理員
+* VSC配置
+* VSC唯讀
+
+ a| 
+所有VSC和VASA Provider特定工作都需要View權限。
+
+
+
+ a| 
+功能表：NetApp虛擬儲存主控台[原則型管理>管理]或功能表：privilege.nvpfVSC.VASAGroup.com.netapp.nvpf.label[Management]
+ a| 
+VSC管理員
+ a| 
+VSC和VASA Provider工作與儲存功能設定檔和臨界值設定相關。
+
+|===
+
+
+== vSphere物件
+
+權限與vSphere物件相關聯、例如vCenter Server、ESXi主機、虛擬機器、資料存放區、資料中心、 和資料夾。您可以將權限指派給任何vSphere物件。vCenter Server會根據指派給vSphere物件的權限、決定誰可以在該物件上執行哪些工作。對於VSC特定工作、權限僅會指派並驗證於根資料夾層級（vCenter Server）、而非任何其他實體。VAAI外掛程式作業除外、該作業會針對相關ESXi驗證權限。
+
+
+
+== 使用者與群組
+
+您可以使用Active Directory（或本機vCenter Server機器）來設定使用者和使用者群組。然後您可以使用vCenter Server權限來授予這些使用者或群組存取權、讓他們能夠執行特定的VSC工作。
+
+[NOTE]
+====
+這些vCenter Server權限適用於VSC vCenter使用者、而非VSC管理員。根據預設、VSC系統管理員擁有產品的完整存取權、不需要指派權限給他們。
+
+====
+使用者和群組並未指派角色給他們。他們可透過vCenter Server權限的一部分來存取角色。

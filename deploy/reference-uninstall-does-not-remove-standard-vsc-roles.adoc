@@ -1,0 +1,20 @@
+---
+permalink: deploy/reference-uninstall-does-not-remove-standard-vsc-roles.html 
+sidebar: sidebar 
+keywords: uninstall, does, not, remove, standard, vsc, roles, 
+summary: 當您解除安裝適用於VMware vSphere（VSC）的虛擬儲存主控台時、標準VSC角色將維持不變。這是預期的行為、不會影響VSC的效能、也不會影響您升級至新版VSC的能力。如有需要、您可以手動刪除這些角色。 
+---
+= 解除安裝不會移除標準VSC角色
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+當您解除安裝適用於VMware vSphere（VSC）的虛擬儲存主控台時、標準VSC角色將維持不變。這是預期的行為、不會影響VSC的效能、也不會影響您升級至新版VSC的能力。如有需要、您可以手動刪除這些角色。
+
+雖然解除安裝作業不會移除VSC角色、但解除安裝作業會移除VSC特定權限的本地化名稱、並在其中附加下列字首：「'XXX遺失權限」。例如、如果您在安裝VSC之後開啟vSphere *編輯角色*對話方塊、則會看到VSC特定的權限列示為「XXX遺失權限」。
+
+發生此行為的原因是vCenter Server未提供移除權限的選項。
+
+當您重新安裝VSC或升級至較新版本的VSC時、所有標準VSC角色和VSC專屬權限都會還原。

@@ -1,0 +1,30 @@
+---
+permalink: manage/concept-how-to-send-comments-about-documentation-and-receive-update-notifications-netapp-post-preface.html 
+sidebar: sidebar 
+keywords: doccomments, quality, documentation, high-quality, documentation, how, to, send, comments, about, documentation, and, receive, update, notifications, 
+summary: 您可以傳送您的意見給我們、協助我們改善文件品質。當正式作業層級（GA/FCS）文件初次發行、或是對現有正式作業層級文件進行重大變更時、您可以收到自動通知。 
+---
+= 如何傳送有關文件的意見並接收更新通知
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您可以傳送您的意見給我們、協助我們改善文件品質。當正式作業層級（GA/FCS）文件初次發行、或是對現有正式作業層級文件進行重大變更時、您可以收到自動通知。
+
+如果您對改善本文件有任何建議、請以電子郵件寄送您的意見給我們。
+
+link:mailto:doccomments@netapp.com["doccomments@netapp.com"^]
+
+為了協助我們將您的意見導向正確的部門、請在主旨行中加入產品名稱、版本和作業系統。
+
+如果您想要在正式作業層級文件發行或現有正式作業層級文件有重大變更時自動收到通知、請追蹤Twitter帳戶@NetAppDoc。
+
+您也可以透過下列方式與我們聯絡：
+
+* NetApp、Inc.、1395 Crossman Ave.、Sunnyvale、CA 94089 U.S.
+* 電話：+1（408）822-6000
+* 傳真：+1（408）822-4501
+* 支援電話：+1（888）463-8277
+

@@ -1,0 +1,44 @@
+---
+permalink: deploy/task-install-the-nfs-vaai-plug-in.html 
+sidebar: sidebar 
+keywords: installing, the, nfs, vaai, plug-in, 
+summary: 您可以使用適用於虛擬儲存主控台（VSC）、VASA供應商及儲存複寫介面卡（SRA）的虛擬應用裝置GUI、安裝適用於VMware vStorage API的NFS外掛程式、以利陣列整合（VAAI）。 
+---
+= 安裝NFS VAAI外掛程式
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您可以使用適用於虛擬儲存主控台（VSC）、VASA供應商及儲存複寫介面卡（SRA）的虛擬應用裝置GUI、安裝適用於VMware vStorage API的NFS外掛程式、以利陣列整合（VAAI）。
+
+.開始之前
+* 您必須從下載適用於VAAI的NFS外掛程式（`.vib'）安裝套件。
++
+https://mysupport.netapp.com/site/["NetApp支援"^]
+
+* 您必須安裝ESXi主機6.5或更新版本、ONTAP 以及不含更新版本的版本。
+* 您必須已開啟ESXi主機電源、並已掛載NFS資料存放區。
+* 您必須將「DataMover、HardwareAcceleratedMove」、「DataMover、HardwareAcceleratedInit」和「VMS3、HardwareAcceleratedLocking」主機設定的值設定為「1」。
++
+當*建議設定*對話方塊更新時、ESXi主機上會自動設定這些值。
+
+* 您必須使用「vserver NFS modify -vserver vserver_name -vStorage enabled_」命令、在上啟用vStorage選項。
+
+
+.步驟
+. 將從下載的".vib"檔案重新命名為"NetAppNasPlugin.vib"、以符合VSC使用的預先定義名稱。
+. 按一下VSC首頁中的*設定*。
+. 按一下「* NFS VAAI工具*索引標籤」。
+. 按一下*現有版本*區段中的*變更*。
+. 瀏覽並選取重新命名的".vib"檔案、然後按一下「*上傳*」、將檔案上傳至虛擬應用裝置。
+. 在「*在ESXi主機上安裝*」區段中、選取您要安裝NFS VAAI外掛程式的ESXi主機、然後按一下「*安裝*」。
++
+您應依照螢幕上的指示完成安裝。您可以在vSphere Web Client的「工作」區段中監控安裝進度。
+
+. 安裝完成後、重新啟動ESXi主機。
++
+當您重新開機ESXi主機時、VSC會自動偵測NFS VAAI外掛程式。您不需要執行其他步驟來啟用外掛程式。
+
+

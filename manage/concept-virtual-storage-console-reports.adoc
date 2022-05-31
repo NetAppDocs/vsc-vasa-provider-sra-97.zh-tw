@@ -1,0 +1,14 @@
+---
+permalink: manage/concept-virtual-storage-console-reports.html 
+sidebar: sidebar 
+keywords: understanding, virtual, storage, console, reports, 
+summary: 您可以使用虛擬儲存主控台（VSC）報告功能表、檢視特定vCenter Server中所選VSC執行個體所管理之所有資料存放區的預先定義報告。您可以執行排序和匯出報告等作業。 
+---
+= 瞭解虛擬儲存主控台報告
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您可以使用虛擬儲存主控台（VSC）*報告*功能表、檢視特定vCenter Server中所選VSC執行個體所管理之所有資料存放區的預先定義報告。您可以執行排序和匯出報告等作業。

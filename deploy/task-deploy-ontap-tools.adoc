@@ -1,0 +1,100 @@
+---
+permalink: deploy/task-deploy-ontap-tools.html 
+sidebar: sidebar 
+keywords: deploying, the, virtual, appliance, for vsc, vasa, provider, and sra, 
+summary: 您應該在環境中部署虛擬儲存主控台（VSC）、VASA Provider和儲存複寫介面卡（SRA）的虛擬應用裝置、並指定必要的參數、才能使用應用裝置。 
+---
+= 部署VSC、VASA Provider和SRA的虛擬應用裝置
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您應該在環境中部署虛擬儲存主控台（VSC）、VASA Provider和儲存複寫介面卡（SRA）的虛擬應用裝置、並指定必要的參數、才能使用應用裝置。
+
+.開始之前
+* 您必須執行支援的vCenter Server版本。
++
+[NOTE]
+====
+VSC、VASA Provider及SRA的虛擬應用裝置可透過Windows部署vCenter Server或VMware vCenter Server Virtual Appliance（vCSA）部署進行登錄。
+
+====
++
+https://mysupport.netapp.com/matrix/imt.jsp?components=97563;&solution=56&isHWU&src=IMT["互通性對照表工具：VSC 9.7"^]
+
+* 您必須已設定及設定vCenter Server環境。
+* 您必須為虛擬機器設定ESXi主機。
+* 您必須已下載「.ova」檔案。
+* 您必須擁有vCenter Server執行個體的系統管理員登入認證。
+* 您必須登出並關閉vSphere Client的所有瀏覽器工作階段、並刪除瀏覽器快取、以避免在部署VSC、VASA Provider及SRA的虛擬應用裝置時發生任何瀏覽器快取問題。
++
+xref:task-clean-the-vsphere-cached-downloaded-plug-in-packages.adoc[清除vSphere快取下載的外掛程式套件]
+
+* 您必須已啟用網際網路控制訊息傳輸協定（ICMP）。
++
+如果停用ICMP、則VSC、VASA Provider和SRA的虛擬應用裝置初始組態會失敗、而VSC則無法在部署後啟動VSC和VASA Provider服務。您必須在部署後手動啟用VSC和VASA Provider服務。
+
+
+
+如果您要為VSC、VASA Provider及SRA部署全新的虛擬應用裝置安裝、則預設會啟用VASA Provider。但如果是從舊版虛擬應用裝置升級、VASA Provider的狀態將會保留、您可能需要手動啟用VASA Provider。
+
+link:task-enable-vasa-provider-for-configuring-virtual-datastores.html["啟用VASA Provider以設定虛擬資料存放區"]
+
+.步驟
+. 登入vSphere Client。
+. 選取功能表：首頁[主機與叢集]。
+. 以滑鼠右鍵按一下所需的資料中心、然後按一下*部署OVA範本*。
+. 選取適當的方法來提供VSC、VASA Provider及SRA的部署檔案、然後按一下* Next*。
++
+[cols="1a,1a"]
+|===
+| 位置 | 行動 
+
+
+ a| 
+URL
+ a| 
+提供VSC、VASA Provider和SRA虛擬應用裝置的「.ova」檔案URL。
+
+
+
+ a| 
+資料夾
+ a| 
+從儲存位置選取VSC、VASA Provider和SRA虛擬應用裝置的「.ova」檔案。
+
+|===
+. 輸入詳細資料以自訂部署精靈。
++
+請參閱 link:reference-deploment-customization-requirements.html["部署自訂考量"] 以取得完整詳細資料。
+
+. 檢閱組態資料、然後按一下*「下一步*」完成部署。
++
+當您等待部署完成時、可以從*工作*索引標籤檢視部署進度。
+
+. 開啟虛擬應用裝置虛擬機器的電源、然後開啟執行虛擬應用裝置的虛擬機器主控台。
+. 確認VSC、VASA Provider及SRA服務在部署完成後仍在執行。
+. 如果VSC、VASA Provider和SRA的虛擬應用裝置未在任何vCenter Server上註冊、請使用「+https://appliance_ip:8143/Register.html+`」登錄VSC執行個體。
+. 登出並重新登入vSphere Client、即可檢視已部署的VSC、VASA Provider及SRA虛擬應用裝置。
++
+在vSphere Client中更新外掛程式可能需要幾分鐘的時間。
+
++
+[NOTE]
+====
+如果即使在登入之後仍無法檢視外掛程式、則必須清除vSphere Client快取。 xref:task-clean-the-vsphere-cached-downloaded-plug-in-packages.adoc[清除vSphere快取下載的外掛程式套件]
+
+====
+
+
+++++
+
+[NOTE]
+====
+如果您使用ONTAP 的是版本不含更新版本的版本、則若要檢視VVol儀表板、您必須下載並安裝。但對於NetApp 9.7、您不需要向VASA Provider註冊。ONTAP
+
+====
+xref:task-register-oncommand-api-services-with-the-virtual-appliance-for-vsc-vasa-provider-and-sra.adoc[向VSC、VASA Provider和SRA的虛擬應用裝置註冊]

@@ -1,0 +1,51 @@
+---
+permalink: deploy/task-upgrade-storage-replication-adapter.html 
+sidebar: sidebar 
+keywords: sra, upgrade, upgrading, storage, replication, adapter, 
+summary: 升級VSC、VASA Provider和SRA的虛擬應用裝置或部署最新版本的虛擬應用裝置之後、您必須升級儲存複寫介面卡（SRA）。 
+---
+= 升級儲存複寫介面卡
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+升級VSC、VASA Provider和SRA的虛擬應用裝置或部署最新版本的虛擬應用裝置之後、您必須升級儲存複寫介面卡（SRA）。
+
+.步驟
+. 您必須根據介面卡、使用下列其中一個程序來升級至最新的介面卡：
++
+[cols="1a,1a"]
+|===
+| *適用於...* | 執行下列動作... 
+
+
+ a| 
+* Windows *
+ a| 
+.. 登入SRM Windows Server。
+.. 從SRM伺服器解除安裝現有的SRA _.ms__安裝程式。
+.. 將系統路徑變更為「C:\Program Files\VMware\VMware vCenter Site Recovery Manager\extere\perl\c\bin」
+.. 按兩下從NetApp支援網站下載的_.ms__安裝程式、然後依照螢幕上的指示進行。
+.. 輸入已部署的VSC、VASA Provider及SRA虛擬應用裝置的IP位址和密碼。
+
+
+
+
+ a| 
+*設備型介面卡*
+ a| 
+.. 登入「SRM設備管理」頁面。
+.. 按一下「*儲存複寫介面卡*」、然後按一下「*刪除*」以移除現有的SRA。
+.. 按一下功能表：New Adapter（新介面卡）[Browse（瀏覽）
+.. 按一下以選取您從NetApp支援網站下載的最新SRA目標檔案、然後按一下「*安裝*」。
+.. 在SRM設備上設定SRA。
++
+xref:task-configure-sra-on-srm-appliance.adoc[在SRM設備上設定SRA]
+
+
+
+|===
+

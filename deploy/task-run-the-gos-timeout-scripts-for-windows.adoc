@@ -1,0 +1,30 @@
+---
+permalink: deploy/task-run-the-gos-timeout-scripts-for-windows.html 
+sidebar: sidebar 
+keywords: setting, timeout, values, windows, guest, operating, systems, 
+summary: 客體作業系統（OS）逾時指令碼可設定Windows客體作業系統的SCSI I/O逾時設定。您可以指定60秒逾時或190秒逾時。您必須重新開機Windows來賓作業系統、設定才會生效。 
+---
+= 設定Windows客體作業系統的逾時值
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+客體作業系統（OS）逾時指令碼可設定Windows客體作業系統的SCSI I/O逾時設定。您可以指定60秒逾時或190秒逾時。您必須重新開機Windows來賓作業系統、設定才會生效。
+
+您必須已掛載包含Windows指令碼的ISO映像。
+
+.步驟
+. 存取Windows虛擬機器的主控台、並以系統管理員權限登入帳戶。
+. 如果指令碼沒有自動啟動、請開啟CD磁碟機、然後執行「windows_go_timeout.reg」指令碼。
++
+此時會顯示「登錄編輯程式」對話方塊。
+
+. 按一下「*是*」繼續。
++
+此時會顯示以下訊息：「D:\windows_Gos_timeout.reg中包含的機碼和值已成功新增至登錄。
+
+. 重新啟動Windows來賓作業系統。
+. 卸載ISO映像。
+

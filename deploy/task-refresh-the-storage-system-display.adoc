@@ -1,0 +1,48 @@
+---
+permalink: deploy/task-refresh-the-storage-system-display.html 
+sidebar: sidebar 
+keywords: refreshing, the, storage, system, display, 
+summary: 您可以使用Virtual Storage Console for VMware vSphere提供的更新功能來重新整理儲存系統的相關資訊、並強制Virtual Storage Console（VSC）探索儲存系統。 
+---
+= 重新整理儲存系統顯示器
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您可以使用Virtual Storage Console for VMware vSphere提供的更新功能來重新整理儲存系統的相關資訊、並強制Virtual Storage Console（VSC）探索儲存系統。
+
+如果您在收到驗證錯誤後變更儲存系統的預設認證、「REFresh」選項就很實用。如果您在儲存系統回報「驗證失敗狀態」之後變更儲存系統認證、請務必執行更新作業。在更新作業期間、VSC會嘗試使用新認證來連線至儲存系統。
+
+視系統設定而定、此工作可能需要很長時間才能完成。
+
+.步驟
+. 在VMware vSphere Client *主頁*上、按一下*儲存系統*。
+. 開始更新：
++
+[cols="1a,1a"]
+|===
+| 如果此位置是... | 按一下... 
+
+
+ a| 
+虛擬儲存主控台
+ a| 
+「*重新探索全部*」圖示。
+
+
+
+ a| 
+資料中心
+ a| 
+以滑鼠右鍵按一下資料中心、然後按一下功能表：NetApp VSC[更新主機與儲存資料]。
+
+|===
+. 在*更新主機與儲存資料*對話方塊中、按一下*確定*。
++
+視資料中心的主機和儲存系統數量而定、探索可能需要幾分鐘的時間。此探索作業可在背景中運作。
+
+. 按一下「*成功*」對話方塊中的「*確定*」。
+

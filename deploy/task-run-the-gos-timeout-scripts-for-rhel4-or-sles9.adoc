@@ -1,0 +1,86 @@
+---
+permalink: deploy/task-run-the-gos-timeout-scripts-for-rhel4-or-sles9.html 
+sidebar: sidebar 
+keywords: setting, timeout, values, linux, guest, operating, systems, 
+summary: 客體作業系統（OS）逾時指令碼可設定Red Hat Enterprise Linux版本4、5、6和7以及SUSE Linux Enterprise Server版本9、10和11的SCSI I/O逾時設定。您可以指定60秒逾時或190秒逾時。每次升級至新版Linux時、您都必須執行指令碼。 
+---
+= 設定Linux客體作業系統的逾時值
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+客體作業系統（OS）逾時指令碼可設定Red Hat Enterprise Linux版本4、5、6和7以及SUSE Linux Enterprise Server版本9、10和11的SCSI I/O逾時設定。您可以指定60秒逾時或190秒逾時。每次升級至新版Linux時、您都必須執行指令碼。
+
+您必須已掛載包含Linux指令碼的ISO映像。
+
+.步驟
+. 存取Linux虛擬機器的主控台、然後以root權限登入帳戶。
+. 執行「Linux _Gos_timeout-install.sh」指令碼。
++
+若為Red Hat Enterprise Linux 4或SUSE Linux Enterprise Server 9、會顯示類似下列訊息：
+
++
+[listing]
+----
+Restarting udev... this may take a few seconds.
+----
++
+[listing]
+----
+Setting I/O Timeout (60s) for /dev/sda - SUCCESS!
+----
++
+對於Red Hat Enterprise Linux 5、Red Hat Enterprise Linux 6和Red Hat Enterprise Linux 7、會顯示類似以下內容的訊息：
+
++
+[listing]
+----
+patching file /etc/udev/rules.d/50-udev.rules
+----
++
+[listing]
+----
+Hunk #1 succeeded at 333 (offset 13 lines).
+----
++
+[listing]
+----
+Restarting udev... this may take a few seconds.
+----
++
+[listing]
+----
+Starting udev: [ OK ]
+----
++
+[listing]
+----
+Setting I/O Timeout (60s) for /dev/sda - SUCCESS!
+----
++
+對於SUSE Linux Enterprise Server 10或SUSE Linux Enterprise Server 11、會顯示類似下列訊息：
+
++
+[listing]
+----
+patching file /etc/udev/rules.d/50-udev-default.rules
+----
++
+[listing]
+----
+Hunk #1 succeeded at 114 (offset 1 line).
+----
++
+[listing]
+----
+Restarting udev ...this may take a few seconds.
+----
++
+[listing]
+----
+Updating all available device nodes in /dev:   done
+----
+. 卸載ISO映像。
+

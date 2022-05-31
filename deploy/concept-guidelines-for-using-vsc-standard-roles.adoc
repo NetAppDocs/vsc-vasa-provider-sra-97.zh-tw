@@ -1,0 +1,40 @@
+---
+permalink: deploy/concept-guidelines-for-using-vsc-standard-roles.html 
+sidebar: sidebar 
+keywords: guidelines, using, VSC standard roles 
+summary: 當您使用VMware vSphere角色的標準虛擬儲存主控台時、您應該遵循某些準則。 
+---
+= 使用VSC標準角色的準則
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+當您使用VMware vSphere角色的標準虛擬儲存主控台時、您應該遵循某些準則。
+
+您不應直接修改標準角色。如果您這麼做、VSC會在您每次升級VSC時覆寫您的變更。每次升級VSC時、安裝程式都會更新標準角色定義。這樣做可確保您的VSC版本以及所有受支援版本的vCenter Server的角色都是最新的。
+
+不過、您可以使用標準角色來建立專為您環境量身打造的角色。若要這麼做、您應該複製VSC標準角色、然後編輯複製的角色。藉由建立新角色、即使您重新啟動或升級VSC Windows服務、也能維持此角色。
+
+您可以使用VSC標準角色的部分方法包括：
+
+* 使用標準VSC角色執行所有VSC工作。
++
+在此案例中、標準角色提供使用者執行VSC工作所需的所有權限。
+
+* 合併角色以擴充使用者可以執行的工作。
++
+如果標準VSC角色為您的環境提供過多精細度、您可以建立包含多個角色的較高層級群組來擴充角色。
+
++
+如果使用者需要執行其他需要額外原生vCenter Server權限的非VSC工作、您可以建立提供這些權限的角色、並將其新增至群組。
+
+* 建立更精細的角色。
++
+如果貴公司要求您實作比標準VSC角色更具限制性的角色、您可以使用VSC角色來建立新角色。
+
++
+在這種情況下、您會複製必要的VSC角色、然後編輯複製的角色、使其僅擁有使用者所需的權限。
+
+

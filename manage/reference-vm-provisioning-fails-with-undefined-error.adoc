@@ -1,0 +1,42 @@
+---
+permalink: manage/reference-vm-provision-fails-with-undefined-error.html 
+sidebar: sidebar 
+keywords: virtual, machine, provisioning, fails, with, an, undefined, error, 
+summary: 虛擬機器資源配置作業、例如建立、複製、開機、關機、暫停、 移轉及更新VVOL資料存放區上的VM儲存設定檔可能會失敗、並在工作管理員中顯示一般錯誤訊息、指出問題是由VASA Provider或VMware所造成。 
+---
+= 虛擬機器資源配置失敗、並出現未定義的錯誤
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+虛擬機器資源配置作業、例如建立、複製、開機、關機、暫停、 移轉及更新VVOL資料存放區上的VM儲存設定檔可能會失敗、並在工作管理員中顯示一般錯誤訊息、指出問題是由VASA Provider或VMware所造成。
+
+
+
+== 問題
+
+您會在工作管理員中收到錯誤訊息、例如「在候選磁碟區中找不到符合指定需求的適當磁碟區」
+
+
+
+== 原因
+
+此錯誤可能是因為VMware、VASA Provider或ONTAP VMware儲存設備發生問題所致。錯誤訊息可能未指明故障的確切原因。問題也可能是因為環境中的大型儲存系統具有大量的儲存虛擬機器（SVM）、磁碟區和LUN。在這類儲存系統的背景執行週期性探索作業需要時間、如果同時觸發這些作業、可能會導致虛擬機器資源配置作業逾時。
+
+
+
+== 修正行動
+
+. 請檢查「/opp/netapp/vp伺服器/logs/error.log」、「vvolvp．log」和「ZAPI_error.log」記錄檔、確認問題是與VASA Provider或ONTAP Rf2儲存有關。
++
+** 如果在候選磁碟區中發現「navate com.netapp.offtap3.ontap.ApiFailedException:」之類的錯誤、則表示未找到符合指定需求的適當磁碟區。詳細資料：VVOL放置方式：類型：放置候選磁碟區：VVOL_NFs_Pb2、VVOL_NFS_PB1效能：最大IOPS大小：4 GB保證空間：假Volume未承諾的IOPS不足：VVOL_NFS_PB1、VVOL_NFS_Pb2結果：成功（errno=13001））、隨即報告、然後您應採取修正式儲存系統管理員的行動。
+** 只有在背景中沒有執行探索作業時、您才必須執行資源配置作業。如果VASA Provider記錄檔中所報告的錯誤並非特定的、則您應與技術支援部門跟進、以解決此問題。
+
+
+. 如果VASA Provider記錄檔中未報告任何特定錯誤、請檢查「sps記錄」記錄檔、確認問題是否與VMware有關、然後根據報告的錯誤採取適當的修正行動。
++
+如果在「sps記錄檔」中報告的錯誤並非特定的、則您應與VMware管理員進行後續追蹤、以解決此問題。
+
+

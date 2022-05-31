@@ -1,0 +1,46 @@
+---
+permalink: deploy/concept-ontap-role-based-access-control-feature-for-virtual-appliance.html 
+sidebar: sidebar 
+keywords: ontap, role-based, access, control, virtual, appliance, vsc, vasa, provider, sra, 
+summary: 以角色為基礎的存取控制（RBAC）可讓您控制對特定儲存系統的存取、並控制使用者可在這些儲存系統上執行的動作。ONTAP在VMware vSphere的虛擬儲存主控台中ONTAP 、VMware RBAC可搭配vCenter Server RBAC來判斷特定使用者可在特定儲存系統的物件上執行哪些虛擬儲存主控台（VSC）工作。 
+---
+= VSC、VASA Provider和SRA虛擬應用裝置的角色型存取控制ONTAP
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+以角色為基礎的存取控制（RBAC）可讓您控制對特定儲存系統的存取、並控制使用者可在這些儲存系統上執行的動作。ONTAP在VMware vSphere的虛擬儲存主控台中ONTAP 、VMware RBAC可搭配vCenter Server RBAC來判斷特定使用者可在特定儲存系統的物件上執行哪些虛擬儲存主控台（VSC）工作。
+
+VSC會使用您在VSC中設定的認證（使用者名稱和密碼）來驗證每個儲存系統、並決定可在該儲存系統上執行哪些儲存作業。VSC會針對每個儲存系統使用一組認證資料。這些認證資料可決定在該儲存系統上執行哪些VSC工作；換句話說、認證資料適用於VSC、而非適用於個別VSC使用者。
+
+支援RBAC僅適用於存取儲存系統及執行與儲存相關的VSC工作、例如資源配置虛擬機器。ONTAP如果ONTAP 您沒有適用於特定儲存系統的適當RBAC權限、就無法在該儲存系統上裝載的vSphere物件上執行任何工作。您可以搭配ONTAP VSC專屬權限來使用RBAC、以控制使用者可以執行的VSC工作：
+
+* 監控及設定儲存系統上的儲存或vCenter Server物件
+* 資源配置位於儲存系統上的vSphere物件
+
+
+利用具備VSC專屬權限的RBAC、可提供儲存管理員可管理的儲存導向安全層。ONTAP因此、您擁有比ONTAP 單純使用VMware RBAC或僅使用vCenter Server RBAC支援更精細的存取控制。例如、有了vCenter Server RBAC、您可以允許vCenterUserB在儲存設備上配置資料存放區、同時防止vCenterUserA配置資料存放區。如果特定儲存系統的儲存系統認證不支援建立儲存設備、則vCenterUserB或vCenterUserA都無法在該儲存系統上配置資料存放區。
+
+當您啟動VSC工作時、VSC會先驗證您是否擁有該工作的正確vCenter Server權限。如果vCenter Server權限不足以允許您執行工作、VSC就不需要檢查ONTAP 該儲存系統的「可靠性」權限、因為您未通過初始vCenter Server安全性檢查。因此、您無法存取儲存系統。
+
+如果vCenter Server權限足夠、VSC會檢查ONTAP 與儲存系統認證（使用者名稱和密碼）相關聯的VMware RBAC權限（ONTAP 您的VMware角色）。 以判斷您是否擁有足夠的權限、可在該儲存系統上執行該VSC工作所需的儲存作業。如果ONTAP 您擁有正確的資訊功能、可以存取儲存系統並執行VSC工作。這個功能可決定您可以在儲存系統上執行的VSC工作。ONTAP
+
+每個儲存系統都有ONTAP 一組相關的「樣」權限。
+
+同時使用ONTAP VMware RBAC和vCenter Server RBAC可提供下列優點：
+
+* 安全性
++
+管理員可控制哪些使用者可在精細的vCenter Server物件層級和儲存系統層級執行哪些工作。
+
+* 稽核資訊
++
+在許多情況下、VSC會在儲存系統上提供稽核追蹤、讓您能夠將事件追蹤回執行儲存修改的vCenter Server使用者。
+
+* 使用性
++
+您可以將所有的控制器認證資料保留在同一個位置。
+
+

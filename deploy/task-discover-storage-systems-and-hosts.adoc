@@ -1,0 +1,42 @@
+---
+permalink: deploy/task-discover-storage-systems-and-hosts.html 
+sidebar: sidebar 
+keywords: discovering, storage, systems, hosts, 
+summary: 當您第一次在vSphere Client中執行（VSC）時、VSC會探索ESXi主機、其LUN和NFS匯出、以及擁有這些LUN和匯出的NetApp儲存系統。 
+---
+= 探索儲存系統與主機
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+當您第一次在vSphere Client中執行（VSC）時、VSC會探索ESXi主機、其LUN和NFS匯出、以及擁有這些LUN和匯出的NetApp儲存系統。
+
+.開始之前
+* 所有ESXi主機都必須開啟電源並連線。
+* 所有要探索的都必須在執行中、而且每個叢集節點必須至少有一個資料LIF設定為使用中的儲存傳輸協定（NFS、iSCSI或FC）。
+
+
+您可以隨時探索新的儲存系統或更新現有儲存系統的相關資訊、以取得最新的容量和組態資訊。您也可以修改VSC用來登入儲存系統的認證資料。
+
+在探索儲存系統時、VSC會從由vCenter Server執行個體管理的ESXi主機收集資訊。
+
+.步驟
+. 從vSphere Client *主頁*頁面、選取*主機與叢集*。
+. 以滑鼠右鍵按一下所需的資料中心、然後選取功能表：NetApp VSC[更新主機與儲存資料]。
++
+VSC會顯示「確認」對話方塊、通知您此作業可能需要很長時間。
+
+. 按一下「*確定*」。
+. 選取狀態為「'Authentication Failure'（驗證失敗）」的探索儲存控制器、然後按一下功能表：actions[Modify]（動作[修改]）。
+. 在「*修改儲存系統*」對話方塊中填寫必要資訊。
+. 針對所有狀態為「驗證失敗」的儲存控制器、重複步驟4和5。
+
+
+探索程序完成後、請執行下列步驟：
+
+* 使用VSC為在*介面卡設定*欄、* MPIO設定*欄或* NFS設定*欄中顯示警示圖示的主機設定ESXi主機設定。
+* 提供儲存系統認證資料。
+

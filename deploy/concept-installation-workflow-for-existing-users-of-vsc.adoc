@@ -1,0 +1,61 @@
+---
+permalink: deploy/concept-installation-workflow-for-existing-users-of-vsc.html 
+sidebar: sidebar 
+keywords: deployment, workflow, existing, users, vsc, vasa, provider, sra, 
+summary: VSC、VASA Provider及SRA的9.7版虛擬應用裝置支援直接升級至最新版本。 
+---
+= VSC、VASA Provider和SRA現有使用者的部署工作流程
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+VSC、VASA Provider及SRA的9.7版虛擬應用裝置支援直接升級至最新版本。
+
+VSC、VASA Provider和SRA等個別應用程式的早期版本使用不同的升級程序。如果您的設定中已安裝VSC或VASA Provider或SRA、則應執行下列作業：
+
+. 部署VSC、VASA Provider及SRA的最新版虛擬應用裝置。
+. 移轉任何現有的組態資料。
++
+組態資料包括儲存系統認證、以及「kaminoprefs.xml」和「vscpreferences.xml」檔案中的偏好設定。
+
+
+
+link:reference-configure-the-vsc-preferences-files.html["設定VSC喜好設定檔案"^]
+
+在許多情況下、您可能不需要移轉組態資料。不過、如果您先前已自訂偏好設定檔案、您可能會想要檢閱這些檔案、並對新部署的虛擬應用裝置進行類似變更。您可以執行下列其中一項：
+
+* 使用 https://mysupport.netapp.com/tools/index.html["適用於SnapCenter VMware及Virtual Storage Console的匯入公用程式"^] 將儲存系統認證資料從VSC 6.X和SRA 4.X移轉至新部署。
+* 將儲存系統新增至新部署的虛擬應用裝置、並在新增時指定認證資料。
+
+
+如果您要從VASA Provider 6.X升級、則應在升級之前先取消登錄VASA Provider。如需詳細資料、請參閱目前版本的文件。
+
+如果您也要從SRA 4.0或更早版本升級：
+
+* 如果您使用的是SRA 4.0P1、則必須先升級至SRA9.6、然後才能執行SRA 9.6就地升級至最新版本。
++
+link:task-upgrade-to-the-9-7-1-virtual-appliance-for-vsc-vasa-provider-and-sra.html["升級至VSC、VASA Provider及SRA的9.7.1虛擬應用裝置"^]
+
+* 如果您使用的是SRA 2.1或3.0、請先記下現有的站台組態詳細資料。
++
+_《儲存複寫介面卡4.0 ONTAP for ESUR__安裝與設定指南》中有「升級總覽」一節的詳細說明。這些SRA版本也使用VASA Provider、因此您必須取消登錄VASA Provider、然後部署VSC、VASA Provider和SRA的最新版虛擬應用裝置。升級完成後、可移除舊版伺服器（`.ova'）。
+
+
+
+對於任何SRA升級、SRA軟體（Site Recovery Manager伺服器上的介面卡、由「.msi」檔案安裝）應從Site Recovery Manager伺服器移除。您可以使用Windows系統控制面板來解除安裝軟體、然後使用「. msi」檔案在SRA伺服器上安裝最新的SRA軟體。
+
+如果您有VASA Provider部署、則在從現有設定升級後、您必須使用「Edit Settings」（編輯設定）選項、將虛擬應用裝置的記憶體大小設定為12GB。您也必須修改虛擬記憶體保留。必須關閉虛擬機器、才能修改記憶體大小。
+
+VSC、VASA Provider及SRA的虛擬應用裝置不支援從9.7版之前的任何版本直接升級至9.7P2或更新版本。您應該先將現有的設定升級至VSC、VASA Provider及SRA的9.7版虛擬應用裝置、再升級至任何更新版本。
+
+如果您要部署最新版本的虛擬應用裝置、您必須查看「需求：部署VSC、VASA Provider及SRA的虛擬應用裝置」主題。 「升級至VSC、VASA Provider及SRA的9.6版虛擬應用裝置」主題包含執行就地升級的相關資訊。
+
+*相關資訊*
+
+https://mysupport.netapp.com/tools/info/ECMLP2840096I.html?productID=62135&pcfContentID=ECMLP2840096["NetApp ToolChest：NetApp Import Utility for SnapCenter the VMware和Virtual Storage Console"^]
+
+link:concept-requirements-for-deploying-the-virtual-appliance-for-vsc-vasa-provider-and-sra.html["部署VSC、VASA Provider及SRA虛擬應用裝置的需求"^]
+
+link:task-upgrade-to-the-9-7-1-virtual-appliance-for-vsc-vasa-provider-and-sra.html["升級至VSC、VASA Provider及SRA的9.7.1虛擬應用裝置"^]

@@ -1,0 +1,31 @@
+---
+permalink: manage/reference-edit-vm-storage-policies-after-upgrade-throws-error-message.html 
+sidebar: sidebar 
+keywords: vasa, provider, issue, while, editing, VM, Storage, policies, after, upgrade, 
+summary: 從虛擬儲存主控台（VSC）、VASA Provider及儲存複寫介面卡（SRA）的7.0版虛擬應用裝置升級至VSC、VASA Provider的最新版虛擬應用裝置之後、 和SRA、如果您在設定任何新的儲存功能設定檔之前、嘗試編輯現有的VM儲存原則、可能會顯示下列錯誤訊息：下列值不正確或遺失。 
+---
+= 升級後編輯VM儲存原則時出現問題
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+從虛擬儲存主控台（VSC）、VASA Provider及儲存複寫介面卡（SRA）的7.0版虛擬應用裝置升級至VSC、VASA Provider的最新版虛擬應用裝置之後、 和SRA、如果您在設定任何新的儲存功能設定檔之前、嘗試編輯現有的VM儲存原則、可能會顯示下列錯誤訊息：「There are incorrect or missing values below（下方有不正確或遺失的值）」。
+
+
+
+== 原因
+
+如果您尚未建立任何新的儲存功能設定檔、可能會收到此錯誤。
+
+
+
+== 修正行動
+
+您必須執行下列步驟：
+
+. 停止編輯VM儲存原則。
+. 建立新的儲存功能設定檔。
+. 修改所需的VM儲存原則。
+

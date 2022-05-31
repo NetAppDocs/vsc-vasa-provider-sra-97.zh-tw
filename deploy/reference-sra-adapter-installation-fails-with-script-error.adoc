@@ -1,0 +1,40 @@
+---
+permalink: deploy/reference-sra-adapter-installation-fails-with-script-error.html 
+sidebar: sidebar 
+keywords: storage, replication, adapter, installation, fails, with, script, error, 
+summary: SRA安裝失敗、並出現指令碼錯誤 
+---
+= SRA安裝失敗、並出現指令碼錯誤
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+
+
+== 問題
+
+Windows 2008 R2上的儲存複寫介面卡（SRA）安裝失敗、並出現無效認證錯誤。
+
+
+
+== 原因
+
+此錯誤可能是因為VSC、VASA Provider、SRA和Windows 2008 R2的虛擬應用裝置上啟用了不同版本的傳輸層安全性（TLS）。
+
+
+
+== 修正行動
+
+如果您嘗試在Windows 2008 R2上安裝SRA、則必須使用維護主控台的下列步驟、為VSC、VASA Provider及SRA的虛擬應用裝置啟用TLSv1.0：
+
+. 使用「maint」使用者認證登入維護主控台。
+. 從主功能表中、選取*應用程式組態*功能表的* 1*。
+. 在「*應用程式組態*」功能表中輸入「* 13 *」、從「*應用程式組態*」功能表中選取「*啟用TLS傳輸協定*」。
+. 在TLS傳輸協定清單中選取* TLSv1*。
++
+VSC和VASA Provider服務會重新啟動、並啟用TLSv1.0。
+
+
+
+您也可以在Windows 2008 R2上啟用TLSv1.2。

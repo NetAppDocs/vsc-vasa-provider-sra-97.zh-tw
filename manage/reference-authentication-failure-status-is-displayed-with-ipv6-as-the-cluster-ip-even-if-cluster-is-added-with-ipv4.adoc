@@ -1,0 +1,38 @@
+---
+permalink: manage/reference-authentication-failure-status-is-displayed-with-ipv6-as-the-cluster-ip-even-if-cluster-is-added-with-ipv4.html 
+sidebar: sidebar 
+keywords: authentication, failure, for,, storage system, troubleshooting, error, 
+summary: 使用IPV4新增儲存系統會導致儲存系統網格中的IPv6狀態發生驗證錯誤 
+---
+= 使用IPV4新增儲存系統會導致儲存系統網格中的IPv6狀態發生驗證錯誤
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+
+
+== 問題
+
+儲存系統網格會顯示儲存系統的驗證失敗狀態及IPv6位址、即使儲存系統是以IPv4位址新增。
+
+
+
+== 原因
+
+如果您的雙堆疊儲存系統具有IPV4和IPV6 LIF、並新增具有IPV4 LIF的儲存系統、則VSC也能在週期性探索程序中探索IPv6 LIF。由於未明確新增IPv6 LIF、因此IPv6探索失敗並出現驗證錯誤。此錯誤不會對儲存系統執行的任何作業造成任何影響。
+
+
+
+== 修正行動
+
+您必須執行下列步驟：
+
+. 在VSC主頁中、按一下*儲存系統*。
+. 按一下狀態不明且具有IPv6位址的儲存系統。
+. 使用設定的預設認證將IP位址變更為IPV4。
+. 按一下*返回清單*、然後按一下*重新探索全部*。
++
+系統會刪除儲存系統清單中的過時IPv6項目、並在未發生驗證錯誤的情況下探索儲存系統。
+
+

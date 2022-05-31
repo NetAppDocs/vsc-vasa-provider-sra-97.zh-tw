@@ -1,0 +1,14 @@
+---
+permalink: manage/concept-configure-storage-capability-profiles.html 
+sidebar: sidebar 
+keywords: creating, storage, capability, profiles, provider 
+summary: Vasa Provider for ONTAP 支援功能、可讓您建立儲存功能設定檔、並將其對應至儲存設備。這有助於維持整個儲存設備的一致性。您也可以使用VASA Provider來檢查儲存設備與儲存功能設定檔之間的法規遵循情況。 
+---
+= 建立儲存功能設定檔
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Vasa Provider for ONTAP 支援功能、可讓您建立儲存功能設定檔、並將其對應至儲存設備。這有助於維持整個儲存設備的一致性。您也可以使用VASA Provider來檢查儲存設備與儲存功能設定檔之間的法規遵循情況。

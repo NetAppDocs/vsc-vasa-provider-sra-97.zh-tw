@@ -1,0 +1,34 @@
+---
+permalink: deploy/task-enable-vasa-provider-for-configuring-virtual-datastores.html 
+sidebar: sidebar 
+keywords: enabling, vasa, provider, for, configuring, virtual, datastores, 
+summary: 虛擬儲存主控台（VSC）、VASA Provider及儲存複寫介面卡（SRA）的虛擬應用裝置預設會啟用VASA Provider功能。您可以使用每個vVols資料存放區所需的儲存功能設定檔來設定VMware虛擬磁碟區（vVols）資料存放區。 
+---
+= 啟用VASA Provider以設定虛擬資料存放區
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+虛擬儲存主控台（VSC）、VASA Provider及儲存複寫介面卡（SRA）的虛擬應用裝置預設會啟用VASA Provider功能。您可以使用每個vVols資料存放區所需的儲存功能設定檔來設定VMware虛擬磁碟區（vVols）資料存放區。
+
+.開始之前
+* 您必須設定vCenter Server執行個體並設定ESXi。
+* 您必須已為VSC、VASA Provider及SRA部署虛擬應用裝置。
+
+
+如果VASA Provider功能在升級至虛擬儲存主控台（VSC）、VASA Provider及儲存複寫介面卡（SRA）的9.7.1版之前已停用、則VASA Provider功能在升級後仍會停用。此版本可讓您為vVols資料存放區啟用vVols複寫功能。
+
+.步驟
+. 登入VMware vSphere的網路使用者介面。
+. 在vSphere Client中、按一下功能表：功能表[虛擬儲存主控台]。
+. 按一下 * 設定 * 。
+. 按一下*管理設定*索引標籤中的*管理功能*。
+. 在「*管理功能*」對話方塊中、選取要啟用的VASA Provider副檔名。
+. 如果您要使用vVols資料存放區的複寫功能、請使用*啟用vVols複寫*切換按鈕。
+. 輸入VSC、VASA Provider和SRA的虛擬應用裝置IP位址和管理員密碼、然後按一下「*套用*」。
+
+
+如果您使用ONTAP 的是32個以上的叢集、則必須向VASA Provider註冊、以取得VVols資料存放區和SAN vVols VM和SAN vVols資料存放區報告中使用的虛擬機器的詳細資料。但如果您使用ONTAP 的是NetApp的版本版本、則不需要向VASA Provider註冊。

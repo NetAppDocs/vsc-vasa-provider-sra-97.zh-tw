@@ -1,0 +1,16 @@
+---
+permalink: release-notes.html 
+sidebar: sidebar 
+keywords: release notes, virtual storage console for vmware vsphere 
+summary: 說明適用於VMware vSphere的虛擬儲存主控台、VASA供應商及儲存複寫介面卡的新功能、限制及已知問題。 
+---
+= 版本資訊
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+說明適用於VMware vSphere的虛擬儲存主控台、VASA供應商及儲存複寫介面卡的新功能、限制及已知問題。
+
+如需詳細資訊、請參閱 https://library.netapp.com/ecm/ecm_download_file/ECMLP2873613["適用於VMware vSphere 9.7.1的虛擬儲存主控台版本資訊"^]。

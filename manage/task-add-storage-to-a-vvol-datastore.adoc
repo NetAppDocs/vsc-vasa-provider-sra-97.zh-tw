@@ -1,0 +1,81 @@
+---
+permalink: manage/task-add-storage-to-a-vvol-datastore.html 
+sidebar: sidebar 
+keywords: virtual, volume, datastores, adding, storage, to, a, vVols, datastore, 
+summary: 您可以使用「新增儲存設備」精靈、將FlexVol VMware虛擬磁碟區新增至現有的VMware虛擬磁碟區（vVols）資料存放區、藉此增加可用的儲存設備。 
+---
+= 將儲存設備新增至vVols資料存放區
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您可以使用*新增儲存設備*精靈、將FlexVol VMware虛擬磁碟區新增至現有的VMware虛擬磁碟區（vVols）資料存放區、以增加可用的儲存設備。
+
+當您新增FlexVol 一個解決方案時、也可以選擇變更與該Volume相關的儲存功能設定檔。您可以使用VASA Provider自動產生功能、為磁碟區建立新的設定檔、也可以將現有的其中一個設定檔指派給磁碟區。
+
+[NOTE]
+====
+* 在擴充具有複寫功能的vVols資料存放區時、您無法建立新FlexVol 的功能區、但只能從FlexVol 現有清單中選取預先設定的功能區。
+* 當複製部署在資料存放區上的受保護虛擬機器時、若vVols複寫作業因空間不足而失敗、則FlexVol 應增加該實體磁碟區的大小。
+* 當vVols資料存放區是在AFF 某個不實叢集上建立時、您就無法使用FlexVol 另一個自動產生儲存功能設定檔的不實磁碟區來擴充資料存放區。
++
+您可以使用FlexVol 預先建立儲存功能設定檔的「更新」磁碟區來擴充vVols資料存放區。
+
+
+
+====
+.步驟
+. 在vSphere Client * Home*頁面上、按一下*主機與叢集*。
+. 以滑鼠右鍵按一下vVols資料存放區、然後選取功能表：NetApp VSC[擴充vVol Datastore的儲存設備]。
+. 在「*擴充vVol Datastor*的儲存空間」頁面上、您可以將現有FlexVol 的Sof the vVols資料存放區加入到vVols資料存放區、或是建立新FlexVol 的Se Volume以新增至資料庫。
++
+[cols="1a,1a"]
+|===
+| 如果您選取... | 執行下列動作... 
+
+
+ a| 
+選取Volume
+ a| 
+.. 選取FlexVol 您要新增至vVols資料存放區的「功能區」。
+.. 在「*儲存功能設定檔*」欄中、使用下拉式清單來根據FlexVol 「介紹」建立新的設定檔、或是選取現有的設定檔之一。
++
+自動產生功能會根據與FlexVol 該等資料冊相關的儲存功能來建立設定檔。例如：磁碟類型、高可用度、災難恢復、效能功能及重複資料刪除。
+
+
+
+
+
+ a| 
+建立新磁碟區
+ a| 
+.. 輸入FlexVol 名稱、大小及儲存功能設定檔以供填寫。
++
+系統會根據所選的儲存功能設定檔來選取集合體。
+
+.. 選取*自動擴充*選項、並提供最大大小。
+.. 按一下* add *、將FlexVol 此功能新增至磁碟區清單。
+
+
+|===
++
+* Reminder *：FlexVol vVols資料存放區中的所有SVM磁碟區都必須來自相同的儲存虛擬機器（SVM、先前稱為vserver）。
+
++
+建立FlexVol 完Sfevolume之後、您可以按一下*「Modify*（修改*）」按鈕進行編輯。您也可以刪除它。
+
+. 選取要在虛擬機器建立期間使用的預設儲存功能設定檔、然後按「*下一步*」檢閱新增至vVols資料存放區的儲存設備摘要。
+. 單擊*完成*。
++
+精靈會將您指定的儲存設備新增至vVols資料存放區。它會在完成時顯示成功訊息。
+
++
+[NOTE]
+====
+「虛擬資料存放區的*擴充儲存設備*」精靈會自動處理任何ESXi儲存資源重新掃描或任何其他必要的重大作業。由於vVols資料存放區是由VASA Provider控制的邏輯實體、因此新增FlexVol 此功能是您唯一需要做的事、以擴大儲存容器的容量。
+
+====
+

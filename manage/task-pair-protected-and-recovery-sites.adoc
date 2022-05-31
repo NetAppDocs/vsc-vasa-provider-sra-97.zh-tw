@@ -1,0 +1,42 @@
+---
+permalink: manage/task-pair-protected-and-recovery-sites.html 
+sidebar: sidebar 
+keywords: pairing, protected, recovery, sites, 
+summary: 您必須配對使用vSphere Client建立的受保護和恢復站台、才能啟用儲存複寫介面卡（SRA）來探索儲存系統。 
+---
+= 配對受保護和恢復站台
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您必須配對使用vSphere Client建立的受保護和恢復站台、才能啟用儲存複寫介面卡（SRA）來探索儲存系統。
+
+.開始之前
+* 您必須在受保護和恢復站台上安裝Site Recovery Manager（SRM）。
+* 您必須在受保護和恢復站台上安裝SRA。
+
+
+SnapMirror連出組態是指將來源磁碟區複寫到兩個不同目的地的組態。當SRM需要從目的地恢復虛擬機器時、這些問題會在恢復期間造成問題。
+
+[NOTE]
+====
+儲存複寫介面卡（SRA）不支援連出SnapMirror組態。
+
+====
+.步驟
+. 按兩下vSphere Client首頁上的*站台恢復*、然後按一下*站台*。
+. 按一下功能表：物件[動作>配對站台]。
+. 在「*配對站台恢復管理員伺服器*」對話方塊中、輸入受保護站台平台服務控制器的位址、然後按一下「*下一步*」。
+. 在*選取vCenter Server*區段中、執行下列動作：
++
+.. 確認受保護站台的vCenter Server顯示為配對的相符候選對象。
+.. 輸入SSO管理認證資料、然後按一下「*完成*」。
+
+
+. 如果出現提示、請按一下*是*以接受安全性憑證。
+
+
+受保護和還原站台都會顯示在「物件」對話方塊中。

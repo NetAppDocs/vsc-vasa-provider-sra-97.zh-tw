@@ -1,0 +1,136 @@
+---
+section: manage
+title: 管理
+entries:
+- title: 設定VSC、VASA Provider及SRA虛擬應用裝置的工作流程
+  url: "/manage/concept-workflow-for-configuring-the-unified-appliance.html"
+- title: 設定VSC、VASA Provider和SRA的儲存系統
+  url: "/manage/concept-configure-storage-systems-for-vsc-vasa-provider-and-sra.html"
+  entries:
+  - title: 將儲存系統新增至VSC
+    url: "/manage/task-add-storage-systems.html"
+  - title: 設定儲存系統的預設認證資料
+    url: "/manage/task-set-default-credentials-for-storage-systems.html"
+  - title: 設定警示臨界值
+    url: "/manage/task-configure-alarm-thresholds.html"
+- title: 建立儲存功能設定檔
+  url: "/manage/concept-configure-storage-capability-profiles.html"
+  entries:
+  - title: 什麼是儲存功能
+    url: "/manage/concept-what-storage-capabilities-are.html"
+  - title: 建立及編輯儲存功能設定檔的考量事項
+    url: "/manage/concept-considerations-for-creating-and-editing-storage-capability-profiles.html"
+  - title: 設定儲存功能設定檔
+    url: "/manage/task-create-storage-capability-profiles.html"
+- title: 設定傳統的資料存放區和虛擬機器
+  url: "/manage/concept-configure-traditional-datastores.html"
+  entries:
+  - title: 配置資料存放區
+    url: "/manage/task-provision-datastores.html"
+  - title: 將資料存放區對應至儲存功能設定檔
+    url: "/manage/task-map-storage-to-storage-capability-profiles.html"
+  - title: 自動產生儲存功能設定檔
+    url: "/manage/task-automatically-generate-scps.html"
+  - title: 驗證資料存放區是否符合對應的儲存功能設定檔
+    url: "/manage/task-check-for-datastore-compliance-with-the-mapped-storage-capability-profile.html"
+  - title: 使用傳統儀表板監控資料存放區和虛擬機器
+    url: "/manage/task-monitor-datastores-using-the-traditional-dashboard.html"
+  - title: 編輯VSC、VASA Provider和SRA的ESXi主機設定
+    url: "/manage/task-edit-esxi-host-settings.html"
+- title: 設定vVols資料存放區
+  url: "/manage/concept-configure-vvols-datastores.html"
+  entries:
+  - title: 設定vVols資料存放區的複寫
+    url: "/manage/concept-configure-replication-for-vvols-datastore.html"
+  - title: 配置vVols資料存放區
+    url: "/manage/task-provision-vvol-datastores.html"
+  - title: 使用vVol儀表板監控vVols資料存放區和虛擬機器
+    url: "/manage/task-monitor-vvols-datastores-and-virtual-machines-using-vvols-dashboard.html"
+    entries:
+    - title: VVOL儀表板資料需求
+      url: "/manage/reference-verify-vvol-dashboard-data-requirements.html"
+- title: 使用Site Recovery Manager管理災難恢復設定
+  url: "/manage/concept-manage-disaster-recovery-setup-using-srm.html"
+  entries:
+  - title: 設定VM儲存原則
+    url: "/manage/task-configure-vm-storage-policies.html"
+  - title: 設定保護群組
+    url: "/manage/task-configure-protection-groups.html"
+  - title: 配對受保護和恢復站台
+    url: "/manage/task-pair-protected-and-recovery-sites.html"
+  - title: 設定受保護和恢復站台資源
+    url: "/manage/concept-configure-protected-and-recovery-site-resources.html"
+    entries:
+    - title: 設定網路對應
+      url: "/manage/task-configure-network-mappings.html"
+    - title: 設定資料夾對應
+      url: "/manage/task-configure-folder-mappings.html"
+    - title: 設定資源對應
+      url: "/manage/task-configure-resource-mappings.html"
+    - title: 對應儲存原則
+      url: "/manage/task-map-storage-policies.html"
+    - title: 設定預留位置資料存放區
+      url: "/manage/task-configure-placeholder-datastores.html"
+    - title: 使用Array Manager設定SRA
+      url: "/manage/task-configure-array-manager.html"
+  - title: 驗證複寫的儲存系統
+    url: "/manage/task-verify-the-replicated-storage-environment.html"
+  - title: 保護未受保護的虛擬機器
+    url: "/manage/task-protect-non-protected-virtual-machines.html"
+- title: 管理傳統和vVols資料存放區
+  url: "/manage/concept-manage-datastore.html"
+  entries:
+  - title: 在其他主機上掛載資料存放區
+    url: "/manage/task-mount-datastores-on-host.html"
+  - title: 調整資料存放區大小
+    url: "/manage/task-resize-datastores.html"
+  - title: 編輯vVols資料存放區
+    url: "/manage/task-edit-a-vvol-datastore.html"
+  - title: AD儲存設備至vVols資料存放區
+    url: "/manage/task-add-storage-to-a-vvol-datastore.html"
+  - title: 從vVols資料存放區移除儲存設備
+    url: "/manage/task-remove-storage-from-a-vvols-datastore.html"
+  - title: 掛載vVols資料存放區
+    url: "/manage/task-mount-a-vvol-datastore.html"
+  - title: 移轉或複製虛擬機器的考量
+    url: "/manage/reference-considerations-for-migrating-virtual-machines.html"
+  - title: 將傳統虛擬機器移轉至vVols資料存放區
+    url: "/manage/task-migrate-standard-virtual-machines-to-vvol-datastores.html"
+  - title: 移轉具有舊版儲存功能設定檔的虛擬機器
+    url: "/manage/task-migrate-existing-virtual-machines-to-7-1-virtual-appliance.html"
+- title: 瞭解虛擬儲存主控台報告
+  url: "/manage/concept-virtual-storage-console-reports.html"
+  entries:
+  - title: 報告的功能
+    url: "/manage/concept-what-reports-do.html"
+  - title: 資料存放區報告
+    url: "/manage/concept-datastore-reports.html"
+  - title: vVols報告
+    url: "/manage/concept-what-vasa-provider-reports-do.html"
+- title: 疑難排解VSC、VASA Provider及SRA的虛擬應用裝置問題
+  url: "/manage/concept-troubleshoot-issues-with-the-virtual-appliance-for-vsc-vasa-provider-and-sra-test.html"
+  entries:
+  - title: 收集記錄檔
+    url: "/manage/task-collect-the-log-files.html"
+  - title: VVOL資料存放區資源配置在大量磁碟區時失敗
+    url: "/manage/reference-vvol-datastore-provision-fails-with-large-number-of-volumes.html"
+  - title: 升級後編輯VM儲存原則時出現問題
+    url: "/manage/reference-edit-vm-storage-policies-after-upgrade-throws-error-message.html"
+  - title: VASA Provider狀態在vCenter Server GUI中顯示為「離線」
+    url: "/manage/reference-vasa-provider-storage-provider-status-show-offline-in-vcenter-gui.html"
+  - title: 存取虛擬應用裝置的VSC摘要頁面時發生錯誤
+    url: "/manage/reference-error-while-accessing-the-vsc-summary-page-of-virtual-appliance.html"
+  - title: 變更網路設定後刪除資料存放區時發生錯誤
+    url: "/manage/reference-error-deleting-a-datastore-after-network-settings-are-changed.html"
+  - title: 虛擬機器資源配置失敗、並出現未定義的錯誤
+    url: "/manage/reference-vm-provision-fails-with-undefined-error.html"
+  - title: 大量的VVols配置無法用於ONTAP 供應功能不完整的功能
+    url: "/manage/reference-thick-provision-fails-for-vvol-datastores-on-ontap-9-4.html"
+  - title: 當Volume狀態變更為離線時、無法存取資料存放區
+    url: "/manage/reference-datastore-inaccessible-when-volume-status-is-changed-to-offline.html"
+  - title: 使用IPV4新增儲存系統會導致儲存系統網格中的IPv6狀態發生驗證錯誤
+    url: "/manage/reference-authentication-failure-status-is-displayed-with-ipv6-as-the-cluster-ip-even-if-cluster-is-added-with-ipv4.html"
+  - title: 在VVOL資料存放區上配置虛擬機器時發生檔案建立錯誤
+    url: "/manage/reference-file-creation-error-while-virtual-machine-provisioning-on-vvol-datastore-issue-we-are-unable-to-create-virtual-machine-using-the-default-vs0-svm-caus.html"
+  - title: SRM中的SRA報告錯誤狀態「容錯移轉進行中」
+    url: "/manage/reference-failover-in-progress-status-is-reported-inappropriately-for-sra.html"

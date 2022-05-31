@@ -1,0 +1,30 @@
+---
+permalink: manage/task-verify-the-replicated-storage-environment.html 
+sidebar: sidebar 
+keywords: verifying, replicated, storage, systems, 
+summary: 您必須在設定儲存複寫介面卡（SRA）之後、確認受保護的站台和還原站台已成功配對。受保護的站台和恢復站台都必須可搜尋複寫的儲存系統。 
+---
+= 驗證複寫的儲存系統
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您必須在設定儲存複寫介面卡（SRA）之後、確認受保護的站台和還原站台已成功配對。受保護的站台和恢復站台都必須可搜尋複寫的儲存系統。
+
+.開始之前
+* 您必須已設定儲存系統。
+* 您必須使用SRM Array Manager配對受保護的站台和恢復站台。
+* 您必須先啟用FlexClone授權和SnapMirror授權、才能執行SRA的測試容錯移轉作業和容錯移轉作業。
+
+
+.步驟
+. 登入vCenter Server。
+. 瀏覽至功能表：Site Recovery（站台恢復）[Array Based Replication（陣列型複寫）]。
+. 選取所需的SVM、然後驗證* Array Pair*中的對應詳細資料。
++
+儲存系統必須在受保護的站台和恢復站台上探索、狀態必須為「已啟用」。
+
+

@@ -1,0 +1,35 @@
+---
+permalink: manage/task-configure-placeholder-datastores.html 
+sidebar: sidebar 
+keywords: configuring, placeholder, datastores, 
+summary: 您必須設定預留位置資料存放區、以便將受保護虛擬機器（VM）的位置保留在vCenter資源清冊中。預留位置資料存放區不需要太大、因為預留位置的VM很小、而且只使用數百或更少的KB。 
+---
+= 設定預留位置資料存放區
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您必須設定預留位置資料存放區、以便將受保護虛擬機器（VM）的位置保留在vCenter資源清冊中。預留位置資料存放區不需要太大、因為預留位置的VM很小、而且只使用數百或更少的KB。
+
+.開始之前
+* 您必須連線到受保護和恢復站台。
+* 您必須已設定資源對應。
+
+
+.步驟
+. 登入vCenter Server、然後按一下功能表：Site Recovery[站台]。
+. 選取您的受保護網站、然後按一下*管理*。
+. 在「Manage（管理）」索引標籤中、選取*佔位資料存放區*。
+. 按一下 image:../media/new-placeholder-datastore.gif[""] 圖示以建立新的預留位置資料存放區。
+. 選取適當的資料存放區、然後按一下「*確定*」。
++
+[NOTE]
+====
+預留位置資料存放區可以是本機或遠端、不應複寫。
+
+====
+. 重複步驟3到5、為恢復站台設定預留位置資料存放區。
+

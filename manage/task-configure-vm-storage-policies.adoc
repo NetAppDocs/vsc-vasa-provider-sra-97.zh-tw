@@ -1,0 +1,36 @@
+---
+permalink: manage/task-configure-vm-storage-policies.html 
+sidebar: sidebar 
+keywords: configuring, vm, storage, policies, 
+summary: 您應該設定VM儲存原則、以管理在vVols資料存放區上設定的虛擬機器、並啟用虛擬磁碟複寫等服務。對於傳統的資料存放區、您可以選用這些VM儲存原則。 
+---
+= 設定VM儲存原則
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您應該設定VM儲存原則、以管理在vVols資料存放區上設定的虛擬機器、並啟用虛擬磁碟複寫等服務。對於傳統的資料存放區、您可以選用這些VM儲存原則。
+
+vSphere Web用戶端提供預設的儲存原則。但您可以建立原則並將其指派給虛擬機器。
+
+.步驟
+. 在vSphere Client頁面上、按一下功能表：功能表[原則與設定檔]。
+. 按一下功能表：VM儲存原則[建立VM儲存原則]。
+. 在Create VM Storage Policy（建立VM儲存原則）頁面中、提供下列詳細資料：
++
+.. 輸入VM儲存原則的名稱和說明。
+.. 選取*「NetApp叢集式Data ONTAP.VP.VVOL」儲存設備的啟用規則*。
+.. 在* Placement（放置）*標籤中選取所需的儲存功能設定檔。
+.. 選取*自訂*選項以啟用複寫。
+.. 按一下*新增規則*以選取*非同步*複寫及必要* SnapMirror排程*、然後按一下*下一步*。
+.. 驗證列出的相容資料存放區、然後按一下「*儲存設備相容性*」索引標籤中的「*下一步*」。
++
+若vVols資料存放區具有資料保護FlexVol 功能、則不會執行相容的資料存放區檢查。
+
+
+
+. 在* Review and finish*（查看並完成）選項卡中查看您的VM Storage Policy（VM儲存策略）選項，然後單擊* Finish（*完成）*。
+

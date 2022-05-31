@@ -1,0 +1,30 @@
+---
+permalink: manage/concept-configure-replication-for-vvols-datastore.html 
+sidebar: sidebar 
+keywords: configuring, replication, for, vvols, datastore, 
+summary: 您可以使用VSC、VASA Provider和SRA的虛擬應用裝置、為VVols資料存放區設定複寫。vVols複寫的主要目標是使用VMware Site Recovery Manager（SRM）、在災難恢復期間保護重要的虛擬機器。 
+---
+= 設定vVols資料存放區的複寫
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您可以使用VSC、VASA Provider和SRA的虛擬應用裝置、為VVols資料存放區設定複寫。vVols複寫的主要目標是使用VMware Site Recovery Manager（SRM）、在災難恢復期間保護重要的虛擬機器。
+
+不過、若要為VSC、VASA Provider和SRA的虛擬應用裝置設定vVols複寫、則必須啟用VASA Provider功能和vVols複寫。VASA Provider預設會在VSC、VASA Provider及SRA的虛擬應用裝置中啟用。以陣列為基礎的複寫是FlexVol 在整個過程中執行。每個vVols資料存放區都會對應至一個儲存容器、其中包含一個或多FlexVol 個VMware Volume。應使用來自NetApp的SnapMirror預先設定此等資料冊。FlexVol ONTAP
+
+[NOTE]
+====
+您不應該在單一VVols資料存放區中、混合設定受保護和未受保護的虛擬機器。容錯移轉後重新保護作業將會刪除未受保護的虛擬機器。使用複寫時、請確保vVols資料存放區中的所有虛擬機器都受到保護。
+
+====
+複寫群組是在vVols資料存放區期間建立、為每FlexVol 個版本建立工作流程。若要使用vVols複寫、您必須建立VM儲存原則、其中包括複寫狀態和排程、以及儲存功能設定檔。複寫群組包含虛擬機器、這些虛擬機器會在災難恢復時複寫到目標站台。您可以使用SRM主控台、為DR工作流程設定具有保護群組和恢復計畫的複寫群組。
+
+[NOTE]
+====
+如果您使用vVols資料存放區的災難恢復、則不需要個別設定儲存複寫介面卡（SRA）、因為VASA Provider功能已增強、可進行vVols複寫。
+
+====
+image::../media/vvols-replication.png[vvols複寫]

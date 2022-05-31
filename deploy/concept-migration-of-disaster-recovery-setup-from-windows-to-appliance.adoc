@@ -1,0 +1,26 @@
+---
+permalink: deploy/concept-migration-of-disaster-recovery-setup-from-windows-to-appliance.html 
+sidebar: sidebar 
+keywords: migration, windows, SRM, appliance, 
+summary: 如果您使用Windows型Site Recovery Manager（SRM）進行災難恢復、且想要使用SRM設備進行相同的設定、則應將Windows災難恢復設定移轉至以應用裝置為基礎的SRM。 
+---
+= 將Windows SRM移轉至SRM設備
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+如果您使用Windows型Site Recovery Manager（SRM）進行災難恢復、且想要使用SRM設備進行相同的設定、則應將Windows災難恢復設定移轉至以應用裝置為基礎的SRM。
+
+移轉災難恢復所需的步驟如下：
+
+. 將VSC、VASA Provider和SRA現有的虛擬應用裝置升級至9.7.1版。
++
+link:task-upgrade-to-the-9-7-1-virtual-appliance-for-vsc-vasa-provider-and-sra.html["升級至VSC、VASA Provider及SRA的9.7.1虛擬應用裝置"^]
+
+. 將Windows型儲存複寫介面卡移轉至以應用裝置為基礎的SRA。
+. 將Windows SRM資料移轉至SRM Appliance。
+
+
+https://docs.vmware.com/en/Site-Recovery-Manager/8.2/com.vmware.srm.install_config.doc/GUID-F39A84D3-2E3D-4018-97DD-5D7F7E041B43.html["按一下這裡"^] 以取得詳細步驟。

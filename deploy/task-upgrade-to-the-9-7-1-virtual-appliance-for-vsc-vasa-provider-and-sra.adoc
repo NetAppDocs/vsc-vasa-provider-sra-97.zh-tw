@@ -1,0 +1,73 @@
+---
+permalink: deploy/task-upgrade-to-the-9-7-1-virtual-appliance-for-vsc-vasa-provider-and-sra.html 
+sidebar: sidebar 
+keywords: virtual, storage, console, storage, replication, adapter, upgrading, to, the, 9.7.1, virtual, appliance, for, vsc, vasa, provider, sra, 
+summary: 您可以依照此處提供的指示、直接升級至VSC、VASA Provider及SRA的9.7.1版虛擬應用裝置。 
+---
+= 升級至VSC、VASA Provider及SRA的9.7.1虛擬應用裝置
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您可以依照此處提供的指示、直接升級至VSC、VASA Provider及SRA的9.7.1版虛擬應用裝置。
+
+.開始之前
+* 您必須為VSC、VASA Provider及SRA的9.7.1版虛擬應用裝置下載「.ISO」檔案。
+* 您必須為VSC、VASA Provider和SRA保留至少12 GB的RAM、才能在升級後以最佳方式運作。
+* 您必須清除vSphere Client瀏覽器快取。
++
+xref:task-clean-the-vsphere-cached-downloaded-plug-in-packages.adoc[清除vSphere快取下載的外掛程式套件]
+
+
+
+升級後、會保留現有部署中VASA Provider的狀態。您應該根據升級後的需求、手動啟用或停用VASA Provider。不過、即使VMware虛擬磁碟區（vVols）未在使用中、還是最好啟用VASA Provider、因為它能為傳統的資料存放區資源配置和儲存警示啟用儲存功能設定檔。
+
+[NOTE]
+====
+VSC、VASA Provider及SRA的虛擬應用裝置不支援從9.7版之前的任何版本直接升級至9.7P2或更新版本。您應該先將現有的設定升級至VSC、VASA Provider及SRA的9.7版虛擬應用裝置、再升級至任何更新版本。當您升級至VSC、VASA Provider和SRA的9.7.1版虛擬應用裝置、並想要使用vVols複寫時、您需要再安裝一個vCenter Server、其中的虛擬應用裝置已安裝Site Recovery Manager（SRM）。
+
+====
+.步驟
+. 將下載的「.ISO」檔案掛載到虛擬應用裝置：
++
+.. 按一下功能表：編輯設定[DVD/ CD-ROM磁碟機]。
+.. 從下拉式清單中選取*資料存放區ISO*檔案。
+.. 瀏覽並選取下載的「.ISO」檔案、然後選取「*在開機時連線*」核取方塊。
+
+
+. 存取已部署虛擬應用裝置的* Summary（摘要）*索引標籤。
+. 按一下*image:../media/launch-maintenance-console.gif[""]*啟動維護主控台。
+. 在「主功能表」提示下、輸入選項「2」作為*系統組態*、然後輸入選項「8」作為*升級*。
++
+升級完成後、虛擬應用裝置會重新啟動。VSC、VASA Provider和SRA的虛擬應用裝置會以與升級前相同的IP位址登錄至vCenter Server。
+
+. 如果您想要將VSC、VASA Provider和SRA的虛擬應用裝置以IPv6位址註冊至vCenter Server、則必須執行下列步驟：
++
+.. 取消登錄VSC、VASA Provider和SRA的虛擬應用裝置。
+.. 使用「*登錄*」頁面、將VSC、VASA Provider及SRA的虛擬應用裝置IPv6位址登錄至vCenter Server。
+.. 登錄後重新產生VSC和VASA Provider憑證。
+
+
++
+[NOTE]
+====
+僅vCenter Server 6.7及更新版本才支援IPv6。
+
+====
+. 登出並重新登入vSphere Client、即可檢視已部署的VSC、VASA Provider及SRA虛擬應用裝置。
++
+.. 從現有的vSphere Web用戶端或vSphere Client登出、然後關閉視窗。
+.. 登入vSphere Client。
++
+在vSphere Client中更新外掛程式可能需要幾分鐘的時間。
+
+
+
+
+
+*相關資訊*
+
+xref:task-enable-vasa-provider-for-configuring-virtual-datastores.adoc[啟用VASA Provider以設定虛擬資料存放區]

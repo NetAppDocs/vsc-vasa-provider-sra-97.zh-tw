@@ -1,0 +1,29 @@
+---
+permalink: manage/reference-vvol-datastore-provision-fails-with-large-number-of-volumes.html 
+sidebar: sidebar 
+keywords: VVol, datastore, provisioning, fails, with, large, number, of, volumes, 
+summary: VVOL資料存放區資源配置在大量磁碟區時失敗 
+---
+= VVOL資料存放區資源配置在大量磁碟區時失敗
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+
+
+== 問題
+
+VVOL資料存放區資源配置在您嘗試以六個以上的磁碟區來配置VVOL資料存放區時失敗。
+
+
+
+== 原因
+
+VVOL資料存放區資源配置因為VSC與VASA Provider之間的通訊端逾時而失敗。
+
+
+
+== 修正行動
+
+您應該使用* Expand VVOL Datastori*選項建立VVOL資料存放區、但數量少於六個磁碟區、或是在資源配置後增加VVOL資料存放區大小。

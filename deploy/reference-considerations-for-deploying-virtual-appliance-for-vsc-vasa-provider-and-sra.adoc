@@ -1,0 +1,113 @@
+---
+permalink: deploy/reference-considerations-for-deploying-virtual-appliance-for-vsc-vasa-provider-and-sra.html 
+sidebar: sidebar 
+keywords: considerations, requirements, deploying, virtual, appliance, vsc, vasa, provider, sra, 
+summary: 在部署虛擬儲存主控台（VSC）、VASA Provider及儲存複寫介面卡（SRA）的虛擬應用裝置之前、最好先規劃部署、然後決定您要如何在環境中設定VSC、VASA Provider及SRA。 
+---
+= 部署VSC、VASA Provider及SRA虛擬應用裝置的考量與要求
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+在部署虛擬儲存主控台（VSC）、VASA Provider及儲存複寫介面卡（SRA）的虛擬應用裝置之前、最好先規劃部署、然後決定您要如何在環境中設定VSC、VASA Provider及SRA。
+
+下表概述在部署VSC、VASA Provider及SRA的虛擬應用裝置之前應考慮的事項。
+
+[cols="1a,1a"]
+|===
+| 考量 | 說明 
+
+
+ a| 
+首次部署VSC、VASA Provider及SRA的虛擬應用裝置
+ a| 
+部署VSC、VASA Provider及SRA的虛擬應用裝置會自動安裝VSC功能。 link:concept-deploy-or-upgrade-ontap-tools.html["部署或升級VSC、VASA Provider及SRA"^]
+
+link:concept-installation-workflow-for-new-users.html["VSC、VASA Provider及SRA虛擬應用裝置的新使用者部署工作流程"^]
+
+
+
+ a| 
+從現有的VSC部署升級
+ a| 
+從現有VSC部署到VSC、VASA Provider及SRA虛擬應用裝置的升級程序、取決於VSC版本、以及您是否已部署VSC、VASA Provider及SRA。部署工作流程與升級區段有更多資訊。 link:concept-installation-workflow-for-existing-users-of-vsc.html["VSC、VASA Provider和SRA現有使用者的部署工作流程"^]
+
+升級前的最佳實務做法：
+
+* 您應該記錄正在使用的儲存系統及其認證資訊。
++
+升級之後、您應該確認所有的儲存系統都已自動探索、而且擁有正確的認證資料。
+
+* 如果您修改了任何標準VSC角色、則應複製這些角色以儲存變更。
++
+VSC會在每次重新啟動VSC服務時、以目前的預設值覆寫標準角色。
+
+
+
+
+
+ a| 
+重新產生VSC的SSL憑證
+ a| 
+當您部署VSC、VASA Provider及SRA的虛擬應用裝置時、會自動產生SSL憑證。您可能必須重新產生SSL憑證、才能建立站台專屬的憑證。 link:task-regenerate-an-ssl-certificate-for-vsc.html["重新產生的SSL憑證"^]
+
+
+
+ a| 
+設定ESXi伺服器值
+ a| 
+雖然ESXi伺服器的大部分值都是預設設定、但最好還是檢查這些值。這些值是以內部測試為基礎。視您的環境而定、您可能必須變更部分值、才能提升效能。
+
+* link:task-configure-esx-server-multipathing-and-timeout-settings.html["設定ESXi伺服器多重路徑和逾時設定"^]
+* link:reference-esx-host-values-set-by-vsc-for-vmware-vsphere.html["使用VMware vSphere虛擬儲存主控台設定的ESXi主機值"^]
+
+
+
+
+ a| 
+客體作業系統逾時值
+ a| 
+客體作業系統（客體作業系統）逾時指令碼會針對支援的Linux、Solaris和Windows客體作業系統、設定SCSI I/O逾時值、以提供正確的容錯移轉行為。
+
+|===
+下表概述設定VSC、VASA Provider及SRA虛擬應用裝置所需的條件。
+
+[cols="1a,1a"]
+|===
+| 考量 | 說明 
+
+
+ a| 
+角色型存取控制（RBAC）需求
+ a| 
+VSC同時支援vCenter Server RBAC和ONTAP RBAC。用來將VSC登錄至vCenter Server的帳戶（使用「https」：//<applie_ip>:8143/Register.html）必須是vCenter Server管理員（指派給vCenter Server管理員或管理員角色）。如果您打算以系統管理員身分執行VSC、則必須擁有所有必要的權限和權限才能執行所有工作。
+
+如果貴公司要求您限制vSphere物件的存取、您可以建立標準VSC角色並指派給使用者、以符合vCenter Server的需求。
+
+您可以ONTAP 使用VSC、VASA Provider和SRA虛擬應用裝置隨附的Json檔案、使用ONTAP 《Sfor the System Manager》來建立建議的功能。
+
+如果使用者嘗試在沒有正確權限和權限的情況下執行工作、工作選項會呈現灰色。
+
+* link:concept-standard-roles-packaged-with-virtual-appliance-for-vsc-vp-and-sra.html["虛擬應用裝置隨附的標準角色、適用於VSC、VASA Provider及SRA"^]
+* link:concept-recommended-ontap-roles-when-using-vsc-for-vmware-vsphere.html["使用VSC for VMware vSphere時的推薦ONTAP 功能"^]
+
+
+
+
+ a| 
+版本ONTAP
+ a| 
+您的儲存系統必須執行ONTAP 的是S29、9.3、9.5、9.6或9.7。
+
+
+
+ a| 
+儲存功能設定檔
+ a| 
+若要使用儲存功能設定檔或設定警示、您必須啟用VASA Provider for ONTAP啟用VASA Provider之後、您可以設定VMware虛擬Volume（vVols）資料存放區、也可以建立及管理儲存功能設定檔和警示。
+
+當磁碟區或Aggregate幾乎已滿容量、或資料存放區不再符合相關的儲存功能設定檔時、警示會發出警示。
+
+|===

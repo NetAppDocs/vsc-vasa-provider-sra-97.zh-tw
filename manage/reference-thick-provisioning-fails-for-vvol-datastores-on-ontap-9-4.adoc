@@ -1,0 +1,42 @@
+---
+permalink: manage/reference-thick-provision-fails-for-vvol-datastores-on-ontap-9-4.html 
+sidebar: sidebar 
+keywords: thick, provisioning, of, VVols, fails, for, ONTAP, 9.4, storage, systems, 
+summary: 如果VVOL資料存放區在FlexVol 一個V9.4儲存系統上未包含完整配置的功能區、則虛擬磁碟區（VVols）的完整資源配置會失敗ONTAP 。 
+---
+= 大量的VVols配置無法用於ONTAP 供應功能不完整的功能
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+如果VVOL資料存放區在FlexVol 一個V9.4儲存系統上未包含完整配置的功能區、則虛擬磁碟區（VVols）的完整資源配置會失敗ONTAP 。
+
+
+
+== 問題
+
+在配置VVOL時、您可能會收到下列錯誤訊息：
+
+[listing]
+----
+com.netapp.vasa.vvol.exceptions.OutOfResourceException: Unable to find a location
+for a vvol of size 4,096 in storage container vvol_nfs_new - Checked 1 places.
+Specific reasons were vvol_nfs_new | Final Score: 0 | 100 -> 0 : FlexVol of
+vvol_nfs_new does not support required storage profile, details [FlexVolume with
+name vvol_nfs_new is not thick provisioned]
+----
+
+
+== 原因
+
+如果FlexVol VVOL上沒有任何完整配置的功能區、就會發生此錯誤。
+
+
+
+== 解決方案
+
+. 新增FlexVol 支援VVOL的完整資源配置功能的全新支援功能。
+. 使用FlexVol 《不實的磁碟區」建立新的虛擬機器。
+

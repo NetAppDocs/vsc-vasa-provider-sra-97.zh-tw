@@ -1,0 +1,34 @@
+---
+permalink: manage/task-add-storage-systems.html 
+sidebar: sidebar 
+keywords: adding, storage, systems, to, vsc, 
+summary: 您可以手動將儲存系統新增至虛擬儲存主控台（VSC）。 
+---
+= 將儲存系統新增至VSC
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您可以手動將儲存系統新增至虛擬儲存主控台（VSC）。
+
+每次啟動虛擬儲存主控台（VSC）或選取*重新探索All（全部）*選項時、VSC都會自動探索可用的儲存系統。
+
+.步驟
+. 使用VSC首頁將儲存系統新增至VSC：
++
+** 按一下功能表：儲存系統[Add]。
+** 按一下功能表：「Overview（總覽）」[入門]、然後按一下「* Add Storage System*（*新增儲存系統*）」下的「* add *（新增*）
+
+
+. 在「*新增儲存系統*」對話方塊中、輸入該儲存系統的管理IP位址和認證。
++
+您也可以使用叢集或SVM的IPv6位址來新增儲存系統。您也可以在此對話方塊中變更TLS和連接埠號碼的預設值。
+
++
+從VSC * Storage System*頁面新增儲存設備時、您也必須指定儲存設備所在的vCenter Server執行個體。「*新增儲存系統*」對話方塊提供可用vCenter Server執行個體的下拉式清單。如果您要將儲存設備新增至已與vCenter Server執行個體相關聯的資料中心、VSC不會顯示此選項。
+
+. 新增所有必要資訊後、請按一下「*確定*」。
+

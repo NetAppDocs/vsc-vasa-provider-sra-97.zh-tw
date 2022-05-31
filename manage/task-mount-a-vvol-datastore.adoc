@@ -1,0 +1,30 @@
+---
+permalink: manage/task-mount-a-vvol-datastore.html 
+sidebar: sidebar 
+keywords: Mount, vVol, datastore, 
+summary: 您可以使用「掛載vVol Datastore」（掛載vVol Datastore）對話方塊、將VMware虛擬磁碟區（vVols）資料存放區掛載到一或多個其他主機。裝載資料存放區可讓儲存設備存取其他主機。 
+---
+= 掛載vVols資料存放區
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您可以使用「掛載vVol Datastore」（掛載vVol Datastore）對話方塊、將VMware虛擬磁碟區（vVols）資料存放區掛載到一或多個其他主機。裝載資料存放區可讓儲存設備存取其他主機。
+
+.步驟
+. 在vSphere Client *主頁*中、按一下*主機與叢集*。
+. 以滑鼠右鍵按一下您要掛載的資料存放區、然後選取功能表：NetApp VSC[Mount VVol Datastor]。
++
+隨即顯示* Mount vVol Datastor*（*掛載vVol Datastor*）對話方塊、其中提供資料中心內可掛載資料存放區的主機清單。此清單不包括已掛載資料存放區的主機、執行ESX 5.x或更早版本的主機、或不支援資料存放區傳輸協定的主機。例如、如果主機不支援FC傳輸協定、則無法將FC資料存放區掛載到主機。
+
++
+[NOTE]
+====
+即使vSphere Client提供vCenter Server的掛載對話方塊、您仍必須使用VASA Provider對話方塊進行此作業。VASA Provider設定存取執行ONTAP 不整軟體的儲存系統。
+
+====
+. 選取要掛載資料存放區的主機、然後按一下*確定*。
+

@@ -1,0 +1,62 @@
+---
+permalink: manage/task-edit-esxi-host-settings.html 
+sidebar: sidebar 
+keywords: editing, esxi, host, settings, for, vsc, vasa, provider, and, sra, 
+summary: 您可以使用虛擬應用裝置的儀表板來編輯ESXi主機設定、適用於虛擬儲存主控台（VSC）、VASA Provider和儲存複寫介面卡（SRA）。 
+---
+= 編輯VSC、VASA Provider和SRA的ESXi主機設定
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您可以使用虛擬應用裝置的儀表板來編輯ESXi主機設定、適用於虛擬儲存主控台（VSC）、VASA Provider和儲存複寫介面卡（SRA）。
+
+您必須為vCenter Server執行個體設定ESXi主機系統。
+
+如果ESXi主機設定發生問題、則此問題會顯示在儀表板的ESXi主機系統入口小程式中。您可以按一下問題來檢視發生問題的ESXi主機名稱或IP位址。
+
+.步驟
+. 在vSphere Client *主頁*中、按一下*虛擬儲存主控台*。
+. 編輯ESXi主機設定。
++
+[cols="1a,1a"]
+|===
+| 如果您要編輯ESXi主機設定、請從... | 執行此動作... 
+
+
+ a| 
+顯示的問題
+ a| 
+.. 在ESXi主機系統入口小程式中按一下問題。
+.. 按一下您要修改其設定的ESXi主機名稱。
+.. 在ESXi主機名稱上按一下滑鼠右鍵、然後按一下功能表：NetApp VSC[設定建議值]。
+.. 修改所需的設定、然後按一下「*確定*」。
+
+
+
+
+ a| 
+vSphere Client首頁
+ a| 
+.. 按一下功能表：功能表[主機與叢集]。
+.. 以滑鼠右鍵按一下所需的ESXi主機、然後選取功能表：NetApp VSC[設定建議值]。
+.. 按一下「*確定*」。
+
+
+
+
+ a| 
+ESXi主機系統入口小程式
+ a| 
+.. 按一下VSC「總覽」區段中的*傳統儀表板*索引標籤。
+.. 按一下*編輯ESXi主機設定*。
+.. 在「Host settings and Status（主機設定與狀態）」索引標籤中選取您要修改其設定的ESXi主機名稱、然後按一下「* NEXT *（*下一步*）」。
+.. 在建議的主機設定索引標籤中選取所需的設定、然後按一下*下一步*。
+.. 在Summary（摘要）選項卡中查看您的選擇，然後單擊* finish（*完成*）。
+
+
+|===
+

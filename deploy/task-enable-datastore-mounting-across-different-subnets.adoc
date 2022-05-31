@@ -1,0 +1,61 @@
+---
+permalink: deploy/task-enable-datastore-mounting-across-different-subnets.html 
+sidebar: sidebar 
+keywords: enabling, datastore, mounting, across, different, subnets, 
+summary: 如果您使用iSCSI或NFS、且ESXi主機與儲存系統之間的子網路不同、則必須修改VMware vSphere喜好設定檔案的虛擬儲存主控台。如果您未修改喜好設定檔、則資料存放區資源配置會失敗、因為（VSC）無法掛載資料存放區。 
+---
+= 在不同的子網路上啟用資料存放區裝載
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+如果您使用iSCSI或NFS、且ESXi主機與儲存系統之間的子網路不同、則必須修改VMware vSphere喜好設定檔案的虛擬儲存主控台。如果您未修改喜好設定檔、則資料存放區資源配置會失敗、因為（VSC）無法掛載資料存放區。
+
+當資料存放區資源配置失敗時、VSC會記錄下列錯誤訊息：
+
+「無法繼續。當控制器上的核心IP位址與位址相互參照時、找不到IP位址
+
+「找不到與這些主機的NFS掛載磁碟區相符的網路。 」
+
+.步驟
+. 登入vCenter Server執行個體。
+. 使用統一化應用裝置虛擬機器啟動維護主控台。
++
+link:task-access-virtual-appliance-maiintenance-console-options.html["存取VSC、VASA Provider和SRA虛擬應用裝置的維護主控台選項"]
+
+. 輸入「4」以存取*支援與診斷*選項。
+. 輸入「2」以存取*存取診斷Shell*選項。
+. 輸入「vi /opt/NetApp/vscserver/etc/kamino/kaminoprefs.xml」以更新「kaminoprefs.xml」檔案。
+. 更新「kaminoprefs.xml」檔案。
++
+[cols="1a,1a"]
+|===
+| 如果您使用... | 執行此動作... 
+
+
+ a| 
+iSCSI
+ a| 
+將輸入金鑰「efault.allow.iscsi.mount.networks`從all」的值變更為ESXi主機網路的值。
+
+
+
+ a| 
+NFS
+ a| 
+將輸入金鑰「efault.allow.nfs.mount.networks`從all」的值變更為ESXi主機網路的值。
+
+|===
++
+喜好設定檔包含這些項目金鑰的範例值。
+
++
+[NOTE]
+====
+「all」值並不代表所有網路。「all」值可讓主機與儲存系統之間的所有相符網路用於掛載資料存放區。指定主機網路時、您只能在指定的子網路上啟用掛載。
+
+====
+. 儲存並關閉「kaminoprefs.xml」檔案。
+

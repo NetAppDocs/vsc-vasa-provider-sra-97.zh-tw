@@ -1,0 +1,47 @@
+---
+permalink: deploy/task-register-oncommand-api-services-with-the-virtual-appliance-for-vsc-vasa-provider-and-sra.html 
+sidebar: sidebar 
+keywords: virtual, volume, datastores, registering, virtual, appliance, vsc, vasa, provider, sra, 
+summary: 如果您使用ONTAP 的是VMware Virtual Volumes（vVols）資料存放區和虛擬機器的資料、則vVol儀表板只有在您已註冊VASA Provider以取得vVols VM和資料存放區報告的資料時、才能顯示這些資料。 
+---
+= 向VSC、VASA Provider和SRA的虛擬應用裝置註冊
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+如果您使用ONTAP 的是VMware Virtual Volumes（vVols）資料存放區和虛擬機器的資料、則vVol儀表板只有在您已註冊VASA Provider以取得vVols VM和資料存放區報告的資料時、才能顯示這些資料。
+
+您必須從下載2.1或更新版本。
+
+[NOTE]
+====
+VVol儀表板只有在SAN vVols資料存放區和虛擬機器使用ONTAP VMware 9.3或更新版本進行設定時、才會顯示效能指標。
+
+====
+.步驟
+. 在Virtual Storage Console（VSC）* Home*頁面中、按一下* Settings*。
+. 按一下*管理設定*索引標籤中的*管理擴充功能*。
+. 使用「*登錄OnCommand Suse API服務*」滑桿來啟用。
+. 輸入的IP位址、服務連接埠和認證。
++
+您也可以使用*管理VASA Provider Extensions*對話方塊進行下列修改：
+
++
+** 可在認證資料有任何變更時更新註冊。
+** 可在不再需要vVol儀表板時取消登錄。
++
+您必須清除* Register OnCommand Sfor API Services*核取方塊、才能移除VASA Provider的登錄。
+
+
+
+. 按一下「 * 套用 * 」。
++
+VVol儀表板ONTAP 只會在登錄完成之後、才會顯示適用於Eash9.6或更早版本SAN VVol資料存放區的度量。
+
+
+
+*相關資訊*
+
+https://mysupport.netapp.com/site/["NetApp支援"^]

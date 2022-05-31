@@ -1,0 +1,41 @@
+---
+permalink: manage/task-configure-alarm-thresholds.html 
+sidebar: sidebar 
+keywords: configuring, alarm, thresholds, 
+summary: 您可以使用VSC設定警示、在Volume臨界值和Aggregate臨界值達到設定限制時通知您。 
+---
+= 設定警示臨界值
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您可以使用VSC設定警示、在Volume臨界值和Aggregate臨界值達到設定限制時通知您。
+
+.步驟
+. 在Virtual Storage Console * Home*頁面中、按一下*設定*。
+. 按一下「*統一化設備設定*」。
+. 指定「*接近完整臨界值（%）*」欄位的百分比值、以及「Volume alarm臨界值」和「Aggregate alarm臨界值」的*完整臨界值（%）*欄位。
++
+設定值時、您必須謹記下列資訊：
+
++
+** 按一下*重設*會將臨界值重設為先前的值。
++
+按一下「*重設*」並不會將「幾乎已滿」的臨界值重設為預設值80%、「完整」的臨界值則會重設為90%。
+
+** 設定值有兩種方法：
++
+*** 您可以使用值旁的向上和向下箭頭來調整臨界值。
+*** 您可以將航跡列上的箭頭滑到值下方、以調整臨界值。
+
+
+** 您可以為磁碟區和集合體*完整臨界值（%）*欄位設定的最低值為6%。
+
+
+. 指定所需的值後、按一下*套用*。
++
+您必須同時按一下*套用*以顯示Volume警示和Aggregate警示。
+
+

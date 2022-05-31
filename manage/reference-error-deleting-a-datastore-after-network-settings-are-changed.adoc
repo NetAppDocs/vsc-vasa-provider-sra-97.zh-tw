@@ -1,0 +1,47 @@
+---
+permalink: manage/reference-error-deleting-a-datastore-after-network-settings-are-changed.html 
+sidebar: sidebar 
+keywords: delete, datastore,troubleshooting errors 
+summary: 變更網路設定後刪除資料存放區時發生錯誤 
+---
+= 變更網路設定後刪除資料存放區時發生錯誤
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+
+
+== 問題
+
+變更VSC、VASA Provider和SRA的虛擬應用裝置IP位址之後、使用VSC介面執行特定作業時、會顯示錯誤。例如、刪除資料存放區或嘗試存取ESXi主機上的VASA Provider伺服器。
+
+
+
+== 原因
+
+vCenter Server不會使用更新的IP位址、並繼續使用舊的IP位址來撥打電話給VASA Provider。
+
+
+
+== 修正行動
+
+當VSC、VASA Provider和SRA的虛擬應用裝置IP位址變更時、您應該執行下列步驟：
+
+. 從vCenter Server取消登錄VSC。
+. 請存取https://<vcenter_ip>/mob`。
+. 按一下功能表：內容[擴充管理程式>取消註冊擴充功能>取消註冊所有com.netapp.extensions]。
+. 使用puty以root身分登入vCenter Server。
+. 使用「CD /etc/VMware/vSphere-client/vC-packages/vSphere-client-revity」變更至vSphere-client-revity目錄。
+. 停止vSphere Client：使用「vSphere-Client Stop」的服務。
+. 移除包含UI副檔名的目錄：「rm -rf com.netapp*`」
+. 使用「vSphere-Client start」啟動vSphere Client：服務。
++
+此作業可能需要數分鐘時間、vSphere Client才能正確重新啟動及初始化。
+
+. 使用：「/etc/VMware/vSphere-ui/vC-packages/vSphere-client-cronity/'、變更至vSphere-UI cronity目錄。
+. 停止vSphere UI：使用「vSphere-UI Stop」的服務。
+. 移除包含UI副檔名的目錄：「rm -rf com.netapp*`」
+. 使用「服務控制-啟動vSphere-UI」來啟動vSphere UI。
+

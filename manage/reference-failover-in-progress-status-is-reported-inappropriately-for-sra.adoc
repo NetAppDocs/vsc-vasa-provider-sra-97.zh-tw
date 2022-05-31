@@ -1,0 +1,29 @@
+---
+permalink: manage/reference-failover-in-progress-status-is-reported-inappropriately-for-sra.html 
+sidebar: sidebar 
+keywords: incorrect, status, failover, in, Progress, is, reported, for, SRA, in, SRM, 
+summary: SRM中的SRA報告錯誤狀態「容錯移轉進行中」 
+---
+= SRM中的SRA報告錯誤狀態「容錯移轉進行中」
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+
+
+== 問題
+
+VMware Site Recovery Manager（SRM）會針對新的Snapzh人選 裝置、將裝置狀態顯示為「In Progress（進行中）」。
+
+
+
+== 原因
+
+發生此問題的原因、是在「/opt /netapp/vssserver/conf/devices.txt'檔案中、有一個項目的裝置名稱與新建立的裝置名稱相同。
+
+
+
+== 修正行動
+
+您應該從位於「/opt/NetApp/vpserver/conf/devices.txt」的站台（站台A和站台B）手動刪除與新建立的裝置相符的項目、然後重新執行「探索」裝置。探索完成後、裝置會顯示正確的狀態。

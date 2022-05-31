@@ -1,0 +1,59 @@
+---
+permalink: manage/reference-considerations-for-migrating-virtual-machines.html 
+sidebar: sidebar 
+keywords: considerations, for, migrating, or, cloning, virtual, machines, 
+summary: 移轉資料中心內現有的虛擬機器時、您應該注意一些考量事項。 
+---
+= 移轉或複製虛擬機器的考量
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+移轉資料中心內現有的虛擬機器時、您應該注意一些考量事項。
+
+
+
+== 移轉受保護的虛擬機器
+
+您可以將受保護的虛擬機器移轉至：
+
+* 在不同的ESXi主機中使用相同的vVols資料存放區
+* 在同一ESXi主機上有不同的相容vVols資料存放區
+* 不同ESXi主機中的不同相容vVols資料存放區
+
+
+如果虛擬機器移轉至不同FlexVol 的支援區、則個別的中繼資料檔案也會隨虛擬機器資訊一併更新。如果虛擬機器移轉至不同的ESXi主機、但儲存空間相同、則不會FlexVol 修改基礎的VMware Volume中繼檔案。
+
+
+
+== 複製受保護的虛擬機器
+
+您可以將受保護的虛擬機器複製到下列項目：
+
+* 使用複寫群組的同一個FlexVol 相同的Container
++
+相同FlexVol 的實體磁碟區中繼資料檔案會以複製的虛擬機器詳細資料進行更新。
+
+* 使用複寫群組的FlexVol 不同Sof Volume的相同容器
++
+將複製的虛擬機器放置在其中的實體磁碟區、會以複製的虛擬機器詳細資料來更新中繼資料檔案。FlexVol
+
+* 不同的Container或vVols資料存放區
++
+將複製的虛擬機器放置在這個實體磁碟區、中繼資料檔案會更新虛擬機器詳細資料。FlexVol
+
+
+
+VMware目前不支援複製到VM範本的虛擬機器。
+
+支援受保護虛擬機器的複製複本。
+
+
+
+== 虛擬機器快照
+
+目前僅支援不含記憶體的虛擬機器快照。如果虛擬機器具有快照與記憶體、則不會將虛擬機器視為保護。
+
+您也無法保護具有記憶體Snapshot的未受保護虛擬機器。在此版本中、您應該先刪除記憶體快照、再啟用虛擬機器保護。

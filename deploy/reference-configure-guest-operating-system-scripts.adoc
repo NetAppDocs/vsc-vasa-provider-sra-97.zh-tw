@@ -1,0 +1,49 @@
+---
+permalink: deploy/reference-configure-guest-operating-system-scripts.html 
+sidebar: sidebar 
+keywords: guest, operating, system, configuring, scripts, 
+summary: 客體作業系統（OS）指令碼的ISO映像會掛載到VMware vSphere伺服器的虛擬儲存主控台。若要使用客體作業系統指令碼來設定虛擬機器的儲存逾時、您必須從vSphere Client掛載指令碼。 
+---
+= 設定客體作業系統指令碼
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+客體作業系統（OS）指令碼的ISO映像會掛載到VMware vSphere伺服器的虛擬儲存主控台。若要使用客體作業系統指令碼來設定虛擬機器的儲存逾時、您必須從vSphere Client掛載指令碼。
+
+[cols="1a,1a,1a"]
+|===
+| 作業系統類型 | 60秒逾時設定 | 190秒逾時設定 
+
+
+ a| 
+Linux
+ a| 
+「https」：//<applet_ip>:8143/Vsc/public/可 寫入/linux_gos_timeout-install.iso'
+ a| 
+「https」：//<applet_ip>:8143/Vsc/public/可 寫入/linux_gos_timeout_190-install.iso'
+
+
+
+ a| 
+Windows
+ a| 
+「https」：//<apply_ip>:8143/Vsc/public/可 寫入/windows_go_timeout.iso'
+ a| 
+「https」：//<applet_ip>:8143/Vsc/public/可 寫入/windows_go_timeout_190.iso'
+
+
+
+ a| 
+Solaris
+ a| 
+「https」：//<applet_ip>:8143/Vsc/public/可 寫入/solaris Gos_timeout-install.iso'
+ a| 
+「https」：//<applet_ip>:8143/Vsc/public/可 寫入/solaris Gos_timeout_190-install.iso'
+
+|===
+您應該從登錄到管理虛擬機器的vCenter Server的VSC執行個體複本安裝指令碼。如果您的環境包含多個vCenter Server、則應選取包含您要設定其儲存逾時值之虛擬機器的伺服器。
+
+您應該登入虛擬機器、然後執行指令碼來設定儲存逾時值。

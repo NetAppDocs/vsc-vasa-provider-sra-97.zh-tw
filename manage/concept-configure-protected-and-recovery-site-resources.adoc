@@ -1,0 +1,22 @@
+---
+permalink: manage/concept-configure-protected-and-recovery-site-resources.html 
+sidebar: sidebar 
+keywords: configuring, protected, and, recovery, site, resources, 
+summary: 您必須在兩個站台上設定VM網路、ESXi主機和資料夾等資源對應、才能將每個資源從受保護站台對應到恢復站台上的適當資源。 
+---
+= 設定受保護和恢復站台資源
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您必須在兩個站台上設定VM網路、ESXi主機和資料夾等資源對應、才能將每個資源從受保護站台對應到恢復站台上的適當資源。
+
+您必須完成下列資源組態：
+
+* 網路對應
+* 資料夾對應
+* 資源對應
+* 預留位置資料存放區
+

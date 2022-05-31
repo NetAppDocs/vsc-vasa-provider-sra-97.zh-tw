@@ -1,0 +1,30 @@
+---
+permalink: deploy/task-run-the-gos-timeout-scripts-for-solaris.html 
+sidebar: sidebar 
+keywords: setting, timeout, values, solaris, guest, operating, systems, 
+summary: 客體作業系統（OS）逾時指令碼可設定Solaris 10的SCSI I/O逾時設定。您可以指定60秒逾時或190秒逾時。 
+---
+= 設定Solaris客體作業系統的逾時值
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+客體作業系統（OS）逾時指令碼可設定Solaris 10的SCSI I/O逾時設定。您可以指定60秒逾時或190秒逾時。
+
+您必須已掛載包含Solaris指令碼的ISO映像。
+
+.步驟
+. 存取Solaris虛擬機器的主控台、然後以root權限登入帳戶。
+. 執行「Poolaris_GOL_timeout-install.sh」指令碼。
++
+對於Solaris 10、會顯示類似下列內容的訊息：
+
++
+[listing]
+----
+Setting I/O Timeout for /dev/s–a - SUCCESS!
+----
+. 卸載ISO映像。
+

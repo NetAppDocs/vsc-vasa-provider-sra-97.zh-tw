@@ -1,0 +1,41 @@
+---
+permalink: deploy/concept-supported-storage-system-and-applications.html 
+sidebar: sidebar 
+keywords: supported, storage, system, licensing, applications, virtual, appliance, vsc, vasa, provider, sra, 
+summary: 在開始部署虛擬儲存主控台（VSC）、VASA供應商及儲存複寫介面卡（SRA）的虛擬應用裝置之前、您應該瞭解基本的儲存系統需求、應用程式需求及授權需求。 
+---
+= VSC、VASA Provider及SRA虛擬應用裝置支援的儲存系統、授權及應用程式
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+在開始部署虛擬儲存主控台（VSC）、VASA供應商及儲存複寫介面卡（SRA）的虛擬應用裝置之前、您應該瞭解基本的儲存系統需求、應用程式需求及授權需求。
+
+（VMware）包含有關支援版本的最新資訊、包括支援版本的VMware、vCenter Server、ESXi主機、外掛應用程式和Site Recovery Manager（SRM）IMT ONTAP 。
+
+* https://imt.netapp.com/matrix/imt.jsp?components=97563;&solution=56&isHWU&src=IMT["互通性對照表工具：VSC 9.7.1"^]
+* https://imt.netapp.com/matrix/imt.jsp?components=97564;&solution=376&isHWU&src=IMT["互通性對照表工具：Vasa Provider 9.7.1"^]
+* https://imt.netapp.com/matrix/imt.jsp?components=97565;&solution=576&isHWU&src=IMT["互通性對照表工具：SRA 9.7.1"^]
+
+
+您必須啟用FlexClone授權、才能針對VMware虛擬Volume（vVols）資料存放區執行虛擬機器快照作業和複製作業。
+
+儲存複寫介面卡（SRA）需要下列授權：
+
+* SnapMirror授權
++
+您必須啟用SnapMirror授權、才能執行SRA的容錯移轉作業。
+
+* FlexClone授權
++
+您必須啟用FlexClone授權、才能執行SRA的測試容錯移轉作業。
+
+
+
+若要檢視資料存放區的IOPS、您必須啟用儲存I/O控制、或取消核取儲存I/O控制組態中的停用儲存I/O統計資料收集核取方塊。只有在擁有VMware的Enterprise Plus授權時、才能啟用儲存I/O控制。
+
+* https://kb.vmware.com/s/article/1022091["VMware知識庫文章1022091：儲存I/O控制疑難排解"^]
+* https://docs.vmware.com/en/VMware-vSphere/6.5/com.vmware.vsphere.resmgmt.doc/GUID-37CC0E44-7BC7-479C-81DC-FFFC21C1C4E3.html["VMware vSphere文件：儲存I/O控制需求"^]
+

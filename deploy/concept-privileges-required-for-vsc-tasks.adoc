@@ -1,0 +1,18 @@
+---
+permalink: deploy/concept-privileges-required-for-vsc-tasks.html 
+sidebar: sidebar 
+keywords: privileges, required, vsc, tasks, 
+summary: 不同的VMware vSphere虛擬儲存主控台工作需要不同的權限組合、這些權限分別是（VSC）和原生vCenter Server權限。 
+---
+= VSC工作所需的權限
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+不同的VMware vSphere虛擬儲存主控台工作需要不同的權限組合、這些權限分別是（VSC）和原生vCenter Server權限。
+
+如需VSC工作所需權限的相關資訊、請參閱NetApp知識庫文章1032542。
+
+https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Software/Virtual_Storage_Console_for_VMware_vSphere/How_to_configure_RBAC_for_Virtual_Storage_Console["如何為虛擬儲存主控台設定RBAC"^]

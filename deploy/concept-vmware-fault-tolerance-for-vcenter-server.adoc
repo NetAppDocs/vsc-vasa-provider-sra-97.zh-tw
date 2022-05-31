@@ -1,0 +1,26 @@
+---
+permalink: deploy/concept-vmware-fault-tolerance-for-vcenter-server.html 
+sidebar: sidebar 
+keywords: vsc, vmware, vsphere, fault, tolerance, 
+summary: VMware vSphere容錯（FT）功能提供更高層級的（HA）、可讓您保護虛擬機器、而不會遺失任何資料或連線。您必須從vCenter Server啟用或停用VSC、VASA Provider和SRA虛擬應用裝置的vSphere FT。 
+---
+= VMware vSphere容錯能力
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+VMware vSphere容錯（FT）功能提供更高層級的（HA）、可讓您保護虛擬機器、而不會遺失任何資料或連線。您必須從vCenter Server啟用或停用VSC、VASA Provider和SRA虛擬應用裝置的vSphere FT。
+
+確保vSphere授權支援FT、並提供環境中虛擬應用裝置所需的vCPU數量（至少2個vCPU；大型環境需4個vCPU）。
+
+vSphere FT可讓虛擬機器在伺服器故障期間持續運作。在虛擬機器上啟用vSphere FT時、會自動在其他由Distributed Resource Scheduler（DRS）選取的主機（次要虛擬機器）上建立主要虛擬機器的複本。如果未啟用DRS、則會從可用的主機中選取目標主機。vSphere FT會以鎖步模式操作主要虛擬機器和次要虛擬機器、每個虛擬機器都會將主要虛擬機器的執行狀態鏡射至次要虛擬機器。
+
+當發生硬體故障導致主要虛擬機器故障時、次要虛擬機器會立即接收主要虛擬機器停止的位置。次要虛擬機器會繼續執行、不會遺失任何網路連線、交易或資料。
+
+您的系統必須符合CPU需求、虛擬機器限制需求、以及設定vCenter Server執行個體vSphere FT的授權需求。
+
+設定HA的程序取決於vCenter Server的版本。例如、您可以使用下列參考連結並選取所需的vCenter Server版本、以檢視設定HA的步驟。
+
+https://docs.vmware.com/en/VMware-vSphere/6.5/com.vmware.vsphere.avail.doc/GUID-57929CF0-DA9B-407A-BF2E-E7B72708D825.html["VMware vSphere文件：容錯要求、限制及授權"^]

@@ -1,0 +1,29 @@
+---
+permalink: manage/task-migrate-existing-virtual-machines-to-7-1-virtual-appliance.html 
+sidebar: sidebar 
+keywords: migrating, virtual, machines, with, older, storage, capability, profiles, 
+summary: 如果您使用最新版本的虛擬應用裝置來執行虛擬儲存主控台（VSC）、VASA Provider和Storage Replication Adapter（SRA）、 接著您應該將以「MaxThroued Mbps」或「MaxThroued IOPS」QoS指標配置的虛擬機器移轉到新的VVOL資料存放區、這些資料存放區會以VSC、VASA Provider及SRA最新版本虛擬應用裝置的「最大IOPS」QoS指標來配置。 
+---
+= 移轉具有舊版儲存功能設定檔的虛擬機器
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+如果您使用最新版本的虛擬應用裝置來執行虛擬儲存主控台（VSC）、VASA Provider和Storage Replication Adapter（SRA）、 接著、您應該將使用「Maxthrop MBps」或「Maxthrop IOPS」QoS指標配置的虛擬機器移轉至新的VVOL資料存放區、這些資料存放區會以VSC、VASA Provider和SRA最新版本的「Max IOPS」QoS指標來配置。
+
+有了VSC、VASA Provider和SRA的最新版虛擬應用裝置、您就能為每個虛擬機器或虛擬機器磁碟（VMDK）設定QoS度量。QoS指標較早時已套用ONTAP FlexVol 到S161Volume層級、並由該FlexVol 個供應到該S161Volume上的所有虛擬機器或VMDK共享。
+
+從VSC、VASA Provider和SRA的7.2版虛擬應用裝置開始、一個虛擬機器的QoS指標不會與其他虛擬機器共用。
+
+[NOTE]
+====
+您不得修改現有的VM儲存原則、因為虛擬機器可能不相容。
+
+====
+.步驟
+. 使用具有所需「最大IOPS」值的新儲存功能設定檔來建立VVOL資料存放區。
+. 建立VM儲存原則、然後使用新的儲存功能設定檔來對應新的VM儲存原則。
+. 使用新的VM儲存原則、將現有虛擬機器移轉至新建立的VVOL資料存放區。
+

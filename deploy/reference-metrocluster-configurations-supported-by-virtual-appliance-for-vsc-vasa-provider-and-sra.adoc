@@ -1,0 +1,46 @@
+---
+permalink: deploy/reference-metrocluster-configurations-supported-by-virtual-appliance-for-vsc-vasa-provider-and-sra.html 
+sidebar: sidebar 
+keywords: metroCluster, configurations, supported, virtual, appliance, vsc, vasa, provider, sra, 
+summary: 適用於虛擬儲存主控台（VSC）、VASA供應商和儲存複寫介面卡（SRA）的虛擬應用裝置、可支援使用MetroCluster VMware IP和FC組態來ONTAP 進行VMware View的環境。大部分支援都是自動的。不過MetroCluster 、當您搭配VSC和VASA Provider使用時、可能會注意到一些差異。 
+---
+= VSC、VASA Provider和SRA虛擬應用裝置支援的支援範本組態MetroCluster
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+適用於虛擬儲存主控台（VSC）、VASA供應商和儲存複寫介面卡（SRA）的虛擬應用裝置、可支援使用MetroCluster VMware IP和FC組態來ONTAP 進行VMware View的環境。大部分支援都是自動的。不過MetroCluster 、當您搭配VSC和VASA Provider使用時、可能會注意到一些差異。
+
+
+
+== 包含各種組態和VSC MetroCluster
+
+您必須確保VSC在主要站台和次要站台上探索儲存系統控制器。通常、VSC會自動探索儲存控制器。如果您使用叢集管理LIF、則最好驗證VSC是否已在兩個站台上探索叢集。否則、您可以手動將儲存控制器新增至VSC。您也可以修改VSC用來連線至儲存控制器的使用者名稱和密碼配對。
+
+當發生切換時、次要站台上的會接管。這些名稱加上「`-MC」字尾。如果在執行資源配置等作業時發生切換作業、則資料存放區所在的名稱會變更為包含「-MC」字尾。當發生切換時、會捨棄此字尾、而主要站台上的會恢復控制權。
+
+[NOTE]
+====
+如果您在MetroCluster VSC中新增了直接搭配使用的組態、則切換後、SVM名稱（加上「-MC」字尾）的變更不會反映出來。所有其他切換作業仍會正常執行。
+
+====
+當發生切換或切換時、VSC可能需要幾分鐘時間來自動偵測及探索叢集。如果在執行VSC作業（例如資源存放區資源配置）時發生此情況、可能會發生延遲。
+
+
+
+== 提供者MetroCluster
+
+VASA Provider會自動支援使用MetroCluster 不完整組態的環境。在VASA Provider環境中、切換是透明的。您無法直接新增至VASA Provider。
+
+[NOTE]
+====
+VASA Provider在切換後、不會在次要站台的名稱後面加上「`-MC」字尾。
+
+====
+
+
+== 內部組態與SRA MetroCluster
+
+SRA不支援MetroCluster 不支援的不支援的組態。

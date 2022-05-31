@@ -1,0 +1,37 @@
+---
+permalink: manage/task-check-for-datastore-compliance-with-the-mapped-storage-capability-profile.html 
+sidebar: sidebar 
+keywords: verifying, datastore, compliance, with, the, mapped, storage, capability, profile, 
+summary: 您可以快速驗證資料存放區是否符合對應至資料存放區的儲存功能設定檔。 
+---
+= 驗證資料存放區是否符合對應的儲存功能設定檔
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您可以快速驗證資料存放區是否符合對應至資料存放區的儲存功能設定檔。
+
+.開始之前
+* 您必須已在VMware vSphere的虛擬儲存主控台（VSC）中註冊VASA Provider執行個體。
+* VSC必須已探索到您的儲存設備。
+
+
+.步驟
+. 在VSC *主頁*頁面中、按一下*儲存對應*。
+. 檢閱「*法規遵循狀態*」欄中的資訊、以識別不相容的資料存放區、並檢閱因不符合法規而發出的警示。
++
+[NOTE]
+====
+當您按一下「*法規遵循檢查*」按鈕時、VSC會針對所有儲存設備執行重新探索作業、這可能需要幾分鐘的時間。
+
+====
++
+如果資料存放區不再符合其設定檔、則「* Compliance Status *（*符合性狀態*）」欄會顯示警示、說明不符合規範的原因。例如、設定檔可能需要壓縮。如果儲存設備上的該設定已變更、則不會再使用壓縮、而且資料存放區不符合法規。
+
+
+
+當您發現不符合其設定檔的資料存放區時、可以修改磁碟區上的設定、以將資料存放區作為備份、使資料存放區相容、也可以將新設定檔指派給資料存放區。
+
+您可以從「*儲存功能設定檔*」頁面修改設定。
