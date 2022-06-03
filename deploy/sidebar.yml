@@ -133,7 +133,7 @@ entries:
   - title: 設定SAN環境的儲存複寫介面卡
     url: "/deploy/task-configure-storage-replication-adapter-for-san-environment.html"
   - title: 設定NAS環境的儲存複寫介面卡
-    url: "/deploy/reference-configure-storage-replication-adapter-for-nas-environment.html"
+    url: "/deploy/task-configure-storage-replication-adapter-for-nas-environment.html"
   - title: 設定儲存複寫介面卡、適用於高度擴充的環境
     url: "/deploy/reference-configure-storage-replication-adapter-for-highly-scaled-environment.html"
 - title: 疑難排解VSC、VASA Provider及SRA的虛擬應用裝置問題
