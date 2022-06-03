@@ -12,9 +12,9 @@ sidebar:
   - title: VSC、VASA Provider及SRA文件
     url: "/index.html"
   - title: 版本資訊
-    url: release-notes.html
+    url: "/release-notes.html"
   - title: 快速入門
-    url: qsg.html
+    url: "/qsg.html"
   - section: deploy
   - section: manage
   - title: 法律聲明
