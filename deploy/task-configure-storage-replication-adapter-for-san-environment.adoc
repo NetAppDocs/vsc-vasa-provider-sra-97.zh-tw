@@ -13,6 +13,7 @@ summary: 您必須先設定儲存系統、再執行Site Recovery Manager（SRM�
 [role="lead"]
 您必須先設定儲存系統、再執行Site Recovery Manager（SRM）的儲存複寫介面卡（SRA）。
 
+.開始之前
 您必須在受保護的站台和恢復站台上安裝下列程式：
 
 * SRM

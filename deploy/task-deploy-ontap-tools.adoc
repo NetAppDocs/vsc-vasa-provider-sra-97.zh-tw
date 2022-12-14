@@ -39,6 +39,7 @@ xref:task-clean-the-vsphere-cached-downloaded-plug-in-packages.adoc[清除vSpher
 
 
 
+.關於這項工作
 如果您要為VSC、VASA Provider及SRA部署全新的虛擬應用裝置安裝、則預設會啟用VASA Provider。但如果是從舊版虛擬應用裝置升級、VASA Provider的狀態將會保留、您可能需要手動啟用VASA Provider。
 
 link:task-enable-vasa-provider-for-configuring-virtual-datastores.html["啟用VASA Provider以設定虛擬資料存放區"]
@@ -90,6 +91,7 @@ URL
 ====
 
 
+.完成後
 ++++
 
 [NOTE]

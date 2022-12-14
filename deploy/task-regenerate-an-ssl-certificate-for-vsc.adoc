@@ -13,6 +13,7 @@ summary: SSL憑證會在您安裝（VSC）時產生。為SSL憑證產生的辨�
 [role="lead"]
 SSL憑證會在您安裝（VSC）時產生。為SSL憑證產生的辨別名稱（DN）可能不是用戶端機器識別的一般名稱（CN）。藉由變更Keystore和私密金鑰密碼、您可以重新產生憑證並建立站台專屬的憑證。
 
+.關於這項工作
 您可以使用維護主控台啟用遠端診斷、並產生站台專屬的憑證。
 
 https://kb.netapp.com/app/answers/answer_view/a_id/1075654["NetApp知識庫答案1075654：虛擬儲存主控台7.x：實作CA簽署的憑證"^]

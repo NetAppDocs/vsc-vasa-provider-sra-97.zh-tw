@@ -23,6 +23,7 @@ xref:task-clean-the-vsphere-cached-downloaded-plug-in-packages.adoc[清除vSpher
 
 
 
+.關於這項工作
 升級後、會保留現有部署中VASA Provider的狀態。您應該根據升級後的需求、手動啟用或停用VASA Provider。不過、即使VMware虛擬磁碟區（vVols）未在使用中、還是最好啟用VASA Provider、因為它能為傳統的資料存放區資源配置和儲存警示啟用儲存功能設定檔。
 
 [NOTE]

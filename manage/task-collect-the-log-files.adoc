@@ -14,6 +14,7 @@ summary: 您可以從VSC圖形使用者介面（GUI）中的選項收集VMware v
 [role="lead"]
 您可以從VSC圖形使用者介面（GUI）中的選項收集VMware vSphere的Virtual Storage Console記錄檔。技術支援可能會要求您收集記錄檔、以協助疑難排解問題。
 
+.關於這項工作
 如果您需要VASA Provider記錄檔、可以從*廠商供應商提供者控制台*畫面產生支援套件組合。此頁面是VASA Provider維護功能表的一部分、可從虛擬應用裝置的主控台存取。
 
 https://vm_ip:9083[]

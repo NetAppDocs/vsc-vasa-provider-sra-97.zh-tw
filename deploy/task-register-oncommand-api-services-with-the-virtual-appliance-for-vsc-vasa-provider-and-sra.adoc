@@ -13,6 +13,7 @@ summary: 如果您使用ONTAP 的是VMware Virtual Volumes（vVols）資料存�
 [role="lead"]
 如果您使用ONTAP 的是VMware Virtual Volumes（vVols）資料存放區和虛擬機器的資料、則vVol儀表板只有在您已註冊VASA Provider以取得vVols VM和資料存放區報告的資料時、才能顯示這些資料。
 
+.開始之前
 您必須從下載2.1或更新版本。
 
 [NOTE]

@@ -13,6 +13,7 @@ summary: 您可以設定VASA Provider使用SSH進行安全存取、方法是設�
 [role="lead"]
 您可以設定VASA Provider使用SSH進行安全存取、方法是設定虛擬儲存主控台（VSC）、VASA Provider及儲存複寫介面卡（SRA）的虛擬應用裝置。
 
+.關於這項工作
 設定SSH時、您必須以維護使用者的身分登入。這是因為已停用VASA Provider的root存取權。如果您使用其他登入認證、則無法使用SSH存取VASA Provider。
 
 .步驟

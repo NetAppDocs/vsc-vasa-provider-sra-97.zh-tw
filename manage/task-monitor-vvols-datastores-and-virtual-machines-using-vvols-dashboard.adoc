@@ -26,6 +26,7 @@ https://mysupport.netapp.com/site/["NetApp支援"^]
 
 link:reference-verify-vvol-dashboard-data-requirements.html["VVOL儀表板資料需求"]
 
+.關於這項工作
 由NetApp提供的IOPS資料ONTAP 會四捨五入、並顯示在VVol儀表板上。可能是ONTAP 因為由供應的實際IOPS值與VVol儀表板上顯示的IOPS值有所不同。
 
 [NOTE]

@@ -22,6 +22,7 @@ summary: 只有在VSC、VASA Provider和SRA的虛擬應用裝置中啟用VASA Pr
 * 您應該在來源站台和目標站台的資料存放區上設定類似的複寫原則和排程、以便順利進行反向複寫。
 
 
+.關於這項工作
 「*資源配置資料庫*」功能表可讓您指定資料存放區的儲存功能設定檔、協助您指定一致的服務層級目標（SLO）、並簡化資源配置程序。只有啟用VASA Provider、才能指定儲存功能設定檔。
 
 僅當用作備用儲存設備的S25 Volume執行版本為更新版本時、才會顯示在VVol儀表板上。FlexVol ONTAP您不應使用vCenter Server * New Datastore*精靈來配置vVols資料存放區。

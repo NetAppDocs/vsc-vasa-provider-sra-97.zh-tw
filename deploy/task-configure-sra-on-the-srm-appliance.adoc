@@ -13,8 +13,10 @@ summary: 部署SRM設備之後、您應該在SRM設備上設定SRA。成功設�
 [role="lead"]
 部署SRM設備之後、您應該在SRM設備上設定SRA。成功設定SRA可讓SRM設備與SRA通訊、以進行災難恢復管理。您應將VSC、VASA Provider和SRA認證（IP位址和管理員密碼）的虛擬應用裝置儲存在SRM應用裝置中、以便在SRM應用裝置和SRA之間進行通訊。
 
+.開始之前
 您應該將「tar．gz」檔案上傳至SRM Appliance。
 
+.關於這項工作
 SRM設備上的SRA組態會將SRA認證儲存在SRM設備中。
 
 .步驟

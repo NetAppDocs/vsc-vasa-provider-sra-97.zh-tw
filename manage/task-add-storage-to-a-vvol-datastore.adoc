@@ -14,6 +14,7 @@ summary: 您可以使用「新增儲存設備」精靈、將FlexVol VMware虛擬
 [role="lead"]
 您可以使用*新增儲存設備*精靈、將FlexVol VMware虛擬磁碟區新增至現有的VMware虛擬磁碟區（vVols）資料存放區、以增加可用的儲存設備。
 
+.關於這項工作
 當您新增FlexVol 一個解決方案時、也可以選擇變更與該Volume相關的儲存功能設定檔。您可以使用VASA Provider自動產生功能、為磁碟區建立新的設定檔、也可以將現有的其中一個設定檔指派給磁碟區。
 
 [NOTE]

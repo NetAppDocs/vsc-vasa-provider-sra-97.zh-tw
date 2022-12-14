@@ -13,6 +13,7 @@ summary: 客體作業系統（OS）逾時指令碼可設定Solaris 10的SCSI I/O
 [role="lead"]
 客體作業系統（OS）逾時指令碼可設定Solaris 10的SCSI I/O逾時設定。您可以指定60秒逾時或190秒逾時。
 
+.開始之前
 您必須已掛載包含Solaris指令碼的ISO映像。
 
 .步驟

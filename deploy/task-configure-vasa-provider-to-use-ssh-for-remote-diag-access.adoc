@@ -13,8 +13,10 @@ summary: 您可以針對虛擬儲存主控台（VSC）、VASA Provider和儲存�
 [role="lead"]
 您可以針對虛擬儲存主控台（VSC）、VASA Provider和儲存複寫介面卡（SRA）設定虛擬應用裝置、以啟用診斷使用者的SSH存取。
 
+.開始之前
 您的vCenter Server執行個體必須啟用VASA Provider擴充功能。
 
+.關於這項工作
 使用SSH存取診斷使用者具有下列限制：
 
 * 每次啟動SSH時、您只能登入一次。

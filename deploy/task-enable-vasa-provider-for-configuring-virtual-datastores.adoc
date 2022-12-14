@@ -19,6 +19,7 @@ summary: 虛擬儲存主控台（VSC）、VASA Provider及儲存複寫介面卡�
 * 您必須已為VSC、VASA Provider及SRA部署虛擬應用裝置。
 
 
+.關於這項工作
 如果VASA Provider功能在升級至虛擬儲存主控台（VSC）、VASA Provider及儲存複寫介面卡（SRA）的9.7.1版之前已停用、則VASA Provider功能在升級後仍會停用。此版本可讓您為vVols資料存放區啟用vVols複寫功能。
 
 .步驟
@@ -31,4 +32,5 @@ summary: 虛擬儲存主控台（VSC）、VASA Provider及儲存複寫介面卡�
 . 輸入VSC、VASA Provider和SRA的虛擬應用裝置IP位址和管理員密碼、然後按一下「*套用*」。
 
 
+.完成後
 如果您使用ONTAP 的是32個以上的叢集、則必須向VASA Provider註冊、以取得VVols資料存放區和SAN vVols VM和SAN vVols資料存放區報告中使用的虛擬機器的詳細資料。但如果您使用ONTAP 的是NetApp的版本版本、則不需要向VASA Provider註冊。

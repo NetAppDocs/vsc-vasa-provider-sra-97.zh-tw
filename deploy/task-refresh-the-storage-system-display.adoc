@@ -14,6 +14,7 @@ summary: 您可以使用Virtual Storage Console for VMware vSphere提供的更�
 [role="lead"]
 您可以使用Virtual Storage Console for VMware vSphere提供的更新功能來重新整理儲存系統的相關資訊、並強制Virtual Storage Console（VSC）探索儲存系統。
 
+.關於這項工作
 如果您在收到驗證錯誤後變更儲存系統的預設認證、「REFresh」選項就很實用。如果您在儲存系統回報「驗證失敗狀態」之後變更儲存系統認證、請務必執行更新作業。在更新作業期間、VSC會嘗試使用新認證來連線至儲存系統。
 
 視系統設定而定、此工作可能需要很長時間才能完成。

@@ -14,6 +14,7 @@ summary: 如果VMware虛擬磁碟區（vVols）資料存放區有多FlexVol 個�
 [role="lead"]
 如果VMware虛擬磁碟區（vVols）資料存放區有多FlexVol 個支援VMware的磁碟區、您可以從FlexVol vVols資料存放區移除一或多個支援VMware的磁碟區、而不需刪除資料存放區。
 
+.關於這項工作
 VVols資料存放區存在、直到FlexVol 資料存放區上至少有一個支援的Volume為止。
 
 .步驟

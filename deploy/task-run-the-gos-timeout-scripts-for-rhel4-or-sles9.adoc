@@ -13,6 +13,7 @@ summary: 客體作業系統（OS）逾時指令碼可設定Red Hat Enterprise Li
 [role="lead"]
 客體作業系統（OS）逾時指令碼可設定Red Hat Enterprise Linux版本4、5、6和7以及SUSE Linux Enterprise Server版本9、10和11的SCSI I/O逾時設定。您可以指定60秒逾時或190秒逾時。每次升級至新版Linux時、您都必須執行指令碼。
 
+.開始之前
 您必須已掛載包含Linux指令碼的ISO映像。
 
 .步驟

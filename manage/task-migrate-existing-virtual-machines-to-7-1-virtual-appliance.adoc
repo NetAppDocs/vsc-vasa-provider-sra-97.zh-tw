@@ -13,6 +13,7 @@ summary: 如果您使用最新版本的虛擬應用裝置來執行虛擬儲存�
 [role="lead"]
 如果您使用最新版本的虛擬應用裝置來執行虛擬儲存主控台（VSC）、VASA Provider和Storage Replication Adapter（SRA）、 接著、您應該將使用「Maxthrop MBps」或「Maxthrop IOPS」QoS指標配置的虛擬機器移轉至新的VVOL資料存放區、這些資料存放區會以VSC、VASA Provider和SRA最新版本的「Max IOPS」QoS指標來配置。
 
+.關於這項工作
 有了VSC、VASA Provider和SRA的最新版虛擬應用裝置、您就能為每個虛擬機器或虛擬機器磁碟（VMDK）設定QoS度量。QoS指標較早時已套用ONTAP FlexVol 到S161Volume層級、並由該FlexVol 個供應到該S161Volume上的所有虛擬機器或VMDK共享。
 
 從VSC、VASA Provider和SRA的7.2版虛擬應用裝置開始、一個虛擬機器的QoS指標不會與其他虛擬機器共用。
