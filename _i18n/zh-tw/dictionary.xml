@@ -1837,7 +1837,6 @@
   <block id="d7fe698118feaaf4479b561ca61c542f" category="summary">VSC和VASA Provider服務會在高度擴充的環境中重新啟動</block>
   <block id="9768155541cb23e649f212bfee0e49d3" category="paragraph">VSC、VASA Provider和SRA的虛擬應用裝置在高度擴充的環境中可能無法達到最佳效能、您可能會發現VSC和VASA Provider服務等問題經常重新啟動。</block>
   <block id="4e31689efb2fcf2ab9c9a46274a5527f" category="paragraph">修改VSC、VASA Provider和SRA虛擬應用裝置的RAM和堆疊記憶體需求。</block>
-  <block id="bc61d0b08d1fd7734eecaba3c782ee73" category="summary">適用於VMware vSphere的虛擬儲存主控台文件、VSC文件、VSC文件</block>
   <block id="2a72439647125372a883f6f62a3b3b97" category="doc">VSC、VASA Provider及SRA文件</block>
   <block id="9ce16530dad5761d1de1ee236c145dcd" category="sidebar">VSC、VASA Provider及SRA文件</block>
   <block id="06ad314b340900d226b1196e1fe289e9" category="sidebar">快速入門</block>
@@ -1858,4 +1857,7 @@
   <block id="d036f2c382984088af9c7b41532db232" category="sidebar">在多個vCenter Server環境中登錄VSC的需求</block>
   <block id="bd965e38a0c9cf27aa1bde099308e23f" category="paragraph-title">完成後</block>
   <block id="fd69c5cf902969e6fb71d043085ddee6" category="paragraph-title">結果</block>
+  <block id="59b25b58a320cb1bd7e03ff77563a7d1" category="sidebar">適用於 VSC 、 VASA Provider 和 SRA 的虛擬儲存主控台可讓您設定、管理及保護 vCenter Server 環境中的虛擬資料存放區。</block>
+  <block id="457ec720234469b4fc2740e0d3e8b0bc" category="sidebar">適用於 VMware vSphere 的虛擬儲存主控台文件、 VSC 文件、 VSC 文件。</block>
+  <block id="43fe6507a14726ae86f2c7d411f9b929" category="sidebar">適用於 VMware vSphere 的 ONTAP 工具文件</block>
 </blocks>

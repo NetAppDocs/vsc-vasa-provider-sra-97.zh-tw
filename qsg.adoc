@@ -5,18 +5,15 @@ keywords: qsg, ontap tools for vmware vsphere, quick start guide, installing
 summary: 提供部署需求的總覽、以及部署虛擬儲存主控台、VASA供應商及適用於VMware vSphere的儲存複寫介面卡虛擬應用裝置的逐步指示。 
 ---
 = 快速入門
-:toc: macro
 :hardbreaks:
 :toclevels: 1
 :allow-uri-read: 
 :experimental: 
-:toc: 
 :toclevels: 1
 :nofooter: 
 :icons: font
 :linkattrs: 
 :imagesdir: ./media/
-:toc-position: content
 
 
 [role="lead"]
