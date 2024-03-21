@@ -1,0 +1,3514 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+  <head class="at-element-marker">
+  <title>快速入門</title>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge,chrome=1">
+  <meta http-equiv="language" content="en">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta property="og:title" content="快速入門" />
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="https://docs.netapp.com/zh-tw/vsc-vasa-provider-sra-97/qsg.html" />
+	<meta property="og:description" content="提供部署需求的總覽、以及部署虛擬儲存主控台、VASA供應商及適用於VMware vSphere的儲存複寫介面卡虛擬應用裝置的逐步指示。" />
+  <meta property="og:image" content="https://docs.netapp.com/zh-tw/vsc-vasa-provider-sra-97/images/logo-tophat-social.png" />
+  <meta property="og:image:alt" content="NetApp Logo" />
+  <meta name="format-detection" content="telephone=no">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="encoding" content="utf-8">
+  <meta http-equiv="nss-type" content="Product Documentation"/>
+  <meta http-equiv="nss-subtype" content="User Guide"/><meta name="description" content="提供部署需求的總覽、以及部署虛擬儲存主控台、VASA供應商及適用於VMware vSphere的儲存複寫介面卡虛擬應用裝置的逐步指示。">
+  <meta name="keywords" content=" qsg, ontap tools for vmware vsphere, quick start guide, installing"><!-- Icons -->
+  <link rel="icon" href="/zh-tw/vsc-vasa-provider-sra-97/images/favicon.ico" type="image/x-icon">
+
+  <!-- RSS Feed --><!-- CSS Definitions: NetApp CSS should be defined after generic css -->
+
+
+  <!-- Combined CSS -->
+  <link rel="stylesheet" type="text/css" href="/zh-tw/vsc-vasa-provider-sra-97/css/ie-netappdocs.css">
+
+  
+  <link rel="stylesheet" href="/zh-tw/vsc-vasa-provider-sra-97/css/ie-landing-page.css" type="text/css">
+  <link rel="stylesheet" href="/zh-tw/vsc-vasa-provider-sra-97/css/ie-tabbed-blocks.css" type="text/css">
+  <!-- Canonical url -->
+  <link rel="canonical" href="https://docs.netapp.com/zh-tw/vsc-vasa-provider-sra-97/qsg.html" />
+  <link rel="alternate" hreflang="x-default" href="https://docs.netapp.com/us-en/vsc-vasa-provider-sra-97/qsg.html" />
+  <link rel="alternate" hreflang="zh-Hant" href="https://docs.netapp.com/zh-tw/vsc-vasa-provider-sra-97/qsg.html" />
+  <link rel="alternate" hreflang="en" href="https://docs.netapp.com/us-en/vsc-vasa-provider-sra-97/qsg.html" />
+  <link rel="alternate" hreflang="ja" href="https://docs.netapp.com/ja-jp/vsc-vasa-provider-sra-97/qsg.html" />
+  <link rel="alternate" hreflang="ko" href="https://docs.netapp.com/ko-kr/vsc-vasa-provider-sra-97/qsg.html" />
+  <link rel="alternate" hreflang="zh-Hans" href="https://docs.netapp.com/zh-cn/vsc-vasa-provider-sra-97/qsg.html" />
+  <link rel="alternate" hreflang="de" href="https://docs.netapp.com/de-de/vsc-vasa-provider-sra-97/qsg.html" />
+  <link rel="alternate" hreflang="es" href="https://docs.netapp.com/es-es/vsc-vasa-provider-sra-97/qsg.html" />
+  <link rel="alternate" hreflang="fr" href="https://docs.netapp.com/fr-fr/vsc-vasa-provider-sra-97/qsg.html" />
+  <link rel="alternate" hreflang="it" href="https://docs.netapp.com/it-it/vsc-vasa-provider-sra-97/qsg.html" />
+  <!-- Top level site integrations -->
+<script type="text/javascript" src="https://cdn.cookielaw.org/consent/72570c5c-fe30-465f-b0e0-b77f7fb4ae34/OtAutoBlock.js"></script>
+    <script type="text/javascript" src="https://cdn.cookielaw.org/scripttemplates/otSDKStub.js" charset="UTF-8" data-document-language="true" data-domain-script="72570c5c-fe30-465f-b0e0-b77f7fb4ae34"></script>
+    <script type="text/javascript">function OptanonWrapper() { }</script>
+    <script type="text/plain" class="optanon-category-C0002" src="https://assets.adobedtm.com/60287eadf1ee/c284da483c83/launch-e9ff3acac59f.min.js"></script>
+    <script class="optanon-category-C0001">(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.setAttributeNode(d.createAttribute('data-ot-ignore'));j.setAttribute('class','optanon-category-C0001');j.async=true;
+        j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl+'';f.parentNode.insertBefore(j,f);
+        })(window,document,'script','dataLayer','GTM-MD73T9M');</script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+  
+  <script>
+    $(document).ready(function() {
+      const MASTHEAD_OFFSET = 65;
+      const SECTIONS = $("main h2, main h3");
+      // PAGE NAV - Init
+      if (SECTIONS.length == 0) {
+        // remove if there is no elements
+        /*
+        $("#ie-right-navbar").remove();
+        $("#ie-right-navbar-collapse").remove();
+        */
+      } else {
+        $(".page-nav-title").css('display', 'block');
+        for (var i = 0; i < SECTIONS.length; i++) {
+          var sectionId = $(SECTIONS[i]).attr('id');
+          var sectionName = $(SECTIONS[i]).text();
+          var subClass = $(SECTIONS[i]).is("h3") ? ' page-nav__sublink' : '';
+          $("#page-menu").append('<li class="page-nav-item"><a href="#' + sectionId + '" class="page-nav__link' + subClass + '">' + sectionName + '</a></li>');
+        }
+      }
+    });
+  </script>
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+
+  <!-- Used for Product Family Page Sidebar Visibility --><!-- Used to import Promise for IE. Required for SearchKit -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bluebird/3.3.5/bluebird.min.js"></script><script src='/zh-tw/vsc-vasa-provider-sra-97/js/na-search.js'></script><script src='/zh-tw/vsc-vasa-provider-sra-97/js/ie-clouddocs.js'></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script><script>
+    /*
+      $(document).ready(function() {
+          $("#tg-sb-link").click(function() {
+              $("#tg-sb-sidebar").toggle();
+              $("#tg-sb-content").toggleClass('col-md-9');
+              $("#tg-sb-content").toggleClass('col-md-12');
+              $("#tg-sb-icon").toggleClass('fa-toggle-on');
+              $("#tg-sb-icon").toggleClass('fa-toggle-off');
+          });
+      });
+      */
+  </script>
+  <script src='/zh-tw/vsc-vasa-provider-sra-97/js/custom-dropdown.js'></script>
+  <script src='/zh-tw/vsc-vasa-provider-sra-97/js/FileSaver.min.js'></script>
+  <script src='/zh-tw/vsc-vasa-provider-sra-97/js/jszip-utils.min.js'></script>
+  <script src='/zh-tw/vsc-vasa-provider-sra-97/js/jszip.min.js'></script><script src='/zh-tw/vsc-vasa-provider-sra-97/js/ie-pdf-ux.js'></script></head>
+
+
+  <body class role="document" data-flavor="">
+    <div class="skip-to-main">
+      <a href="#main" >Skip to main content</a>
+    </div><noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MD73T9M"
+      height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript><div id="page" class="">
+      <div id="ie-phone-menu" class=""></div>
+      <div id="ie-content-wrap" class="">
+        <nav id="ie-new-header">
+    <ul>
+        <li id="ie-phone-menu-button">
+            <a href="#">
+                <image id="" src="/zh-tw/vsc-vasa-provider-sra-97/images/hamburger.svg" alt="menu" />
+            </a>
+        </li>
+
+        <li>
+            <a href="https://www.netapp.com/tw">
+                <image id="ie-header-logo" src="/zh-tw/vsc-vasa-provider-sra-97/images/netapp_logo.svg" alt="netapp" />
+            </a>
+        </li>
+        <li id="ie-header-docs">
+            <a href="https://www.netapp.com/support-and-training/documentation/">文件</a>
+        </li>
+
+        <!-- Empty container to push header left with or without lang selector -->
+        <li id="empty-container" style="margin-left: auto">
+        </li>
+        <!-- Start Language Selector --><li id="ie-language-dropdown">
+            <div id="language-dropdown" class="custom-dropdown custom-dropdown-lang">
+                <div class="custom-dropdown-select custom-dropdown-select-lang">
+                    <img src="/zh-tw/vsc-vasa-provider-sra-97/images/language_white_24dp.svg" class="n-globe__icon" />
+                    <span class="lang-name">繁體中文</span>
+                    <img src="/zh-tw/vsc-vasa-provider-sra-97/images/dropdown-arrow.svg" alt="" class="custom-icon chevrondown header invisible" />
+                    <img src="/zh-tw/vsc-vasa-provider-sra-97/images/dropdown-arrow.svg" alt="" class="custom-icon chevronup header" />
+                    </button>
+                </div>
+
+                <ul class="custom-dropdown-menu"><li>
+                        <a href="https://docs.netapp.com/zh-tw/vsc-vasa-provider-sra-97/qsg.html"
+                            target="_self"><span translate="no" class="notranslate">繁體中文</span></a>
+                    </li><li>
+                        <a href="https://docs.netapp.com/us-en/vsc-vasa-provider-sra-97/qsg.html"
+                            target="_self"><span translate="no" class="notranslate">English</span></a>
+                    </li><li>
+                        <a href="https://docs.netapp.com/ja-jp/vsc-vasa-provider-sra-97/qsg.html"
+                            target="_self"><span translate="no" class="notranslate">日本語</span></a>
+                    </li><li>
+                        <a href="https://docs.netapp.com/ko-kr/vsc-vasa-provider-sra-97/qsg.html"
+                            target="_self"><span translate="no" class="notranslate">한국어</span></a>
+                    </li><li>
+                        <a href="https://docs.netapp.com/zh-cn/vsc-vasa-provider-sra-97/qsg.html"
+                            target="_self"><span translate="no" class="notranslate">简体中文</span></a>
+                    </li><li>
+                        <a href="https://docs.netapp.com/de-de/vsc-vasa-provider-sra-97/qsg.html"
+                            target="_self"><span translate="no" class="notranslate">Deutsch</span></a>
+                    </li><li>
+                        <a href="https://docs.netapp.com/es-es/vsc-vasa-provider-sra-97/qsg.html"
+                            target="_self"><span translate="no" class="notranslate">Español</span></a>
+                    </li><li>
+                        <a href="https://docs.netapp.com/fr-fr/vsc-vasa-provider-sra-97/qsg.html"
+                            target="_self"><span translate="no" class="notranslate">Français</span></a>
+                    </li><li>
+                        <a href="https://docs.netapp.com/it-it/vsc-vasa-provider-sra-97/qsg.html"
+                            target="_self"><span translate="no" class="notranslate">Italiano</span></a>
+                    </li></ul>
+            </div>
+            </li>
+        <!-- End Language Selector -->
+
+
+        <li id="ie-allnetapp">
+            <div id="allnetapp-dropdown" class="custom-dropdown custom-dropdown-allnetapp">
+                <div class="custom-dropdown-select custom-dropdown-select-allnetapp">
+                    <img src="/zh-tw/vsc-vasa-provider-sra-97/images/apps_white_24dp.svg" alt="" class="allnetapp-icon" />
+                    <span class="allnetapp-name">所有 NetApp</span>
+                    <img src="/zh-tw/vsc-vasa-provider-sra-97/images/dropdown-arrow.svg" alt="" class="custom-icon chevrondown header invisible" />
+                    <img src="/zh-tw/vsc-vasa-provider-sra-97/images/dropdown-arrow.svg" alt="" class="custom-icon chevronup header" />
+                    </button>
+                </div>
+
+                <ul class="custom-dropdown-menu allnetapp-dropdown">
+                    <li>
+                        <a href="https://bluexp.netapp.com/"
+                            target="_self"><span translate="no" class="notranslate">BlueXP</span></a>
+                    </li>
+                    <li>
+                        <a href="https://mysupport.netapp.com/site/"
+                            target="_self"><span translate="no" class="notranslate">支援</span></a>
+                    </li>
+                    <li>
+                        <a href="https://kb.netapp.com/"
+                            target="_self"><span translate="no" class="notranslate">知識庫</span></a>
+                    </li>
+                    <li>
+                        <a href="https://www.netapp.com/support-and-training/netapp-learning-services/"
+                            target="_self"><span translate="no" class="notranslate">訓練</span></a>
+                    </li>
+                </ul>
+            </div>
+
+        </li>
+
+    </ul>
+</nav>
+
+        <main id="n-main-content" class="n-main-content">
+          <!-- Start Documentation Content -->
+<div class="ie-main">
+
+<div id="ie-new-sidebar-collapse" style="display: none">
+    <img id="sidebar-expand" class="ie-searchbox-icon" src="/zh-tw/vsc-vasa-provider-sra-97/images/double_arrow.svg" alt="" />
+</div>
+<div id="ie-new-sidebar">
+    <div id="ie-product-identity-lockup">
+        <div id="sidebar-collapse" class="">
+            <img src="/zh-tw/vsc-vasa-provider-sra-97/images/double_arrow.svg" alt="" />
+        </div>
+        <div id="ie-breadcrumb" class="">
+  <ul class="ie-breadcrumb">
+    <li class="">
+      <a href="https://docs.netapp.com">所有文件</a>
+    </li>
+    
+    
+
+    
+  </ul>
+  
+  <div class="ie-product-name" >
+    <!--<a href="/zh-tw/vsc-vasa-provider-sra-97/">-->
+      VSC, VASA Provider, and SRA 9.7
+    <!--</a>-->
+  </div>
+</div>
+
+            
+
+        
+        
+
+<div id="ie-searchbox" class="ie-searchbox-sidebar ">
+    <img class="ie-searchbox-icon" src="/zh-tw/vsc-vasa-provider-sra-97/images/loupe.svg" alt=""/>
+    <div id="react-search" 
+        data-search-html="/zh-tw/vsc-vasa-provider-sra-97/search.html" 
+        data-type="widget"
+        data-placeholder="搜尋說明文件"
+        data-no-results-found="找不到 {query} 的結果"
+        data-did-you-mean="搜尋 {suggestion}。"
+        data-no-results-found-did-you-mean="找不到 {query} 的結果。您的意思是 {suggestion} 嗎？"
+        data-results-found="找到 {hitCount} 個結果"
+        data-error-message="發生錯誤。請再試一次。"
+        data-error-reset="重設搜尋"
+        data-sk-es-pf-indexes="" 
+        data-flavor="">
+    </div>
+</div>
+        
+    </div>
+    <div id="ie-new-toc"><script>
+  let sidebarAccordion = true;
+
+  /* specific css rules for Mac */
+  if(navigator.platform.match('Mac') !== null) {
+    document.body.setAttribute('class', 'OSX');
+  }
+
+</script>
+
+<div id="ie-sidebar-container">
+  <ul id="ie-sidebar-list" ><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="VSC、VASA Provider及SRA文件"
+      data-li-level="1#" 
+      class="   "
+      dale-page-url="/qsg.html" 
+      dale-entry-url="/index.html" 
+    ><a class="ie-sidebar-menuitem-1 " href="/zh-tw/vsc-vasa-provider-sra-97/index.html">
+        VSC、VASA Provider及SRA文件
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="版本資訊"
+      data-li-level="1#" 
+      class="   "
+      dale-page-url="/qsg.html" 
+      dale-entry-url="/release-notes.html" 
+    ><a class="ie-sidebar-menuitem-1 " href="/zh-tw/vsc-vasa-provider-sra-97/release-notes.html">
+        版本資訊
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="快速入門"
+      data-li-level="1#" 
+      class="  ie-sidebar-selected    "
+      dale-page-url="/qsg.html" 
+      dale-entry-url="/qsg.html" 
+    ><a class="ie-sidebar-menuitem-1 " href="/zh-tw/vsc-vasa-provider-sra-97/qsg.html">
+        快速入門
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="部署與升級"
+      data-li-level="1" 
+      class=" sidebar-folder    "
+      dale-page-url="/qsg.html" 
+      dale-entry-url="" 
+    ><a class="ie-sidebar-menuitem-1  ie-sidebar-button " href="#">
+        <img class="ie-sidebar-icon ie-sidebar-button open" src="/zh-tw/vsc-vasa-provider-sra-97/images/link_expand.svg" alt="" />
+        <img class="ie-sidebar-icon ie-sidebar-button close" src="/zh-tw/vsc-vasa-provider-sra-97/images/link_collapse.svg" alt="" />
+        <!--<div class="" style="display: inline;"> 部署與升級</div>-->
+         部署與升級
+      </a>
+      <ul class="">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="VSC、VASA Provider和SRA虛擬應用裝置總覽"
+      data-li-level="2#" 
+      class="   "
+      dale-page-url="/qsg.html" 
+      dale-entry-url="/deploy/concept-virtual-storage-console-overview.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/zh-tw/vsc-vasa-provider-sra-97/deploy/concept-virtual-storage-console-overview.html">
+        VSC、VASA Provider和SRA虛擬應用裝置總覽
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="VSC、VASA Provider及SRA虛擬應用裝置的新使用者部署工作流程"
+      data-li-level="2" 
+      class=" sidebar-folder    "
+      dale-page-url="/qsg.html" 
+      dale-entry-url="/deploy/concept-installation-workflow-for-new-users.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/zh-tw/vsc-vasa-provider-sra-97/deploy/concept-installation-workflow-for-new-users.html">
+        <img class="ie-sidebar-icon ie-sidebar-button open" src="/zh-tw/vsc-vasa-provider-sra-97/images/link_expand.svg" alt="" />
+        <img class="ie-sidebar-icon ie-sidebar-button close" src="/zh-tw/vsc-vasa-provider-sra-97/images/link_collapse.svg" alt="" />
+        <!--<div class="" style="display: inline;"> VSC、VASA Provider及SRA虛擬應用裝置的新使用者部署工作流程</div>-->
+         VSC、VASA Provider及SRA虛擬應用裝置的新使用者部署工作流程
+      </a>
+      <ul class="">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="VSC、VASA Provider和SRA現有使用者的部署工作流程"
+      data-li-level="3#" 
+      class="   "
+      dale-page-url="/qsg.html" 
+      dale-entry-url="/deploy/concept-installation-workflow-for-existing-users-of-vsc.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/zh-tw/vsc-vasa-provider-sra-97/deploy/concept-installation-workflow-for-existing-users-of-vsc.html">
+        VSC、VASA Provider和SRA現有使用者的部署工作流程
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="部署VSC、VASA Provider及SRA虛擬應用裝置的需求"
+      data-li-level="2" 
+      class=" sidebar-folder    "
+      dale-page-url="/qsg.html" 
+      dale-entry-url="/deploy/concept-requirements-for-deploying-the-virtual-appliance-for-vsc-vasa-provider-and-sra.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/zh-tw/vsc-vasa-provider-sra-97/deploy/concept-requirements-for-deploying-the-virtual-appliance-for-vsc-vasa-provider-and-sra.html">
+        <img class="ie-sidebar-icon ie-sidebar-button open" src="/zh-tw/vsc-vasa-provider-sra-97/images/link_expand.svg" alt="" />
+        <img class="ie-sidebar-icon ie-sidebar-button close" src="/zh-tw/vsc-vasa-provider-sra-97/images/link_collapse.svg" alt="" />
+        <!--<div class="" style="display: inline;"> 部署VSC、VASA Provider及SRA虛擬應用裝置的需求</div>-->
+         部署VSC、VASA Provider及SRA虛擬應用裝置的需求
+      </a>
+      <ul class="">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="VSC的連接埠需求"
+      data-li-level="3#" 
+      class="   "
+      dale-page-url="/qsg.html" 
+      dale-entry-url="/deploy/reference-port-requirements-for-vsc.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/zh-tw/vsc-vasa-provider-sra-97/deploy/reference-port-requirements-for-vsc.html">
+        VSC的連接埠需求
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="VSC、VASA Provider及SRA的虛擬應用裝置空間與大小需求"
+      data-li-level="3#" 
+      class="   "
+      dale-page-url="/qsg.html" 
+      dale-entry-url="/deploy/concept-space-and-size-requirements-for-the-virtual-appliance-for-vsc-vasa-provider-and-sra.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/zh-tw/vsc-vasa-provider-sra-97/deploy/concept-space-and-size-requirements-for-the-virtual-appliance-for-vsc-vasa-provider-and-sra.html">
+        VSC、VASA Provider及SRA的虛擬應用裝置空間與大小需求
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="VSC、VASA Provider及SRA虛擬應用裝置支援的儲存系統、授權及應用程式"
+      data-li-level="3#" 
+      class="   "
+      dale-page-url="/qsg.html" 
+      dale-entry-url="/deploy/concept-supported-storage-system-and-applications.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/zh-tw/vsc-vasa-provider-sra-97/deploy/concept-supported-storage-system-and-applications.html">
+        VSC、VASA Provider及SRA虛擬應用裝置支援的儲存系統、授權及應用程式
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="部署VSC、VASA Provider及SRA虛擬應用裝置的考量與要求"
+      data-li-level="3#" 
+      class="   "
+      dale-page-url="/qsg.html" 
+      dale-entry-url="/deploy/reference-considerations-for-deploying-virtual-appliance-for-vsc-vasa-provider-and-sra.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/zh-tw/vsc-vasa-provider-sra-97/deploy/reference-considerations-for-deploying-virtual-appliance-for-vsc-vasa-provider-and-sra.html">
+        部署VSC、VASA Provider及SRA虛擬應用裝置的考量與要求
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="部署或升級VSC、VASA Provider及SRA"
+      data-li-level="2" 
+      class=" sidebar-folder    "
+      dale-page-url="/qsg.html" 
+      dale-entry-url="/deploy/concept-deploy-or-upgrade-ontap-tools.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/zh-tw/vsc-vasa-provider-sra-97/deploy/concept-deploy-or-upgrade-ontap-tools.html">
+        <img class="ie-sidebar-icon ie-sidebar-button open" src="/zh-tw/vsc-vasa-provider-sra-97/images/link_expand.svg" alt="" />
+        <img class="ie-sidebar-icon ie-sidebar-button close" src="/zh-tw/vsc-vasa-provider-sra-97/images/link_collapse.svg" alt="" />
+        <!--<div class="" style="display: inline;"> 部署或升級VSC、VASA Provider及SRA</div>-->
+         部署或升級VSC、VASA Provider及SRA
+      </a>
+      <ul class="">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="如何下載VSC、VASA Provider及SRA的虛擬應用裝置"
+      data-li-level="3#" 
+      class="   "
+      dale-page-url="/qsg.html" 
+      dale-entry-url="/deploy/concept-how-to-download-the-virtual-appliance-for-vsc-vp-and-sra.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/zh-tw/vsc-vasa-provider-sra-97/deploy/concept-how-to-download-the-virtual-appliance-for-vsc-vp-and-sra.html">
+        如何下載VSC、VASA Provider及SRA的虛擬應用裝置
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="部署VSC、VASA Provider和SRA的虛擬應用裝置"
+      data-li-level="3" 
+      class=" sidebar-folder    "
+      dale-page-url="/qsg.html" 
+      dale-entry-url="/deploy/task-deploy-ontap-tools.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/zh-tw/vsc-vasa-provider-sra-97/deploy/task-deploy-ontap-tools.html">
+        <img class="ie-sidebar-icon ie-sidebar-button open" src="/zh-tw/vsc-vasa-provider-sra-97/images/link_expand.svg" alt="" />
+        <img class="ie-sidebar-icon ie-sidebar-button close" src="/zh-tw/vsc-vasa-provider-sra-97/images/link_collapse.svg" alt="" />
+        <!--<div class="" style="display: inline;"> 部署VSC、VASA Provider和SRA的虛擬應用裝置</div>-->
+         部署VSC、VASA Provider和SRA的虛擬應用裝置
+      </a>
+      <ul class="">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="部署自訂考量"
+      data-li-level="4#" 
+      class="   "
+      dale-page-url="/qsg.html" 
+      dale-entry-url="/deploy/reference-deploment-customization-requirements.html" 
+    ><a class="ie-sidebar-menuitem-4 " href="/zh-tw/vsc-vasa-provider-sra-97/deploy/reference-deploment-customization-requirements.html">
+        部署自訂考量
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="啟用VASA Provider以設定虛擬資料存放區"
+      data-li-level="3" 
+      class=" sidebar-folder    "
+      dale-page-url="/qsg.html" 
+      dale-entry-url="/deploy/task-enable-vasa-provider-for-configuring-virtual-datastores.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/zh-tw/vsc-vasa-provider-sra-97/deploy/task-enable-vasa-provider-for-configuring-virtual-datastores.html">
+        <img class="ie-sidebar-icon ie-sidebar-button open" src="/zh-tw/vsc-vasa-provider-sra-97/images/link_expand.svg" alt="" />
+        <img class="ie-sidebar-icon ie-sidebar-button close" src="/zh-tw/vsc-vasa-provider-sra-97/images/link_collapse.svg" alt="" />
+        <!--<div class="" style="display: inline;"> 啟用VASA Provider以設定虛擬資料存放區</div>-->
+         啟用VASA Provider以設定虛擬資料存放區
+      </a>
+      <ul class="">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="向VSC、VASA Provider和SRA的虛擬應用裝置註冊"
+      data-li-level="4#" 
+      class="   "
+      dale-page-url="/qsg.html" 
+      dale-entry-url="/deploy/task-register-oncommand-api-services-with-the-virtual-appliance-for-vsc-vasa-provider-and-sra.html" 
+    ><a class="ie-sidebar-menuitem-4 " href="/zh-tw/vsc-vasa-provider-sra-97/deploy/task-register-oncommand-api-services-with-the-virtual-appliance-for-vsc-vasa-provider-and-sra.html">
+        向VSC、VASA Provider和SRA的虛擬應用裝置註冊
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="安裝NFS VAAI外掛程式"
+      data-li-level="3#" 
+      class="   "
+      dale-page-url="/qsg.html" 
+      dale-entry-url="/deploy/task-install-the-nfs-vaai-plug-in.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/zh-tw/vsc-vasa-provider-sra-97/deploy/task-install-the-nfs-vaai-plug-in.html">
+        安裝NFS VAAI外掛程式
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="啟用儲存複寫介面卡"
+      data-li-level="3" 
+      class=" sidebar-folder    "
+      dale-page-url="/qsg.html" 
+      dale-entry-url="/deploy/task-enable-storage-replication-adapter.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/zh-tw/vsc-vasa-provider-sra-97/deploy/task-enable-storage-replication-adapter.html">
+        <img class="ie-sidebar-icon ie-sidebar-button open" src="/zh-tw/vsc-vasa-provider-sra-97/images/link_expand.svg" alt="" />
+        <img class="ie-sidebar-icon ie-sidebar-button close" src="/zh-tw/vsc-vasa-provider-sra-97/images/link_collapse.svg" alt="" />
+        <!--<div class="" style="display: inline;"> 啟用儲存複寫介面卡</div>-->
+         啟用儲存複寫介面卡
+      </a>
+      <ul class="">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="在SRM設備上設定SRA"
+      data-li-level="4#" 
+      class="   "
+      dale-page-url="/qsg.html" 
+      dale-entry-url="/deploy/task-configure-sra-on-srm-appliance.html" 
+    ><a class="ie-sidebar-menuitem-4 " href="/zh-tw/vsc-vasa-provider-sra-97/deploy/task-configure-sra-on-srm-appliance.html">
+        在SRM設備上設定SRA
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="更新儲存複寫介面卡（SRA）認證"
+      data-li-level="4#" 
+      class="   "
+      dale-page-url="/qsg.html" 
+      dale-entry-url="/deploy/task-update-sra-credentials.html" 
+    ><a class="ie-sidebar-menuitem-4 " href="/zh-tw/vsc-vasa-provider-sra-97/deploy/task-update-sra-credentials.html">
+        更新儲存複寫介面卡（SRA）認證
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="將Windows SRM移轉至SRM設備"
+      data-li-level="3#" 
+      class="   "
+      dale-page-url="/qsg.html" 
+      dale-entry-url="/deploy/concept-migration-of-disaster-recovery-setup-from-windows-to-appliance.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/zh-tw/vsc-vasa-provider-sra-97/deploy/concept-migration-of-disaster-recovery-setup-from-windows-to-appliance.html">
+        將Windows SRM移轉至SRM設備
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="升級至VSC、VASA Provider及SRA的9.7.1虛擬應用裝置"
+      data-li-level="3#" 
+      class="   "
+      dale-page-url="/qsg.html" 
+      dale-entry-url="/deploy/task-upgrade-to-the-9-7-1-virtual-appliance-for-vsc-vasa-provider-and-sra.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/zh-tw/vsc-vasa-provider-sra-97/deploy/task-upgrade-to-the-9-7-1-virtual-appliance-for-vsc-vasa-provider-and-sra.html">
+        升級至VSC、VASA Provider及SRA的9.7.1虛擬應用裝置
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="升級儲存複寫介面卡"
+      data-li-level="3#" 
+      class="   "
+      dale-page-url="/qsg.html" 
+      dale-entry-url="/deploy/task-upgrade-storage-replication-adapter.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/zh-tw/vsc-vasa-provider-sra-97/deploy/task-upgrade-storage-replication-adapter.html">
+        升級儲存複寫介面卡
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="設定VMware vSphere環境的虛擬儲存主控台"
+      data-li-level="2" 
+      class=" sidebar-folder    "
+      dale-page-url="/qsg.html" 
+      dale-entry-url="/deploy/concept-configure-vsc-for-vmware-vsphere-environment.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/zh-tw/vsc-vasa-provider-sra-97/deploy/concept-configure-vsc-for-vmware-vsphere-environment.html">
+        <img class="ie-sidebar-icon ie-sidebar-button open" src="/zh-tw/vsc-vasa-provider-sra-97/images/link_expand.svg" alt="" />
+        <img class="ie-sidebar-icon ie-sidebar-button close" src="/zh-tw/vsc-vasa-provider-sra-97/images/link_collapse.svg" alt="" />
+        <!--<div class="" style="display: inline;"> 設定VMware vSphere環境的虛擬儲存主控台</div>-->
+         設定VMware vSphere環境的虛擬儲存主控台
+      </a>
+      <ul class="">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="設定ESXi伺服器多重路徑和逾時設定"
+      data-li-level="3" 
+      class=" sidebar-folder    "
+      dale-page-url="/qsg.html" 
+      dale-entry-url="/deploy/task-configure-esx-server-multipathing-and-timeout-settings.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/zh-tw/vsc-vasa-provider-sra-97/deploy/task-configure-esx-server-multipathing-and-timeout-settings.html">
+        <img class="ie-sidebar-icon ie-sidebar-button open" src="/zh-tw/vsc-vasa-provider-sra-97/images/link_expand.svg" alt="" />
+        <img class="ie-sidebar-icon ie-sidebar-button close" src="/zh-tw/vsc-vasa-provider-sra-97/images/link_collapse.svg" alt="" />
+        <!--<div class="" style="display: inline;"> 設定ESXi伺服器多重路徑和逾時設定</div>-->
+         設定ESXi伺服器多重路徑和逾時設定
+      </a>
+      <ul class="">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="使用VMware vSphere虛擬儲存主控台設定的ESXi主機值"
+      data-li-level="4#" 
+      class="   "
+      dale-page-url="/qsg.html" 
+      dale-entry-url="/deploy/reference-esx-host-values-set-by-vsc-for-vmware-vsphere.html" 
+    ><a class="ie-sidebar-menuitem-4 " href="/zh-tw/vsc-vasa-provider-sra-97/deploy/reference-esx-host-values-set-by-vsc-for-vmware-vsphere.html">
+        使用VMware vSphere虛擬儲存主控台設定的ESXi主機值
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="設定客體作業系統指令碼"
+      data-li-level="4" 
+      class=" sidebar-folder    "
+      dale-page-url="/qsg.html" 
+      dale-entry-url="/deploy/reference-configure-guest-operating-system-scripts.html" 
+    ><a class="ie-sidebar-menuitem-4 " href="/zh-tw/vsc-vasa-provider-sra-97/deploy/reference-configure-guest-operating-system-scripts.html">
+        <img class="ie-sidebar-icon ie-sidebar-button open" src="/zh-tw/vsc-vasa-provider-sra-97/images/link_expand.svg" alt="" />
+        <img class="ie-sidebar-icon ie-sidebar-button close" src="/zh-tw/vsc-vasa-provider-sra-97/images/link_collapse.svg" alt="" />
+        <!--<div class="" style="display: inline;"> 設定客體作業系統指令碼</div>-->
+         設定客體作業系統指令碼
+      </a>
+      <ul class="">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="設定Windows客體作業系統的逾時值"
+      data-li-level="5#" 
+      class="   "
+      dale-page-url="/qsg.html" 
+      dale-entry-url="/deploy/task-run-the-gos-timeout-scripts-for-windows.html" 
+    ><a class="ie-sidebar-menuitem-5 " href="/zh-tw/vsc-vasa-provider-sra-97/deploy/task-run-the-gos-timeout-scripts-for-windows.html">
+        設定Windows客體作業系統的逾時值
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="設定Solaris客體作業系統的逾時值"
+      data-li-level="5#" 
+      class="   "
+      dale-page-url="/qsg.html" 
+      dale-entry-url="/deploy/task-run-the-gos-timeout-scripts-for-solaris.html" 
+    ><a class="ie-sidebar-menuitem-5 " href="/zh-tw/vsc-vasa-provider-sra-97/deploy/task-run-the-gos-timeout-scripts-for-solaris.html">
+        設定Solaris客體作業系統的逾時值
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="設定Linux客體作業系統的逾時值"
+      data-li-level="5#" 
+      class="   "
+      dale-page-url="/qsg.html" 
+      dale-entry-url="/deploy/task-run-the-gos-timeout-scripts-for-rhel4-or-sles9.html" 
+    ><a class="ie-sidebar-menuitem-5 " href="/zh-tw/vsc-vasa-provider-sra-97/deploy/task-run-the-gos-timeout-scripts-for-rhel4-or-sles9.html">
+        設定Linux客體作業系統的逾時值
+      </a></li></ul></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="重新產生的SSL憑證"
+      data-li-level="3#" 
+      class="   "
+      dale-page-url="/qsg.html" 
+      dale-entry-url="/deploy/task-regenerate-an-ssl-certificate-for-vsc.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/zh-tw/vsc-vasa-provider-sra-97/deploy/task-regenerate-an-ssl-certificate-for-vsc.html">
+        重新產生的SSL憑證
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="在多個vCenter Server環境中登錄VSC的需求"
+      data-li-level="3#" 
+      class="   "
+      dale-page-url="/qsg.html" 
+      dale-entry-url="/deploy/concept-requirements-for-registering-vsc-in-multiple-vcenter-servers-environment.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/zh-tw/vsc-vasa-provider-sra-97/deploy/concept-requirements-for-registering-vsc-in-multiple-vcenter-servers-environment.html">
+        在多個vCenter Server環境中登錄VSC的需求
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="設定VSC喜好設定檔案"
+      data-li-level="3" 
+      class=" sidebar-folder    "
+      dale-page-url="/qsg.html" 
+      dale-entry-url="/deploy/reference-configure-the-vsc-preferences-files.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/zh-tw/vsc-vasa-provider-sra-97/deploy/reference-configure-the-vsc-preferences-files.html">
+        <img class="ie-sidebar-icon ie-sidebar-button open" src="/zh-tw/vsc-vasa-provider-sra-97/images/link_expand.svg" alt="" />
+        <img class="ie-sidebar-icon ie-sidebar-button close" src="/zh-tw/vsc-vasa-provider-sra-97/images/link_collapse.svg" alt="" />
+        <!--<div class="" style="display: inline;"> 設定VSC喜好設定檔案</div>-->
+         設定VSC喜好設定檔案
+      </a>
+      <ul class="">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="設定IPV4或IPV6"
+      data-li-level="4#" 
+      class="   "
+      dale-page-url="/qsg.html" 
+      dale-entry-url="/deploy/reference-set-ipv4-or-ipv6.html" 
+    ><a class="ie-sidebar-menuitem-4 " href="/zh-tw/vsc-vasa-provider-sra-97/deploy/reference-set-ipv4-or-ipv6.html">
+        設定IPV4或IPV6
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="在不同的子網路上啟用資料存放區裝載"
+      data-li-level="3#" 
+      class="   "
+      dale-page-url="/qsg.html" 
+      dale-entry-url="/deploy/task-enable-datastore-mounting-across-different-subnets.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/zh-tw/vsc-vasa-provider-sra-97/deploy/task-enable-datastore-mounting-across-different-subnets.html">
+        在不同的子網路上啟用資料存放區裝載
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="存取VSC、VASA Provider和SRA虛擬應用裝置的維護主控台選項"
+      data-li-level="3#" 
+      class="   "
+      dale-page-url="/qsg.html" 
+      dale-entry-url="/deploy/task-access-virtual-appliance-maiintenance-console-options.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/zh-tw/vsc-vasa-provider-sra-97/deploy/task-access-virtual-appliance-maiintenance-console-options.html">
+        存取VSC、VASA Provider和SRA虛擬應用裝置的維護主控台選項
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="變更系統管理員密碼"
+      data-li-level="3#" 
+      class="   "
+      dale-page-url="/qsg.html" 
+      dale-entry-url="/deploy/task-change-the-administrative-password.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/zh-tw/vsc-vasa-provider-sra-97/deploy/task-change-the-administrative-password.html">
+        變更系統管理員密碼
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="為VSC、VASA Provider及SRA設定虛擬應用裝置的高可用度"
+      data-li-level="3" 
+      class=" sidebar-folder    "
+      dale-page-url="/qsg.html" 
+      dale-entry-url="/deploy/concept-configure-high-availability-for-virtual-appliance-for-vsc-vasa-provider-and-sra.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/zh-tw/vsc-vasa-provider-sra-97/deploy/concept-configure-high-availability-for-virtual-appliance-for-vsc-vasa-provider-and-sra.html">
+        <img class="ie-sidebar-icon ie-sidebar-button open" src="/zh-tw/vsc-vasa-provider-sra-97/images/link_expand.svg" alt="" />
+        <img class="ie-sidebar-icon ie-sidebar-button close" src="/zh-tw/vsc-vasa-provider-sra-97/images/link_collapse.svg" alt="" />
+        <!--<div class="" style="display: inline;"> 為VSC、VASA Provider及SRA設定虛擬應用裝置的高可用度</div>-->
+         為VSC、VASA Provider及SRA設定虛擬應用裝置的高可用度
+      </a>
+      <ul class="">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="VMware vSphere HA"
+      data-li-level="4#" 
+      class="   "
+      dale-page-url="/qsg.html" 
+      dale-entry-url="/deploy/concept-vmware-high-availability-for-vcenter-server.html" 
+    ><a class="ie-sidebar-menuitem-4 " href="/zh-tw/vsc-vasa-provider-sra-97/deploy/concept-vmware-high-availability-for-vcenter-server.html">
+        VMware vSphere HA
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="VMware vSphere容錯能力"
+      data-li-level="4#" 
+      class="   "
+      dale-page-url="/qsg.html" 
+      dale-entry-url="/deploy/concept-vmware-fault-tolerance-for-vcenter-server.html" 
+    ><a class="ie-sidebar-menuitem-4 " href="/zh-tw/vsc-vasa-provider-sra-97/deploy/concept-vmware-fault-tolerance-for-vcenter-server.html">
+        VMware vSphere容錯能力
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="VSC、VASA Provider和SRA虛擬應用裝置支援的支援範本組態MetroCluster"
+      data-li-level="3#" 
+      class="   "
+      dale-page-url="/qsg.html" 
+      dale-entry-url="/deploy/reference-metrocluster-configurations-supported-by-virtual-appliance-for-vsc-vasa-provider-and-sra.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/zh-tw/vsc-vasa-provider-sra-97/deploy/reference-metrocluster-configurations-supported-by-virtual-appliance-for-vsc-vasa-provider-and-sra.html">
+        VSC、VASA Provider和SRA虛擬應用裝置支援的支援範本組態MetroCluster
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="設定VMware vSphere儲存系統環境的虛擬儲存主控台"
+      data-li-level="2" 
+      class=" sidebar-folder    "
+      dale-page-url="/qsg.html" 
+      dale-entry-url="/deploy/concept-configure-your-storage-system-environment.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/zh-tw/vsc-vasa-provider-sra-97/deploy/concept-configure-your-storage-system-environment.html">
+        <img class="ie-sidebar-icon ie-sidebar-button open" src="/zh-tw/vsc-vasa-provider-sra-97/images/link_expand.svg" alt="" />
+        <img class="ie-sidebar-icon ie-sidebar-button close" src="/zh-tw/vsc-vasa-provider-sra-97/images/link_collapse.svg" alt="" />
+        <!--<div class="" style="display: inline;"> 設定VMware vSphere儲存系統環境的虛擬儲存主控台</div>-->
+         設定VMware vSphere儲存系統環境的虛擬儲存主控台
+      </a>
+      <ul class="">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="設定儲存系統的預設認證資料"
+      data-li-level="3#" 
+      class="   "
+      dale-page-url="/qsg.html" 
+      dale-entry-url="/deploy/task-set-default-credentials-for-storage-systems.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/zh-tw/vsc-vasa-provider-sra-97/deploy/task-set-default-credentials-for-storage-systems.html">
+        設定儲存系統的預設認證資料
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="將儲存系統新增至VSC"
+      data-li-level="3#" 
+      class="   "
+      dale-page-url="/qsg.html" 
+      dale-entry-url="/deploy/task-add-storage-systems.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/zh-tw/vsc-vasa-provider-sra-97/deploy/task-add-storage-systems.html">
+        將儲存系統新增至VSC
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="探索儲存系統與主機"
+      data-li-level="3#" 
+      class="   "
+      dale-page-url="/qsg.html" 
+      dale-entry-url="/deploy/task-discover-storage-systems-and-hosts.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/zh-tw/vsc-vasa-provider-sra-97/deploy/task-discover-storage-systems-and-hosts.html">
+        探索儲存系統與主機
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="重新整理儲存系統顯示器"
+      data-li-level="3#" 
+      class="   "
+      dale-page-url="/qsg.html" 
+      dale-entry-url="/deploy/task-refresh-the-storage-system-display.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/zh-tw/vsc-vasa-provider-sra-97/deploy/task-refresh-the-storage-system-display.html">
+        重新整理儲存系統顯示器
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="VSC for VMware vSphere中的vCenter Server角色型存取控制功能"
+      data-li-level="2" 
+      class=" sidebar-folder    "
+      dale-page-url="/qsg.html" 
+      dale-entry-url="/deploy/concept-vcenter-server-role-based-access-control-features-in-vsc-for-vmware-vsphere.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/zh-tw/vsc-vasa-provider-sra-97/deploy/concept-vcenter-server-role-based-access-control-features-in-vsc-for-vmware-vsphere.html">
+        <img class="ie-sidebar-icon ie-sidebar-button open" src="/zh-tw/vsc-vasa-provider-sra-97/images/link_expand.svg" alt="" />
+        <img class="ie-sidebar-icon ie-sidebar-button close" src="/zh-tw/vsc-vasa-provider-sra-97/images/link_collapse.svg" alt="" />
+        <!--<div class="" style="display: inline;"> VSC for VMware vSphere中的vCenter Server角色型存取控制功能</div>-->
+         VSC for VMware vSphere中的vCenter Server角色型存取控制功能
+      </a>
+      <ul class="">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="vCenter Server權限的元件"
+      data-li-level="3#" 
+      class="   "
+      dale-page-url="/qsg.html" 
+      dale-entry-url="/deploy/reference-components-that-make-up-vcenter-server-permissions.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/zh-tw/vsc-vasa-provider-sra-97/deploy/reference-components-that-make-up-vcenter-server-permissions.html">
+        vCenter Server權限的元件
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="指派和修改vCenter Server權限的重點"
+      data-li-level="3#" 
+      class="   "
+      dale-page-url="/qsg.html" 
+      dale-entry-url="/deploy/reference-key-points-about-assigning-and-modifying-permissions.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/zh-tw/vsc-vasa-provider-sra-97/deploy/reference-key-points-about-assigning-and-modifying-permissions.html">
+        指派和修改vCenter Server權限的重點
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="虛擬應用裝置隨附的標準角色、適用於VSC、VASA Provider及SRA"
+      data-li-level="3" 
+      class=" sidebar-folder    "
+      dale-page-url="/qsg.html" 
+      dale-entry-url="/deploy/concept-standard-roles-packaged-with-virtual-appliance-for-vsc-vp-and-sra.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/zh-tw/vsc-vasa-provider-sra-97/deploy/concept-standard-roles-packaged-with-virtual-appliance-for-vsc-vp-and-sra.html">
+        <img class="ie-sidebar-icon ie-sidebar-button open" src="/zh-tw/vsc-vasa-provider-sra-97/images/link_expand.svg" alt="" />
+        <img class="ie-sidebar-icon ie-sidebar-button close" src="/zh-tw/vsc-vasa-provider-sra-97/images/link_collapse.svg" alt="" />
+        <!--<div class="" style="display: inline;"> 虛擬應用裝置隨附的標準角色、適用於VSC、VASA Provider及SRA</div>-->
+         虛擬應用裝置隨附的標準角色、適用於VSC、VASA Provider及SRA
+      </a>
+      <ul class="">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="使用VSC標準角色的準則"
+      data-li-level="4#" 
+      class="   "
+      dale-page-url="/qsg.html" 
+      dale-entry-url="/deploy/concept-guidelines-for-using-vsc-standard-roles.html" 
+    ><a class="ie-sidebar-menuitem-4 " href="/zh-tw/vsc-vasa-provider-sra-97/deploy/concept-guidelines-for-using-vsc-standard-roles.html">
+        使用VSC標準角色的準則
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="VSC工作所需的權限"
+      data-li-level="3" 
+      class=" sidebar-folder    "
+      dale-page-url="/qsg.html" 
+      dale-entry-url="/deploy/concept-privileges-required-for-vsc-tasks.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/zh-tw/vsc-vasa-provider-sra-97/deploy/concept-privileges-required-for-vsc-tasks.html">
+        <img class="ie-sidebar-icon ie-sidebar-button open" src="/zh-tw/vsc-vasa-provider-sra-97/images/link_expand.svg" alt="" />
+        <img class="ie-sidebar-icon ie-sidebar-button close" src="/zh-tw/vsc-vasa-provider-sra-97/images/link_collapse.svg" alt="" />
+        <!--<div class="" style="display: inline;"> VSC工作所需的權限</div>-->
+         VSC工作所需的權限
+      </a>
+      <ul class="">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="VSC需要VMware vSphere的產品層級權限"
+      data-li-level="4#" 
+      class="   "
+      dale-page-url="/qsg.html" 
+      dale-entry-url="/deploy/reference-product-level-privilege-required-by-vsc-for-vmware-vsphere.html" 
+    ><a class="ie-sidebar-menuitem-4 " href="/zh-tw/vsc-vasa-provider-sra-97/deploy/reference-product-level-privilege-required-by-vsc-for-vmware-vsphere.html">
+        VSC需要VMware vSphere的產品層級權限
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="VSC、VASA Provider和SRA虛擬應用裝置的角色型存取控制ONTAP"
+      data-li-level="4#" 
+      class="   "
+      dale-page-url="/qsg.html" 
+      dale-entry-url="/deploy/concept-ontap-role-based-access-control-feature-for-virtual-appliance.html" 
+    ><a class="ie-sidebar-menuitem-4 " href="/zh-tw/vsc-vasa-provider-sra-97/deploy/concept-ontap-role-based-access-control-feature-for-virtual-appliance.html">
+        VSC、VASA Provider和SRA虛擬應用裝置的角色型存取控制ONTAP
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="使用VSC for VMware vSphere時的推薦ONTAP 功能"
+      data-li-level="4#" 
+      class="   "
+      dale-page-url="/qsg.html" 
+      dale-entry-url="/deploy/concept-recommended-ontap-roles-when-using-vsc-for-vmware-vsphere.html" 
+    ><a class="ie-sidebar-menuitem-4 " href="/zh-tw/vsc-vasa-provider-sra-97/deploy/concept-recommended-ontap-roles-when-using-vsc-for-vmware-vsphere.html">
+        使用VSC for VMware vSphere時的推薦ONTAP 功能
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="如何為ONTAP VMware vSphere的VSC設定以角色為基礎的存取控制"
+      data-li-level="4#" 
+      class="   "
+      dale-page-url="/qsg.html" 
+      dale-entry-url="/deploy/concept-how-to-configure-data-ontap-role-based-access-control-for-vsc-for-vmware-vsphere.html" 
+    ><a class="ie-sidebar-menuitem-4 " href="/zh-tw/vsc-vasa-provider-sra-97/deploy/concept-how-to-configure-data-ontap-role-based-access-control-for-vsc-for-vmware-vsphere.html">
+        如何為ONTAP VMware vSphere的VSC設定以角色為基礎的存取控制
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="設定使用者角色和權限"
+      data-li-level="4#" 
+      class="   "
+      dale-page-url="/qsg.html" 
+      dale-entry-url="/deploy/task-configure-user-role-and-privileges.html" 
+    ><a class="ie-sidebar-menuitem-4 " href="/zh-tw/vsc-vasa-provider-sra-97/deploy/task-configure-user-role-and-privileges.html">
+        設定使用者角色和權限
+      </a></li></ul></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="設定儲存複寫介面卡以進行災難恢復"
+      data-li-level="2" 
+      class=" sidebar-folder    "
+      dale-page-url="/qsg.html" 
+      dale-entry-url="/deploy/concept-configure-storage-replication-adapter-for-disaster-recovery.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/zh-tw/vsc-vasa-provider-sra-97/deploy/concept-configure-storage-replication-adapter-for-disaster-recovery.html">
+        <img class="ie-sidebar-icon ie-sidebar-button open" src="/zh-tw/vsc-vasa-provider-sra-97/images/link_expand.svg" alt="" />
+        <img class="ie-sidebar-icon ie-sidebar-button close" src="/zh-tw/vsc-vasa-provider-sra-97/images/link_collapse.svg" alt="" />
+        <!--<div class="" style="display: inline;"> 設定儲存複寫介面卡以進行災難恢復</div>-->
+         設定儲存複寫介面卡以進行災難恢復
+      </a>
+      <ul class="">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="設定SAN環境的儲存複寫介面卡"
+      data-li-level="3#" 
+      class="   "
+      dale-page-url="/qsg.html" 
+      dale-entry-url="/deploy/task-configure-storage-replication-adapter-for-san-environment.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/zh-tw/vsc-vasa-provider-sra-97/deploy/task-configure-storage-replication-adapter-for-san-environment.html">
+        設定SAN環境的儲存複寫介面卡
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="設定NAS環境的儲存複寫介面卡"
+      data-li-level="3#" 
+      class="   "
+      dale-page-url="/qsg.html" 
+      dale-entry-url="/deploy/task-configure-storage-replication-adapter-for-nas-environment.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/zh-tw/vsc-vasa-provider-sra-97/deploy/task-configure-storage-replication-adapter-for-nas-environment.html">
+        設定NAS環境的儲存複寫介面卡
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="設定儲存複寫介面卡、適用於高度擴充的環境"
+      data-li-level="3#" 
+      class="   "
+      dale-page-url="/qsg.html" 
+      dale-entry-url="/deploy/reference-configure-storage-replication-adapter-for-highly-scaled-environment.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/zh-tw/vsc-vasa-provider-sra-97/deploy/reference-configure-storage-replication-adapter-for-highly-scaled-environment.html">
+        設定儲存複寫介面卡、適用於高度擴充的環境
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="疑難排解VSC、VASA Provider及SRA的虛擬應用裝置問題"
+      data-li-level="2" 
+      class=" sidebar-folder    "
+      dale-page-url="/qsg.html" 
+      dale-entry-url="/deploy/concept-troubleshoot-issues-with-the-virtual-appliance-for-vsc-vasa-provider-and-sra.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/zh-tw/vsc-vasa-provider-sra-97/deploy/concept-troubleshoot-issues-with-the-virtual-appliance-for-vsc-vasa-provider-and-sra.html">
+        <img class="ie-sidebar-icon ie-sidebar-button open" src="/zh-tw/vsc-vasa-provider-sra-97/images/link_expand.svg" alt="" />
+        <img class="ie-sidebar-icon ie-sidebar-button close" src="/zh-tw/vsc-vasa-provider-sra-97/images/link_collapse.svg" alt="" />
+        <!--<div class="" style="display: inline;"> 疑難排解VSC、VASA Provider及SRA的虛擬應用裝置問題</div>-->
+         疑難排解VSC、VASA Provider及SRA的虛擬應用裝置問題
+      </a>
+      <ul class="">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="清除vSphere快取下載的外掛程式套件"
+      data-li-level="3#" 
+      class="   "
+      dale-page-url="/qsg.html" 
+      dale-entry-url="/deploy/task-clean-the-vsphere-cached-downloaded-plug-in-packages.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/zh-tw/vsc-vasa-provider-sra-97/deploy/task-clean-the-vsphere-cached-downloaded-plug-in-packages.html">
+        清除vSphere快取下載的外掛程式套件
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="解除安裝不會移除標準VSC角色"
+      data-li-level="3#" 
+      class="   "
+      dale-page-url="/qsg.html" 
+      dale-entry-url="/deploy/reference-uninstall-does-not-remove-standard-vsc-roles.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/zh-tw/vsc-vasa-provider-sra-97/deploy/reference-uninstall-does-not-remove-standard-vsc-roles.html">
+        解除安裝不會移除標準VSC角色
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="VSC和VASA Provider記錄檔"
+      data-li-level="3#" 
+      class="   "
+      dale-page-url="/qsg.html" 
+      dale-entry-url="/deploy/concept-virtual-storage-console-and-vasa-provider-log-files.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/zh-tw/vsc-vasa-provider-sra-97/deploy/concept-virtual-storage-console-and-vasa-provider-log-files.html">
+        VSC和VASA Provider記錄檔
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="VSC和VASA Provider服務會在高度擴充的環境中重新啟動"
+      data-li-level="3#" 
+      class="   "
+      dale-page-url="/qsg.html" 
+      dale-entry-url="/deploy/reference-vsc-and-vasa-provider-services-restart-in-scaled-environments.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/zh-tw/vsc-vasa-provider-sra-97/deploy/reference-vsc-and-vasa-provider-services-restart-in-scaled-environments.html">
+        VSC和VASA Provider服務會在高度擴充的環境中重新啟動
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="設定VASA Provider以搭配SSH使用"
+      data-li-level="3#" 
+      class="   "
+      dale-page-url="/qsg.html" 
+      dale-entry-url="/deploy/task-configure-vasa-provider-to-work-with-ssh.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/zh-tw/vsc-vasa-provider-sra-97/deploy/task-configure-vasa-provider-to-work-with-ssh.html">
+        設定VASA Provider以搭配SSH使用
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="將VSC、VASA Provider和SRA的虛擬應用裝置設定為使用SSH進行遠端診斷存取"
+      data-li-level="3#" 
+      class="   "
+      dale-page-url="/qsg.html" 
+      dale-entry-url="/deploy/task-configure-vasa-provider-to-use-ssh-for-remote-diag-access.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/zh-tw/vsc-vasa-provider-sra-97/deploy/task-configure-vasa-provider-to-use-ssh-for-remote-diag-access.html">
+        將VSC、VASA Provider和SRA的虛擬應用裝置設定為使用SSH進行遠端診斷存取
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="SRA安裝失敗、並出現指令碼錯誤"
+      data-li-level="3#" 
+      class="   "
+      dale-page-url="/qsg.html" 
+      dale-entry-url="/deploy/reference-sra-adapter-installation-fails-with-script-error.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/zh-tw/vsc-vasa-provider-sra-97/deploy/reference-sra-adapter-installation-fails-with-script-error.html">
+        SRA安裝失敗、並出現指令碼錯誤
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="SRA無法在高度擴充的環境中達到最佳效能"
+      data-li-level="3#" 
+      class="   "
+      dale-page-url="/qsg.html" 
+      dale-entry-url="/deploy/reference-sra-fails-to-perform-optimally-in-a-highly-scaled-environment.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/zh-tw/vsc-vasa-provider-sra-97/deploy/reference-sra-fails-to-perform-optimally-in-a-highly-scaled-environment.html">
+        SRA無法在高度擴充的環境中達到最佳效能
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="無法安裝SRA外掛程式"
+      data-li-level="3#" 
+      class="   "
+      dale-page-url="/qsg.html" 
+      dale-entry-url="/deploy/reference-unable-to-install-sra-plug-in-due-to-winhttp-proxy-settings.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/zh-tw/vsc-vasa-provider-sra-97/deploy/reference-unable-to-install-sra-plug-in-due-to-winhttp-proxy-settings.html">
+        無法安裝SRA外掛程式
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Site Recovery Manager應用裝置並未顯示適用於ONTAP NetApp的Storage Replication Adapter for NetApp"
+      data-li-level="3#" 
+      class="   "
+      dale-page-url="/qsg.html" 
+      dale-entry-url="/deploy/reference-srm-does-not-work-after-sra-installation.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/zh-tw/vsc-vasa-provider-sra-97/deploy/reference-srm-does-not-work-after-sra-installation.html">
+        Site Recovery Manager應用裝置並未顯示適用於ONTAP NetApp的Storage Replication Adapter for NetApp
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="針對VSC、VASA Provider及SRA重新部署虛擬應用裝置時發生錯誤"
+      data-li-level="3#" 
+      class="   "
+      dale-page-url="/qsg.html" 
+      dale-entry-url="/deploy/reference-error-during-fresh-deployment-of-virtual-appliance-for-vsc-vasa-provider-and-sra.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/zh-tw/vsc-vasa-provider-sra-97/deploy/reference-error-during-fresh-deployment-of-virtual-appliance-for-vsc-vasa-provider-and-sra.html">
+        針對VSC、VASA Provider及SRA重新部署虛擬應用裝置時發生錯誤
+      </a></li></ul></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="管理"
+      data-li-level="1" 
+      class=" sidebar-folder    "
+      dale-page-url="/qsg.html" 
+      dale-entry-url="" 
+    ><a class="ie-sidebar-menuitem-1  ie-sidebar-button " href="#">
+        <img class="ie-sidebar-icon ie-sidebar-button open" src="/zh-tw/vsc-vasa-provider-sra-97/images/link_expand.svg" alt="" />
+        <img class="ie-sidebar-icon ie-sidebar-button close" src="/zh-tw/vsc-vasa-provider-sra-97/images/link_collapse.svg" alt="" />
+        <!--<div class="" style="display: inline;"> 管理</div>-->
+         管理
+      </a>
+      <ul class="">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="設定VSC、VASA Provider及SRA虛擬應用裝置的工作流程"
+      data-li-level="2#" 
+      class="   "
+      dale-page-url="/qsg.html" 
+      dale-entry-url="/manage/concept-workflow-for-configuring-the-unified-appliance.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/zh-tw/vsc-vasa-provider-sra-97/manage/concept-workflow-for-configuring-the-unified-appliance.html">
+        設定VSC、VASA Provider及SRA虛擬應用裝置的工作流程
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="設定VSC、VASA Provider和SRA的儲存系統"
+      data-li-level="2" 
+      class=" sidebar-folder    "
+      dale-page-url="/qsg.html" 
+      dale-entry-url="/manage/concept-configure-storage-systems-for-vsc-vasa-provider-and-sra.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/zh-tw/vsc-vasa-provider-sra-97/manage/concept-configure-storage-systems-for-vsc-vasa-provider-and-sra.html">
+        <img class="ie-sidebar-icon ie-sidebar-button open" src="/zh-tw/vsc-vasa-provider-sra-97/images/link_expand.svg" alt="" />
+        <img class="ie-sidebar-icon ie-sidebar-button close" src="/zh-tw/vsc-vasa-provider-sra-97/images/link_collapse.svg" alt="" />
+        <!--<div class="" style="display: inline;"> 設定VSC、VASA Provider和SRA的儲存系統</div>-->
+         設定VSC、VASA Provider和SRA的儲存系統
+      </a>
+      <ul class="">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="將儲存系統新增至VSC"
+      data-li-level="3#" 
+      class="   "
+      dale-page-url="/qsg.html" 
+      dale-entry-url="/manage/task-add-storage-systems.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/zh-tw/vsc-vasa-provider-sra-97/manage/task-add-storage-systems.html">
+        將儲存系統新增至VSC
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="設定儲存系統的預設認證資料"
+      data-li-level="3#" 
+      class="   "
+      dale-page-url="/qsg.html" 
+      dale-entry-url="/manage/task-set-default-credentials-for-storage-systems.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/zh-tw/vsc-vasa-provider-sra-97/manage/task-set-default-credentials-for-storage-systems.html">
+        設定儲存系統的預設認證資料
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="設定警示臨界值"
+      data-li-level="3#" 
+      class="   "
+      dale-page-url="/qsg.html" 
+      dale-entry-url="/manage/task-configure-alarm-thresholds.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/zh-tw/vsc-vasa-provider-sra-97/manage/task-configure-alarm-thresholds.html">
+        設定警示臨界值
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="建立儲存功能設定檔"
+      data-li-level="2" 
+      class=" sidebar-folder    "
+      dale-page-url="/qsg.html" 
+      dale-entry-url="/manage/concept-configure-storage-capability-profiles.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/zh-tw/vsc-vasa-provider-sra-97/manage/concept-configure-storage-capability-profiles.html">
+        <img class="ie-sidebar-icon ie-sidebar-button open" src="/zh-tw/vsc-vasa-provider-sra-97/images/link_expand.svg" alt="" />
+        <img class="ie-sidebar-icon ie-sidebar-button close" src="/zh-tw/vsc-vasa-provider-sra-97/images/link_collapse.svg" alt="" />
+        <!--<div class="" style="display: inline;"> 建立儲存功能設定檔</div>-->
+         建立儲存功能設定檔
+      </a>
+      <ul class="">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="什麼是儲存功能"
+      data-li-level="3#" 
+      class="   "
+      dale-page-url="/qsg.html" 
+      dale-entry-url="/manage/concept-what-storage-capabilities-are.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/zh-tw/vsc-vasa-provider-sra-97/manage/concept-what-storage-capabilities-are.html">
+        什麼是儲存功能
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="建立及編輯儲存功能設定檔的考量事項"
+      data-li-level="3#" 
+      class="   "
+      dale-page-url="/qsg.html" 
+      dale-entry-url="/manage/concept-considerations-for-creating-and-editing-storage-capability-profiles.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/zh-tw/vsc-vasa-provider-sra-97/manage/concept-considerations-for-creating-and-editing-storage-capability-profiles.html">
+        建立及編輯儲存功能設定檔的考量事項
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="設定儲存功能設定檔"
+      data-li-level="3#" 
+      class="   "
+      dale-page-url="/qsg.html" 
+      dale-entry-url="/manage/task-create-storage-capability-profiles.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/zh-tw/vsc-vasa-provider-sra-97/manage/task-create-storage-capability-profiles.html">
+        設定儲存功能設定檔
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="設定傳統的資料存放區和虛擬機器"
+      data-li-level="2" 
+      class=" sidebar-folder    "
+      dale-page-url="/qsg.html" 
+      dale-entry-url="/manage/concept-configure-traditional-datastores.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/zh-tw/vsc-vasa-provider-sra-97/manage/concept-configure-traditional-datastores.html">
+        <img class="ie-sidebar-icon ie-sidebar-button open" src="/zh-tw/vsc-vasa-provider-sra-97/images/link_expand.svg" alt="" />
+        <img class="ie-sidebar-icon ie-sidebar-button close" src="/zh-tw/vsc-vasa-provider-sra-97/images/link_collapse.svg" alt="" />
+        <!--<div class="" style="display: inline;"> 設定傳統的資料存放區和虛擬機器</div>-->
+         設定傳統的資料存放區和虛擬機器
+      </a>
+      <ul class="">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="配置資料存放區"
+      data-li-level="3#" 
+      class="   "
+      dale-page-url="/qsg.html" 
+      dale-entry-url="/manage/task-provision-datastores.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/zh-tw/vsc-vasa-provider-sra-97/manage/task-provision-datastores.html">
+        配置資料存放區
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="將資料存放區對應至儲存功能設定檔"
+      data-li-level="3#" 
+      class="   "
+      dale-page-url="/qsg.html" 
+      dale-entry-url="/manage/task-map-storage-to-storage-capability-profiles.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/zh-tw/vsc-vasa-provider-sra-97/manage/task-map-storage-to-storage-capability-profiles.html">
+        將資料存放區對應至儲存功能設定檔
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="自動產生儲存功能設定檔"
+      data-li-level="3#" 
+      class="   "
+      dale-page-url="/qsg.html" 
+      dale-entry-url="/manage/task-automatically-generate-scps.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/zh-tw/vsc-vasa-provider-sra-97/manage/task-automatically-generate-scps.html">
+        自動產生儲存功能設定檔
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="驗證資料存放區是否符合對應的儲存功能設定檔"
+      data-li-level="3#" 
+      class="   "
+      dale-page-url="/qsg.html" 
+      dale-entry-url="/manage/task-check-for-datastore-compliance-with-the-mapped-storage-capability-profile.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/zh-tw/vsc-vasa-provider-sra-97/manage/task-check-for-datastore-compliance-with-the-mapped-storage-capability-profile.html">
+        驗證資料存放區是否符合對應的儲存功能設定檔
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="使用傳統儀表板監控資料存放區和虛擬機器"
+      data-li-level="3#" 
+      class="   "
+      dale-page-url="/qsg.html" 
+      dale-entry-url="/manage/task-monitor-datastores-using-the-traditional-dashboard.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/zh-tw/vsc-vasa-provider-sra-97/manage/task-monitor-datastores-using-the-traditional-dashboard.html">
+        使用傳統儀表板監控資料存放區和虛擬機器
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="編輯VSC、VASA Provider和SRA的ESXi主機設定"
+      data-li-level="3#" 
+      class="   "
+      dale-page-url="/qsg.html" 
+      dale-entry-url="/manage/task-edit-esxi-host-settings.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/zh-tw/vsc-vasa-provider-sra-97/manage/task-edit-esxi-host-settings.html">
+        編輯VSC、VASA Provider和SRA的ESXi主機設定
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="設定vVols資料存放區"
+      data-li-level="2" 
+      class=" sidebar-folder    "
+      dale-page-url="/qsg.html" 
+      dale-entry-url="/manage/concept-configure-vvols-datastores.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/zh-tw/vsc-vasa-provider-sra-97/manage/concept-configure-vvols-datastores.html">
+        <img class="ie-sidebar-icon ie-sidebar-button open" src="/zh-tw/vsc-vasa-provider-sra-97/images/link_expand.svg" alt="" />
+        <img class="ie-sidebar-icon ie-sidebar-button close" src="/zh-tw/vsc-vasa-provider-sra-97/images/link_collapse.svg" alt="" />
+        <!--<div class="" style="display: inline;"> 設定vVols資料存放區</div>-->
+         設定vVols資料存放區
+      </a>
+      <ul class="">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="設定vVols資料存放區的複寫"
+      data-li-level="3#" 
+      class="   "
+      dale-page-url="/qsg.html" 
+      dale-entry-url="/manage/concept-configure-replication-for-vvols-datastore.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/zh-tw/vsc-vasa-provider-sra-97/manage/concept-configure-replication-for-vvols-datastore.html">
+        設定vVols資料存放區的複寫
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="配置vVols資料存放區"
+      data-li-level="3#" 
+      class="   "
+      dale-page-url="/qsg.html" 
+      dale-entry-url="/manage/task-provision-vvol-datastores.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/zh-tw/vsc-vasa-provider-sra-97/manage/task-provision-vvol-datastores.html">
+        配置vVols資料存放區
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="使用vVol儀表板監控vVols資料存放區和虛擬機器"
+      data-li-level="3" 
+      class=" sidebar-folder    "
+      dale-page-url="/qsg.html" 
+      dale-entry-url="/manage/task-monitor-vvols-datastores-and-virtual-machines-using-vvols-dashboard.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/zh-tw/vsc-vasa-provider-sra-97/manage/task-monitor-vvols-datastores-and-virtual-machines-using-vvols-dashboard.html">
+        <img class="ie-sidebar-icon ie-sidebar-button open" src="/zh-tw/vsc-vasa-provider-sra-97/images/link_expand.svg" alt="" />
+        <img class="ie-sidebar-icon ie-sidebar-button close" src="/zh-tw/vsc-vasa-provider-sra-97/images/link_collapse.svg" alt="" />
+        <!--<div class="" style="display: inline;"> 使用vVol儀表板監控vVols資料存放區和虛擬機器</div>-->
+         使用vVol儀表板監控vVols資料存放區和虛擬機器
+      </a>
+      <ul class="">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="VVOL儀表板資料需求"
+      data-li-level="4#" 
+      class="   "
+      dale-page-url="/qsg.html" 
+      dale-entry-url="/manage/reference-verify-vvol-dashboard-data-requirements.html" 
+    ><a class="ie-sidebar-menuitem-4 " href="/zh-tw/vsc-vasa-provider-sra-97/manage/reference-verify-vvol-dashboard-data-requirements.html">
+        VVOL儀表板資料需求
+      </a></li></ul></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="使用Site Recovery Manager管理災難恢復設定"
+      data-li-level="2" 
+      class=" sidebar-folder    "
+      dale-page-url="/qsg.html" 
+      dale-entry-url="/manage/concept-manage-disaster-recovery-setup-using-srm.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/zh-tw/vsc-vasa-provider-sra-97/manage/concept-manage-disaster-recovery-setup-using-srm.html">
+        <img class="ie-sidebar-icon ie-sidebar-button open" src="/zh-tw/vsc-vasa-provider-sra-97/images/link_expand.svg" alt="" />
+        <img class="ie-sidebar-icon ie-sidebar-button close" src="/zh-tw/vsc-vasa-provider-sra-97/images/link_collapse.svg" alt="" />
+        <!--<div class="" style="display: inline;"> 使用Site Recovery Manager管理災難恢復設定</div>-->
+         使用Site Recovery Manager管理災難恢復設定
+      </a>
+      <ul class="">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="設定VM儲存原則"
+      data-li-level="3#" 
+      class="   "
+      dale-page-url="/qsg.html" 
+      dale-entry-url="/manage/task-configure-vm-storage-policies.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/zh-tw/vsc-vasa-provider-sra-97/manage/task-configure-vm-storage-policies.html">
+        設定VM儲存原則
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="設定保護群組"
+      data-li-level="3#" 
+      class="   "
+      dale-page-url="/qsg.html" 
+      dale-entry-url="/manage/task-configure-protection-groups.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/zh-tw/vsc-vasa-provider-sra-97/manage/task-configure-protection-groups.html">
+        設定保護群組
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="配對受保護和恢復站台"
+      data-li-level="3#" 
+      class="   "
+      dale-page-url="/qsg.html" 
+      dale-entry-url="/manage/task-pair-protected-and-recovery-sites.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/zh-tw/vsc-vasa-provider-sra-97/manage/task-pair-protected-and-recovery-sites.html">
+        配對受保護和恢復站台
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="設定受保護和恢復站台資源"
+      data-li-level="3" 
+      class=" sidebar-folder    "
+      dale-page-url="/qsg.html" 
+      dale-entry-url="/manage/concept-configure-protected-and-recovery-site-resources.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/zh-tw/vsc-vasa-provider-sra-97/manage/concept-configure-protected-and-recovery-site-resources.html">
+        <img class="ie-sidebar-icon ie-sidebar-button open" src="/zh-tw/vsc-vasa-provider-sra-97/images/link_expand.svg" alt="" />
+        <img class="ie-sidebar-icon ie-sidebar-button close" src="/zh-tw/vsc-vasa-provider-sra-97/images/link_collapse.svg" alt="" />
+        <!--<div class="" style="display: inline;"> 設定受保護和恢復站台資源</div>-->
+         設定受保護和恢復站台資源
+      </a>
+      <ul class="">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="設定網路對應"
+      data-li-level="4#" 
+      class="   "
+      dale-page-url="/qsg.html" 
+      dale-entry-url="/manage/task-configure-network-mappings.html" 
+    ><a class="ie-sidebar-menuitem-4 " href="/zh-tw/vsc-vasa-provider-sra-97/manage/task-configure-network-mappings.html">
+        設定網路對應
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="設定資料夾對應"
+      data-li-level="4#" 
+      class="   "
+      dale-page-url="/qsg.html" 
+      dale-entry-url="/manage/task-configure-folder-mappings.html" 
+    ><a class="ie-sidebar-menuitem-4 " href="/zh-tw/vsc-vasa-provider-sra-97/manage/task-configure-folder-mappings.html">
+        設定資料夾對應
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="設定資源對應"
+      data-li-level="4#" 
+      class="   "
+      dale-page-url="/qsg.html" 
+      dale-entry-url="/manage/task-configure-resource-mappings.html" 
+    ><a class="ie-sidebar-menuitem-4 " href="/zh-tw/vsc-vasa-provider-sra-97/manage/task-configure-resource-mappings.html">
+        設定資源對應
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="對應儲存原則"
+      data-li-level="4#" 
+      class="   "
+      dale-page-url="/qsg.html" 
+      dale-entry-url="/manage/task-map-storage-policies.html" 
+    ><a class="ie-sidebar-menuitem-4 " href="/zh-tw/vsc-vasa-provider-sra-97/manage/task-map-storage-policies.html">
+        對應儲存原則
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="設定預留位置資料存放區"
+      data-li-level="4#" 
+      class="   "
+      dale-page-url="/qsg.html" 
+      dale-entry-url="/manage/task-configure-placeholder-datastores.html" 
+    ><a class="ie-sidebar-menuitem-4 " href="/zh-tw/vsc-vasa-provider-sra-97/manage/task-configure-placeholder-datastores.html">
+        設定預留位置資料存放區
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="使用Array Manager設定SRA"
+      data-li-level="4#" 
+      class="   "
+      dale-page-url="/qsg.html" 
+      dale-entry-url="/manage/task-configure-array-manager.html" 
+    ><a class="ie-sidebar-menuitem-4 " href="/zh-tw/vsc-vasa-provider-sra-97/manage/task-configure-array-manager.html">
+        使用Array Manager設定SRA
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="驗證複寫的儲存系統"
+      data-li-level="3#" 
+      class="   "
+      dale-page-url="/qsg.html" 
+      dale-entry-url="/manage/task-verify-the-replicated-storage-environment.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/zh-tw/vsc-vasa-provider-sra-97/manage/task-verify-the-replicated-storage-environment.html">
+        驗證複寫的儲存系統
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="保護未受保護的虛擬機器"
+      data-li-level="3#" 
+      class="   "
+      dale-page-url="/qsg.html" 
+      dale-entry-url="/manage/task-protect-non-protected-virtual-machines.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/zh-tw/vsc-vasa-provider-sra-97/manage/task-protect-non-protected-virtual-machines.html">
+        保護未受保護的虛擬機器
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="管理傳統和vVols資料存放區"
+      data-li-level="2" 
+      class=" sidebar-folder    "
+      dale-page-url="/qsg.html" 
+      dale-entry-url="/manage/concept-manage-datastore.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/zh-tw/vsc-vasa-provider-sra-97/manage/concept-manage-datastore.html">
+        <img class="ie-sidebar-icon ie-sidebar-button open" src="/zh-tw/vsc-vasa-provider-sra-97/images/link_expand.svg" alt="" />
+        <img class="ie-sidebar-icon ie-sidebar-button close" src="/zh-tw/vsc-vasa-provider-sra-97/images/link_collapse.svg" alt="" />
+        <!--<div class="" style="display: inline;"> 管理傳統和vVols資料存放區</div>-->
+         管理傳統和vVols資料存放區
+      </a>
+      <ul class="">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="在其他主機上掛載資料存放區"
+      data-li-level="3#" 
+      class="   "
+      dale-page-url="/qsg.html" 
+      dale-entry-url="/manage/task-mount-datastores-on-host.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/zh-tw/vsc-vasa-provider-sra-97/manage/task-mount-datastores-on-host.html">
+        在其他主機上掛載資料存放區
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="調整資料存放區大小"
+      data-li-level="3#" 
+      class="   "
+      dale-page-url="/qsg.html" 
+      dale-entry-url="/manage/task-resize-datastores.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/zh-tw/vsc-vasa-provider-sra-97/manage/task-resize-datastores.html">
+        調整資料存放區大小
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="編輯vVols資料存放區"
+      data-li-level="3#" 
+      class="   "
+      dale-page-url="/qsg.html" 
+      dale-entry-url="/manage/task-edit-a-vvol-datastore.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/zh-tw/vsc-vasa-provider-sra-97/manage/task-edit-a-vvol-datastore.html">
+        編輯vVols資料存放區
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="AD儲存設備至vVols資料存放區"
+      data-li-level="3#" 
+      class="   "
+      dale-page-url="/qsg.html" 
+      dale-entry-url="/manage/task-add-storage-to-a-vvol-datastore.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/zh-tw/vsc-vasa-provider-sra-97/manage/task-add-storage-to-a-vvol-datastore.html">
+        AD儲存設備至vVols資料存放區
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="從vVols資料存放區移除儲存設備"
+      data-li-level="3#" 
+      class="   "
+      dale-page-url="/qsg.html" 
+      dale-entry-url="/manage/task-remove-storage-from-a-vvols-datastore.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/zh-tw/vsc-vasa-provider-sra-97/manage/task-remove-storage-from-a-vvols-datastore.html">
+        從vVols資料存放區移除儲存設備
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="掛載vVols資料存放區"
+      data-li-level="3#" 
+      class="   "
+      dale-page-url="/qsg.html" 
+      dale-entry-url="/manage/task-mount-a-vvol-datastore.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/zh-tw/vsc-vasa-provider-sra-97/manage/task-mount-a-vvol-datastore.html">
+        掛載vVols資料存放區
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="移轉或複製虛擬機器的考量"
+      data-li-level="3#" 
+      class="   "
+      dale-page-url="/qsg.html" 
+      dale-entry-url="/manage/reference-considerations-for-migrating-virtual-machines.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/zh-tw/vsc-vasa-provider-sra-97/manage/reference-considerations-for-migrating-virtual-machines.html">
+        移轉或複製虛擬機器的考量
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="將傳統虛擬機器移轉至vVols資料存放區"
+      data-li-level="3#" 
+      class="   "
+      dale-page-url="/qsg.html" 
+      dale-entry-url="/manage/task-migrate-standard-virtual-machines-to-vvol-datastores.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/zh-tw/vsc-vasa-provider-sra-97/manage/task-migrate-standard-virtual-machines-to-vvol-datastores.html">
+        將傳統虛擬機器移轉至vVols資料存放區
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="移轉具有舊版儲存功能設定檔的虛擬機器"
+      data-li-level="3#" 
+      class="   "
+      dale-page-url="/qsg.html" 
+      dale-entry-url="/manage/task-migrate-existing-virtual-machines-to-7-1-virtual-appliance.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/zh-tw/vsc-vasa-provider-sra-97/manage/task-migrate-existing-virtual-machines-to-7-1-virtual-appliance.html">
+        移轉具有舊版儲存功能設定檔的虛擬機器
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="瞭解虛擬儲存主控台報告"
+      data-li-level="2" 
+      class=" sidebar-folder    "
+      dale-page-url="/qsg.html" 
+      dale-entry-url="/manage/concept-virtual-storage-console-reports.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/zh-tw/vsc-vasa-provider-sra-97/manage/concept-virtual-storage-console-reports.html">
+        <img class="ie-sidebar-icon ie-sidebar-button open" src="/zh-tw/vsc-vasa-provider-sra-97/images/link_expand.svg" alt="" />
+        <img class="ie-sidebar-icon ie-sidebar-button close" src="/zh-tw/vsc-vasa-provider-sra-97/images/link_collapse.svg" alt="" />
+        <!--<div class="" style="display: inline;"> 瞭解虛擬儲存主控台報告</div>-->
+         瞭解虛擬儲存主控台報告
+      </a>
+      <ul class="">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="報告的功能"
+      data-li-level="3#" 
+      class="   "
+      dale-page-url="/qsg.html" 
+      dale-entry-url="/manage/concept-what-reports-do.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/zh-tw/vsc-vasa-provider-sra-97/manage/concept-what-reports-do.html">
+        報告的功能
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="資料存放區報告"
+      data-li-level="3#" 
+      class="   "
+      dale-page-url="/qsg.html" 
+      dale-entry-url="/manage/concept-datastore-reports.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/zh-tw/vsc-vasa-provider-sra-97/manage/concept-datastore-reports.html">
+        資料存放區報告
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="vVols報告"
+      data-li-level="3#" 
+      class="   "
+      dale-page-url="/qsg.html" 
+      dale-entry-url="/manage/concept-what-vasa-provider-reports-do.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/zh-tw/vsc-vasa-provider-sra-97/manage/concept-what-vasa-provider-reports-do.html">
+        vVols報告
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="疑難排解VSC、VASA Provider及SRA的虛擬應用裝置問題"
+      data-li-level="2" 
+      class=" sidebar-folder    "
+      dale-page-url="/qsg.html" 
+      dale-entry-url="/manage/concept-troubleshoot-issues-with-the-virtual-appliance-for-vsc-vasa-provider-and-sra-test.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/zh-tw/vsc-vasa-provider-sra-97/manage/concept-troubleshoot-issues-with-the-virtual-appliance-for-vsc-vasa-provider-and-sra-test.html">
+        <img class="ie-sidebar-icon ie-sidebar-button open" src="/zh-tw/vsc-vasa-provider-sra-97/images/link_expand.svg" alt="" />
+        <img class="ie-sidebar-icon ie-sidebar-button close" src="/zh-tw/vsc-vasa-provider-sra-97/images/link_collapse.svg" alt="" />
+        <!--<div class="" style="display: inline;"> 疑難排解VSC、VASA Provider及SRA的虛擬應用裝置問題</div>-->
+         疑難排解VSC、VASA Provider及SRA的虛擬應用裝置問題
+      </a>
+      <ul class="">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="收集記錄檔"
+      data-li-level="3#" 
+      class="   "
+      dale-page-url="/qsg.html" 
+      dale-entry-url="/manage/task-collect-the-log-files.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/zh-tw/vsc-vasa-provider-sra-97/manage/task-collect-the-log-files.html">
+        收集記錄檔
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="VVOL資料存放區資源配置在大量磁碟區時失敗"
+      data-li-level="3#" 
+      class="   "
+      dale-page-url="/qsg.html" 
+      dale-entry-url="/manage/reference-vvol-datastore-provision-fails-with-large-number-of-volumes.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/zh-tw/vsc-vasa-provider-sra-97/manage/reference-vvol-datastore-provision-fails-with-large-number-of-volumes.html">
+        VVOL資料存放區資源配置在大量磁碟區時失敗
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="升級後編輯VM儲存原則時出現問題"
+      data-li-level="3#" 
+      class="   "
+      dale-page-url="/qsg.html" 
+      dale-entry-url="/manage/reference-edit-vm-storage-policies-after-upgrade-throws-error-message.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/zh-tw/vsc-vasa-provider-sra-97/manage/reference-edit-vm-storage-policies-after-upgrade-throws-error-message.html">
+        升級後編輯VM儲存原則時出現問題
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="VASA Provider狀態在vCenter Server GUI中顯示為「離線」"
+      data-li-level="3#" 
+      class="   "
+      dale-page-url="/qsg.html" 
+      dale-entry-url="/manage/reference-vasa-provider-storage-provider-status-show-offline-in-vcenter-gui.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/zh-tw/vsc-vasa-provider-sra-97/manage/reference-vasa-provider-storage-provider-status-show-offline-in-vcenter-gui.html">
+        VASA Provider狀態在vCenter Server GUI中顯示為「離線」
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="存取虛擬應用裝置的VSC摘要頁面時發生錯誤"
+      data-li-level="3#" 
+      class="   "
+      dale-page-url="/qsg.html" 
+      dale-entry-url="/manage/reference-error-while-accessing-the-vsc-summary-page-of-virtual-appliance.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/zh-tw/vsc-vasa-provider-sra-97/manage/reference-error-while-accessing-the-vsc-summary-page-of-virtual-appliance.html">
+        存取虛擬應用裝置的VSC摘要頁面時發生錯誤
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="變更網路設定後刪除資料存放區時發生錯誤"
+      data-li-level="3#" 
+      class="   "
+      dale-page-url="/qsg.html" 
+      dale-entry-url="/manage/reference-error-deleting-a-datastore-after-network-settings-are-changed.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/zh-tw/vsc-vasa-provider-sra-97/manage/reference-error-deleting-a-datastore-after-network-settings-are-changed.html">
+        變更網路設定後刪除資料存放區時發生錯誤
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="虛擬機器資源配置失敗、並出現未定義的錯誤"
+      data-li-level="3#" 
+      class="   "
+      dale-page-url="/qsg.html" 
+      dale-entry-url="/manage/reference-vm-provision-fails-with-undefined-error.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/zh-tw/vsc-vasa-provider-sra-97/manage/reference-vm-provision-fails-with-undefined-error.html">
+        虛擬機器資源配置失敗、並出現未定義的錯誤
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="大量的VVols配置無法用於ONTAP 供應功能不完整的功能"
+      data-li-level="3#" 
+      class="   "
+      dale-page-url="/qsg.html" 
+      dale-entry-url="/manage/reference-thick-provision-fails-for-vvol-datastores-on-ontap-9-4.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/zh-tw/vsc-vasa-provider-sra-97/manage/reference-thick-provision-fails-for-vvol-datastores-on-ontap-9-4.html">
+        大量的VVols配置無法用於ONTAP 供應功能不完整的功能
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="當Volume狀態變更為離線時、無法存取資料存放區"
+      data-li-level="3#" 
+      class="   "
+      dale-page-url="/qsg.html" 
+      dale-entry-url="/manage/reference-datastore-inaccessible-when-volume-status-is-changed-to-offline.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/zh-tw/vsc-vasa-provider-sra-97/manage/reference-datastore-inaccessible-when-volume-status-is-changed-to-offline.html">
+        當Volume狀態變更為離線時、無法存取資料存放區
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="使用IPV4新增儲存系統會導致儲存系統網格中的IPv6狀態發生驗證錯誤"
+      data-li-level="3#" 
+      class="   "
+      dale-page-url="/qsg.html" 
+      dale-entry-url="/manage/reference-authentication-failure-status-is-displayed-with-ipv6-as-the-cluster-ip-even-if-cluster-is-added-with-ipv4.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/zh-tw/vsc-vasa-provider-sra-97/manage/reference-authentication-failure-status-is-displayed-with-ipv6-as-the-cluster-ip-even-if-cluster-is-added-with-ipv4.html">
+        使用IPV4新增儲存系統會導致儲存系統網格中的IPv6狀態發生驗證錯誤
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="在VVOL資料存放區上配置虛擬機器時發生檔案建立錯誤"
+      data-li-level="3#" 
+      class="   "
+      dale-page-url="/qsg.html" 
+      dale-entry-url="/manage/reference-file-creation-error-while-virtual-machine-provisioning-on-vvol-datastore-issue-we-are-unable-to-create-virtual-machine-using-the-default-vs0-svm-caus.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/zh-tw/vsc-vasa-provider-sra-97/manage/reference-file-creation-error-while-virtual-machine-provisioning-on-vvol-datastore-issue-we-are-unable-to-create-virtual-machine-using-the-default-vs0-svm-caus.html">
+        在VVOL資料存放區上配置虛擬機器時發生檔案建立錯誤
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="SRM中的SRA報告錯誤狀態「容錯移轉進行中」"
+      data-li-level="3#" 
+      class="   "
+      dale-page-url="/qsg.html" 
+      dale-entry-url="/manage/reference-failover-in-progress-status-is-reported-inappropriately-for-sra.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/zh-tw/vsc-vasa-provider-sra-97/manage/reference-failover-in-progress-status-is-reported-inappropriately-for-sra.html">
+        SRM中的SRA報告錯誤狀態「容錯移轉進行中」
+      </a></li></ul></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="法律聲明"
+      data-li-level="1#" 
+      class="   "
+      dale-page-url="/qsg.html" 
+      dale-entry-url="/legal-notices.html" 
+    ><a class="ie-sidebar-menuitem-1 " href="/zh-tw/vsc-vasa-provider-sra-97/legal-notices.html">
+        法律聲明
+      </a></li></ul>
+</div>
+<script>
+
+  $(".ie-sidebar-button").click(function (e) {
+    e.preventDefault();
+    e.stopPropagation();
+
+    expandedLI = $('li.ie-sidebar-expand')
+
+    const li = $(this).closest("li");
+
+    const parentsLI = $(li).parents('li');
+
+    expandedLI.map(element => {
+      if (sidebarAccordion && !li.hasClass('ie-sidebar-expand') && jQuery.inArray(expandedLI[element], parentsLI) == -1) {
+        $(expandedLI[element]).toggleClass('ie-sidebar-expand');
+        $(expandedLI[element]).children("ul").animate({ height: 'toggle' }, 400, function () {
+          $(li).children("ul").toggleClass('ie-sidebar-open');
+
+        })
+      }
+
+    })
+
+    $(li).toggleClass('ie-sidebar-expand');
+    $(li).children("ul").animate({ height: 'toggle' }, 400, function () {
+      $(li).children("ul").toggleClass('ie-sidebar-open');
+    })
+  });
+
+
+  
+    $("li.ie-sidebar-selected").parents('ul').toggleClass("ie-sidebar-open");
+    $("li.ie-sidebar-selected").toggleClass("ie-sidebar-expand")
+    $("ul.ie-sidebar-open").parent().toggleClass("ie-sidebar-expand");
+    $("li.ie-sidebar-selected").children('ul').toggleClass("ie-sidebar-open")
+  
+  
+</script>
+    </div>
+</div>
+<script>
+
+    
+    let sidebarScrollTopPosition = 0;
+    $("#ie-new-toc").on("scroll", function () {
+        if (sidebarScrollTopPosition == 0) {
+            $.cookie("sidebarScroll", $("#ie-new-toc").scrollTop(), {
+                path: "/zh-tw/vsc-vasa-provider-sra-97"
+            });
+        }
+
+        if ($("#ie-new-toc").scrollTop() > 0) {
+            $('#ie-product-identity-lockup').addClass('ie-addShadow');
+        } else {
+            $('#ie-product-identity-lockup').removeClass('ie-addShadow');
+        }
+    });
+
+    $(function () {
+        if ($.cookie("sidebarScroll")) {
+            $("#ie-new-toc").scrollTop($.cookie("sidebarScroll"));
+        }
+    });
+
+    function setSidebarBottom() {
+        const footerGap = PXinViewport($(".n-footer"));
+        document.getElementById("ie-new-sidebar").style.bottom = Math.max(0, footerGap) + "px";
+    }
+
+    window.onscroll = () => {
+        setSidebarBottom();
+    };
+
+    $("#sidebar-collapse").click(function (e) {
+        const sidebarWidth = $("#ie-new-sidebar").width() - $("#ie-new-sidebar-collapse").width();
+        e.preventDefault();
+        const width = $(".ie-content-pane").width();
+        const marginLeft = parseInt($(".ie-content-pane").css('marginLeft'));
+
+        if ($.cookie("sidebarScroll")) {
+            sidebarScrollTopPosition = $.cookie("sidebarScroll");
+        }
+
+        $("#ie-new-sidebar").animate({ width: 'toggle' }, 350, function () {
+            $("#ie-new-sidebar-collapse").show();
+            $("#ie-new-sidebar").removeClass("open")
+            $("#ie-new-sidebar").addClass("close")
+            $("#ie-new-sidebar").removeAttr("style")
+        });
+        $(".ie-content-pane").animate({ width: (width + sidebarWidth), marginLeft: (marginLeft - sidebarWidth) }, 350, function () {
+            resizeContent()
+        })
+
+    });
+    $("#sidebar-expand").click(function (e) {
+        const sidebarWidth = $("#ie-new-sidebar").width() - $("#ie-new-sidebar-collapse").width();
+        e.preventDefault();
+        const width = $(".ie-content-pane").width();
+        const marginLeft = parseInt($(".ie-content-pane").css('marginLeft'));
+
+        $("#ie-new-sidebar").animate({ width: 'toggle' }, 250, function () {
+            $('#ie-new-sidebar').css('display', 'flex');
+            $("#ie-new-sidebar-collapse").hide();
+            $("#ie-new-sidebar").removeClass("close")
+            $("#ie-new-sidebar").addClass("open")
+            setSidebarBottom();
+
+            if (sidebarScrollTopPosition != 0) {
+                $.cookie("sidebarScroll", sidebarScrollTopPosition, {
+                    path: "/zh-tw/vsc-vasa-provider-sra-97"
+                })
+                $("#ie-new-toc").scrollTop(sidebarScrollTopPosition);
+                sidebarScrollTopPosition = 0;
+            }
+        });
+        $(".ie-content-pane").animate({ width: (width - sidebarWidth), 'marginLeft': (marginLeft + sidebarWidth) }, 250, function () {
+            resizeContent()
+        })
+    });
+    function resizeContent() {
+        const sidebarWidth = $("#ie-new-sidebar").width() - $("#ie-new-sidebar-collapse").width();
+        const rightNavbarVisible =  $("#ie-right-navbar").css('display') && $("#ie-right-navbar").css('display') != 'none';
+        const sidebarVisible = $("#ie-new-sidebar").css('display') != 'none';
+        const rightNavbarWidth = $("#ie-right-navbar").width();
+        const rightNavbarCollapseWidth = $("#ie-right-navbar-collapse").width();
+        const rightNavbarCollapseVisible = $("#ie-right-navbar-collapse").css('display') && $("#ie-right-navbar-collapse").css('display') != 'none';
+        
+        if (rightNavbarVisible && sidebarVisible) {
+            $(".ie-content-pane").width(`calc(100% - ${sidebarWidth + rightNavbarWidth}px)`)
+            $(".ie-content-pane").css('marginLeft', `${sidebarWidth}px`)
+        } else if (sidebarVisible) {
+            $(".ie-content-pane").css('marginLeft', `${sidebarWidth}px`)
+            if (rightNavbarCollapseVisible) {
+                $(".ie-content-pane").width(`calc(100% - ${sidebarWidth + rightNavbarCollapseWidth}px)`)
+            } else {
+                $(".ie-content-pane").width(`calc(100% - ${$("#ie-new-sidebar").width()}px)`)
+            }
+
+        } else if (rightNavbarVisible) {
+            $(".ie-content-pane").css('marginLeft', `${$("#ie-new-sidebar-collapse").width()}px`)
+            $(".ie-content-pane").width(`calc(100% - ${rightNavbarWidth}px)`)
+        } else {
+            $(".ie-content-pane").css('marginLeft', `${$("#ie-new-sidebar-collapse").width()}px`)
+            if (rightNavbarCollapseVisible) {
+                $(".ie-content-pane").width(`calc(100% - ${rightNavbarCollapseWidth}px)`);
+            } else {
+                $(".ie-content-pane").width(`calc(100% - ${$("#ie-new-sidebar-collapse").width()}px) `);
+            }
+            
+        }
+    }
+    $(window).on("resize load", function () {
+        setSidebarBottom();
+        resizeContent()
+    });
+
+
+</script>
+
+<div class="ie-content-pane ie-component-detail-content ie-component-detail-content--show-code">
+    <!-- Begin of page container --><article class="page-content" id="main">
+      <!-- include utility.html -->
+      <div class="ie-info-disclaimer">
+    <span>
+      <div class="ie-info-disclaimer-container">
+        <div class="ie-info-disclaimer-icon">
+          <img src="/zh-tw/vsc-vasa-provider-sra-97/images/notification-icons.svg" class="luci-icon" alt="" />
+        </div>
+        <div class="ie-info-disclaimer-content">
+          <span> 本繁體中文版使用機器翻譯，譯文僅供參考，若與英文版本牴觸，應以英文版本為準。 </span>
+        </div>
+        <div style="clear:both;"></div>
+      </div>
+    </span>
+  </div><div class="ie-component-detail-heading-wrap">
+  <h1 class="ie-component-detail-heading">快速入門</h1>
+</div>
+
+<div id="ie-byline">
+  
+<div class="page-details">
+    
+        
+            <time datetime="2024-03-21 16:31:24 +0000">03/21/2024</time>
+        
+    
+    
+        <span>貢獻者
+        </span>
+    
+    
+</div>
+<div class="page-controls">
+    <div id="contribute-dropdown" class="custom-dropdown custom-dropdown-contrib" >
+        <div class="custom-dropdown-select custom-dropdown-select-contrib">
+        <span class="contrib-name"><img src="/zh-tw/vsc-vasa-provider-sra-97/images/discuss-sm.svg" alt="" class="github-icon" />建議變更</span>
+        <img src="/zh-tw/vsc-vasa-provider-sra-97/images/dropdown-arrow.svg" alt="" class="custom-icon chevrondown invisible" />
+        <img src="/zh-tw/vsc-vasa-provider-sra-97/images/dropdown-arrow.svg" alt="" class="custom-icon chevronup" />
+        </div>
+        <ul class="custom-dropdown-menu suggested-changes-dropdown"><li>
+                <a target="_blank" href="https://github.com/NetAppDocs/vsc-vasa-provider-sra-97.zh-tw/issues/new?template=new-from-page.yml&page-url=https://docs.netapp.com/zh-tw/vsc-vasa-provider-sra-97/qsg.html&page-title=快速入門" class="page-nav-contribute-link" role="button">請求文件變更</a>
+            </li><li> 
+                <a target="_blank" href="https://github.com/NetAppDocs/vsc-vasa-provider-sra-97/blob/main/qsg.adoc" class="page-nav-contribute-link" role="button">編輯本頁</a>
+            </li><li><a target="_blank" href="https://docs.netapp.com/us-en/contribute/" class="page-nav-contribute-link"  >瞭解如何貢獻</a></li>
+        </ul>
+    </div>
+    <div id="pdf-control-container">
+        <div class="n-pdf-header">
+            <a id="toggleButtonPdf" class="n-pdf-button" type="button">
+                <img class="adobe-icon" src="/zh-tw/vsc-vasa-provider-sra-97/images/pdf-icon.png" alt="" width="16" height="16"/>PDF<img src="/zh-tw/vsc-vasa-provider-sra-97/images/dropdown-arrow.svg" class="custom-icon" alt="" />
+            </a>
+        </div>
+        <div class="n-pdf-body-container">
+            <ul id="toggleContainerPdf" class="n-pdf-body" style="display:none;"><li class="pdf-ux-container">
+                    
+                    
+                    
+                    <a target="_blank" class="pdf-download-link" href="/zh-tw/vsc-vasa-provider-sra-97/pdfs/fullsite-sidebar/VSC_VASA_Provider及SRA文件.pdf" >
+                    <img src="/zh-tw/vsc-vasa-provider-sra-97/images/pdf-icon.png" alt="" width="16" height="16"/>此文件 PDF 的網站</a>
+
+
+
+
+    <ul class="subfolders" id="pdf-remove" style="display:none;"><li class="active"></li></ul>
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" class="pdf-download-link"
+            
+              href="/zh-tw/vsc-vasa-provider-sra-97/pdfs/sidebar/部署與升級.pdf" 
+            
+          >
+            <img src="/zh-tw/vsc-vasa-provider-sra-97/images/pdf-icon.png" alt="" width="16" height="16"/>
+            部署與升級
+          </a>
+          
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" class="pdf-download-link"
+            
+              href="/zh-tw/vsc-vasa-provider-sra-97/pdfs/sidebar/VSC_VASA_Provider及SRA虛擬應用裝置的新使用者部署工作流程.pdf" 
+            
+          >
+            <img src="/zh-tw/vsc-vasa-provider-sra-97/images/pdf-icon.png" alt="" width="16" height="16"/>
+            VSC、VASA Provider及SRA虛擬應用裝置的新使用者部署工作流程
+          </a>
+          
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" class="pdf-download-link"
+            
+              href="/zh-tw/vsc-vasa-provider-sra-97/pdfs/sidebar/部署VSC_VASA_Provider及SRA虛擬應用裝置的需求.pdf" 
+            
+          >
+            <img src="/zh-tw/vsc-vasa-provider-sra-97/images/pdf-icon.png" alt="" width="16" height="16"/>
+            部署VSC、VASA Provider及SRA虛擬應用裝置的需求
+          </a>
+          
+
+
+
+
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" class="pdf-download-link"
+            
+              href="/zh-tw/vsc-vasa-provider-sra-97/pdfs/sidebar/部署或升級VSC_VASA_Provider及SRA.pdf" 
+            
+          >
+            <img src="/zh-tw/vsc-vasa-provider-sra-97/images/pdf-icon.png" alt="" width="16" height="16"/>
+            部署或升級VSC、VASA Provider及SRA
+          </a>
+          
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" class="pdf-download-link"
+            
+              href="/zh-tw/vsc-vasa-provider-sra-97/pdfs/sidebar/部署VSC_VASA_Provider和SRA的虛擬應用裝置.pdf" 
+            
+          >
+            <img src="/zh-tw/vsc-vasa-provider-sra-97/images/pdf-icon.png" alt="" width="16" height="16"/>
+            部署VSC、VASA Provider和SRA的虛擬應用裝置
+          </a>
+          
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" class="pdf-download-link"
+            
+              href="/zh-tw/vsc-vasa-provider-sra-97/pdfs/sidebar/啟用VASA_Provider以設定虛擬資料存放區.pdf" 
+            
+          >
+            <img src="/zh-tw/vsc-vasa-provider-sra-97/images/pdf-icon.png" alt="" width="16" height="16"/>
+            啟用VASA Provider以設定虛擬資料存放區
+          </a>
+          
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" class="pdf-download-link"
+            
+              href="/zh-tw/vsc-vasa-provider-sra-97/pdfs/sidebar/啟用儲存複寫介面卡.pdf" 
+            
+          >
+            <img src="/zh-tw/vsc-vasa-provider-sra-97/images/pdf-icon.png" alt="" width="16" height="16"/>
+            啟用儲存複寫介面卡
+          </a>
+          
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" class="pdf-download-link"
+            
+              href="/zh-tw/vsc-vasa-provider-sra-97/pdfs/sidebar/設定VMware_vSphere環境的虛擬儲存主控台.pdf" 
+            
+          >
+            <img src="/zh-tw/vsc-vasa-provider-sra-97/images/pdf-icon.png" alt="" width="16" height="16"/>
+            設定VMware vSphere環境的虛擬儲存主控台
+          </a>
+          
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" class="pdf-download-link"
+            
+              href="/zh-tw/vsc-vasa-provider-sra-97/pdfs/sidebar/設定ESXi伺服器多重路徑和逾時設定.pdf" 
+            
+          >
+            <img src="/zh-tw/vsc-vasa-provider-sra-97/images/pdf-icon.png" alt="" width="16" height="16"/>
+            設定ESXi伺服器多重路徑和逾時設定
+          </a>
+          
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" class="pdf-download-link"
+            
+              href="/zh-tw/vsc-vasa-provider-sra-97/pdfs/sidebar/設定客體作業系統指令碼.pdf" 
+            
+          >
+            <img src="/zh-tw/vsc-vasa-provider-sra-97/images/pdf-icon.png" alt="" width="16" height="16"/>
+            設定客體作業系統指令碼
+          </a>
+          
+
+
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" class="pdf-download-link"
+            
+              href="/zh-tw/vsc-vasa-provider-sra-97/pdfs/sidebar/設定VSC喜好設定檔案.pdf" 
+            
+          >
+            <img src="/zh-tw/vsc-vasa-provider-sra-97/images/pdf-icon.png" alt="" width="16" height="16"/>
+            設定VSC喜好設定檔案
+          </a>
+          
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+
+
+
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" class="pdf-download-link"
+            
+              href="/zh-tw/vsc-vasa-provider-sra-97/pdfs/sidebar/為VSC_VASA_Provider及SRA設定虛擬應用裝置的高可用度.pdf" 
+            
+          >
+            <img src="/zh-tw/vsc-vasa-provider-sra-97/images/pdf-icon.png" alt="" width="16" height="16"/>
+            為VSC、VASA Provider及SRA設定虛擬應用裝置的高可用度
+          </a>
+          
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" class="pdf-download-link"
+            
+              href="/zh-tw/vsc-vasa-provider-sra-97/pdfs/sidebar/設定VMware_vSphere儲存系統環境的虛擬儲存主控台.pdf" 
+            
+          >
+            <img src="/zh-tw/vsc-vasa-provider-sra-97/images/pdf-icon.png" alt="" width="16" height="16"/>
+            設定VMware vSphere儲存系統環境的虛擬儲存主控台
+          </a>
+          
+
+
+
+
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" class="pdf-download-link"
+            
+              href="/zh-tw/vsc-vasa-provider-sra-97/pdfs/sidebar/VSC_for_VMware_vSphere中的vCenter_Server角色型存取控制功能.pdf" 
+            
+          >
+            <img src="/zh-tw/vsc-vasa-provider-sra-97/images/pdf-icon.png" alt="" width="16" height="16"/>
+            VSC for VMware vSphere中的vCenter Server角色型存取控制功能
+          </a>
+          
+
+
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" class="pdf-download-link"
+            
+              href="/zh-tw/vsc-vasa-provider-sra-97/pdfs/sidebar/虛擬應用裝置隨附的標準角色_適用於VSC_VASA_Provider及SRA.pdf" 
+            
+          >
+            <img src="/zh-tw/vsc-vasa-provider-sra-97/images/pdf-icon.png" alt="" width="16" height="16"/>
+            虛擬應用裝置隨附的標準角色、適用於VSC、VASA Provider及SRA
+          </a>
+          
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" class="pdf-download-link"
+            
+              href="/zh-tw/vsc-vasa-provider-sra-97/pdfs/sidebar/VSC工作所需的權限.pdf" 
+            
+          >
+            <img src="/zh-tw/vsc-vasa-provider-sra-97/images/pdf-icon.png" alt="" width="16" height="16"/>
+            VSC工作所需的權限
+          </a>
+          
+
+
+
+
+
+
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" class="pdf-download-link"
+            
+              href="/zh-tw/vsc-vasa-provider-sra-97/pdfs/sidebar/設定儲存複寫介面卡以進行災難恢復.pdf" 
+            
+          >
+            <img src="/zh-tw/vsc-vasa-provider-sra-97/images/pdf-icon.png" alt="" width="16" height="16"/>
+            設定儲存複寫介面卡以進行災難恢復
+          </a>
+          
+
+
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" class="pdf-download-link"
+            
+              href="/zh-tw/vsc-vasa-provider-sra-97/pdfs/sidebar/疑難排解VSC_VASA_Provider及SRA的虛擬應用裝置問題.pdf" 
+            
+          >
+            <img src="/zh-tw/vsc-vasa-provider-sra-97/images/pdf-icon.png" alt="" width="16" height="16"/>
+            疑難排解VSC、VASA Provider及SRA的虛擬應用裝置問題
+          </a>
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" class="pdf-download-link"
+            
+              href="/zh-tw/vsc-vasa-provider-sra-97/pdfs/sidebar/管理.pdf" 
+            
+          >
+            <img src="/zh-tw/vsc-vasa-provider-sra-97/images/pdf-icon.png" alt="" width="16" height="16"/>
+            管理
+          </a>
+          
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" class="pdf-download-link"
+            
+              href="/zh-tw/vsc-vasa-provider-sra-97/pdfs/sidebar/設定VSC_VASA_Provider和SRA的儲存系統.pdf" 
+            
+          >
+            <img src="/zh-tw/vsc-vasa-provider-sra-97/images/pdf-icon.png" alt="" width="16" height="16"/>
+            設定VSC、VASA Provider和SRA的儲存系統
+          </a>
+          
+
+
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" class="pdf-download-link"
+            
+              href="/zh-tw/vsc-vasa-provider-sra-97/pdfs/sidebar/建立儲存功能設定檔.pdf" 
+            
+          >
+            <img src="/zh-tw/vsc-vasa-provider-sra-97/images/pdf-icon.png" alt="" width="16" height="16"/>
+            建立儲存功能設定檔
+          </a>
+          
+
+
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" class="pdf-download-link"
+            
+              href="/zh-tw/vsc-vasa-provider-sra-97/pdfs/sidebar/設定傳統的資料存放區和虛擬機器.pdf" 
+            
+          >
+            <img src="/zh-tw/vsc-vasa-provider-sra-97/images/pdf-icon.png" alt="" width="16" height="16"/>
+            設定傳統的資料存放區和虛擬機器
+          </a>
+          
+
+
+
+
+
+
+
+
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" class="pdf-download-link"
+            
+              href="/zh-tw/vsc-vasa-provider-sra-97/pdfs/sidebar/設定vVols資料存放區.pdf" 
+            
+          >
+            <img src="/zh-tw/vsc-vasa-provider-sra-97/images/pdf-icon.png" alt="" width="16" height="16"/>
+            設定vVols資料存放區
+          </a>
+          
+
+
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" class="pdf-download-link"
+            
+              href="/zh-tw/vsc-vasa-provider-sra-97/pdfs/sidebar/使用vVol儀表板監控vVols資料存放區和虛擬機器.pdf" 
+            
+          >
+            <img src="/zh-tw/vsc-vasa-provider-sra-97/images/pdf-icon.png" alt="" width="16" height="16"/>
+            使用vVol儀表板監控vVols資料存放區和虛擬機器
+          </a>
+          
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" class="pdf-download-link"
+            
+              href="/zh-tw/vsc-vasa-provider-sra-97/pdfs/sidebar/使用Site_Recovery_Manager管理災難恢復設定.pdf" 
+            
+          >
+            <img src="/zh-tw/vsc-vasa-provider-sra-97/images/pdf-icon.png" alt="" width="16" height="16"/>
+            使用Site Recovery Manager管理災難恢復設定
+          </a>
+          
+
+
+
+
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" class="pdf-download-link"
+            
+              href="/zh-tw/vsc-vasa-provider-sra-97/pdfs/sidebar/設定受保護和恢復站台資源.pdf" 
+            
+          >
+            <img src="/zh-tw/vsc-vasa-provider-sra-97/images/pdf-icon.png" alt="" width="16" height="16"/>
+            設定受保護和恢復站台資源
+          </a>
+          
+
+
+
+
+
+
+
+
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" class="pdf-download-link"
+            
+              href="/zh-tw/vsc-vasa-provider-sra-97/pdfs/sidebar/管理傳統和vVols資料存放區.pdf" 
+            
+          >
+            <img src="/zh-tw/vsc-vasa-provider-sra-97/images/pdf-icon.png" alt="" width="16" height="16"/>
+            管理傳統和vVols資料存放區
+          </a>
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" class="pdf-download-link"
+            
+              href="/zh-tw/vsc-vasa-provider-sra-97/pdfs/sidebar/瞭解虛擬儲存主控台報告.pdf" 
+            
+          >
+            <img src="/zh-tw/vsc-vasa-provider-sra-97/images/pdf-icon.png" alt="" width="16" height="16"/>
+            瞭解虛擬儲存主控台報告
+          </a>
+          
+
+
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" class="pdf-download-link"
+            
+              href="/zh-tw/vsc-vasa-provider-sra-97/pdfs/sidebar/疑難排解VSC_VASA_Provider及SRA的虛擬應用裝置問題.pdf" 
+            
+          >
+            <img src="/zh-tw/vsc-vasa-provider-sra-97/images/pdf-icon.png" alt="" width="16" height="16"/>
+            疑難排解VSC、VASA Provider及SRA的虛擬應用裝置問題
+          </a>
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+</li></ul>
+            <div class="zip-pdf-link-container" style="display: none;">   
+                <a href="#" id="zipPdf">
+                <img src="/zh-tw/vsc-vasa-provider-sra-97/images/pdf-zip.png" alt="" width="16" height="16"/>
+                <pre>個別的 PDF 文件集合<span class="zip-size"></span></pre>
+                </a><div id="zip-link-popup" class="hide">
+    <div class="inner-modal">
+        <div class="downloading-progress">
+            <div class="spinner"></div>
+            <h1>Creating your file...</h1>
+            <div>This may take a few minutes. Thanks for your patience.</div>
+            <button class="cancel-download-btn" type="button">Cancel</button>
+        </div>
+        <div class="download-complete hide">
+            <div class="done-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"/></svg>
+            </div>
+            <div>Your file is ready</div>
+            <button class="cancel-download-btn" type="button">OK</button>
+        </div>
+    </div>
+</div>
+<script>
+    $(".cancel-download-btn").click(function(){
+        $("#zip-link-popup").addClass("hide");
+        $("#zip-link-popup .downloading-progress").removeClass("hide");
+        $("#zip-link-popup .download-complete").addClass("hide");
+    });
+</script></div>
+        </div>
+    </div>        
+<script>
+$("#toggleContainerPdf li.active:last-child").parents('ul.subfolders').toggle('display');
+$("#toggleButtonPdf").on('click', function(e){ 
+    e.stopPropagation();
+    $("#toggleContainerPdf").toggle('display');
+    $(".n-pdf-body-container .zip-pdf-link-container").toggle('display');
+});
+
+//hide is by clicking outside pdfcontainer
+$(document).on('click', function (e) {
+    if ($('#toggleContainerPdf').is(':visible') && !$('.n-pdf-body-container').is(e.target) && !$('.n-pdf-body-container').has(e.target).length)  {
+        
+        $("#toggleContainerPdf").toggle('display');
+        $(".n-pdf-body-container .zip-pdf-link-container").toggle('display');
+        $("#toggleButtonPdf").removeClass("active");
+    }
+});
+</script>
+<script>
+    function getPdfLocation() {
+        const pdfLocation = window.scrollX + document.querySelector('#pdf-control-container').getBoundingClientRect().left
+        if (pdfLocation < 450) {
+            $(".n-pdf-body-container").addClass("block")
+        } else {
+            $(".n-pdf-body-container").removeClass("block")
+        }
+    
+    }
+    $( window ).on( "resize", function() {
+        getPdfLocation()
+} );
+</script>
+<script>
+    const pdfButtonWidth =  $(".n-pdf-header").width();
+    const pdfMenuWidth = $(".n-pdf-body-container").width();
+    $(".n-pdf-body-container").css('margin-left', `calc(${pdfButtonWidth - pdfMenuWidth}px)`);
+</script>
+</div>
+
+    
+
+</div>
+
+
+
+
+<div class="content-to-index">
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph lead">
+<p>適用於VMware vSphere的虛擬儲存主控台（VSC）是單一vCenter Server外掛程式、與VASA Provider和Storage Replication Adapter（SRA）擴充套件搭售。建議所有ONTAP 的VMware vSphere環境都使用VSC、因為它會使用ONTAP 最佳實務做法來設定ESXi主機設定及配置不完整的儲存資源。虛擬磁碟區（vVols）支援需要VASA Provider、SRA則需搭配VMware Site Recovery Manager一起運作。</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="準備安裝">準備安裝</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>您將外掛程式部署為虛擬應用裝置、可減少在vCenter Server上個別安裝及註冊每個產品的工作。</p>
+</div>
+<div class="sect2">
+<h3 id="部署需求">部署需求</h3>
+<div class="paragraph">
+<p>VSC、VASA Provider和SRA的虛擬應用裝置可搭配Windows vCenter Server或VMware vCenter Server Virtual Appliance（vCSA）使用。您必須在支援的ESXi和vSphere系統上部署VSC、VASA Provider和SRA的虛擬應用裝置。</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="空間與主機規模調整需求">空間與主機規模調整需求</h3>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">系統</th>
+<th class="tableblock halign-left valign-top">最低要求</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>空間</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="ulist">
+<ul>
+<li>
+<p>2.1 GB、適用於精簡配置的安裝</p>
+</li>
+<li>
+<p>54.0 GB、適用於完整配置的安裝</p>
+</li>
+</ul>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>主機規模調整</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="ulist">
+<ul>
+<li>
+<p>建議記憶體：12 GB</p>
+</li>
+<li>
+<p>建議的CPU：2.</p>
+</li>
+</ul>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="授權需求">授權需求</h3>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">授權</th>
+<th class="tableblock halign-left valign-top">說明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>SnapMirror</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>（選用）執行SRA的容錯移轉作業所需。</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">FlexClone</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>（選用）執行SRA的測試容錯移轉作業、以及VASA Provider的vVols作業所需的測試容錯移轉作業。</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="其他需求">其他需求</h3>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">其他需求</th>
+<th class="tableblock halign-left valign-top">說明欄</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>9083.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>啟用時、VASA Provider和SRA都會使用此連接埠與vCenter Server通訊。取得TCP/IP設定也需要此連接埠。</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>443..</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>根據您設定認證的方式、VMware vCenter Server和儲存系統會偵聽此連接埠上的安全通訊。</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>8143.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>VSC會偵聽此連接埠上的安全通訊。</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>7.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>VSC會傳送回應要求給ONTAP Sing、以驗證可連線性、而且只有在新增儲存系統時才需要、之後才能停用。</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">儲存設備、主機和應用程式</th>
+<th class="tableblock halign-left valign-top">版本需求</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>ONTAP</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>S69.1、9.3、9.5、9.6、9.7。ONTAP</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>VMware vSphere、vCenter伺服器、ESXi主機、Site Recovery Manager（SRM）、外掛應用程式和資料庫</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>請參閱互通性對照表工具</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://imt.netapp.com/matrix/imt.jsp?components=97563;&amp;solution=56&amp;isHWU&amp;src=IMT" target="_blank" rel="noopener">"互通性對照表工具：VSC 9.7.1"</a></p>
+</li>
+<li>
+<p><a href="https://imt.netapp.com/matrix/imt.jsp?components=97564;&amp;solution=376&amp;isHWU&amp;src=IMT" target="_blank" rel="noopener">"互通性對照表工具：Vasa Provider 9.7.1"</a></p>
+</li>
+<li>
+<p><a href="https://imt.netapp.com/matrix/imt.jsp?components=97565;&amp;solution=576&amp;isHWU&amp;src=IMT" target="_blank" rel="noopener">"互通性對照表工具：SRA 9.7.1"</a></p>
+</li>
+</ul>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="適用於vscvasa-provider及sra需求的虛擬應用裝置">適用於VSC、VASA Provider及SRA需求的虛擬應用裝置</h3>
+<div class="paragraph">
+<p>您必須具備：</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>已設定並設定vCenter Server環境。</p>
+</li>
+<li>
+<p>已下載「.ova」檔案。</p>
+</li>
+<li>
+<p>vCenter Server執行個體的登入認證。</p>
+</li>
+<li>
+<p>登出並關閉vSphere Web Client的所有瀏覽器工作階段、並刪除瀏覽器快取、以避免在部署VSC、VASA Provider和SRA的虛擬應用裝置時發生任何瀏覽器快取問題。</p>
+</li>
+<li>
+<p>已設定虛擬應用裝置用來回應ICMP Ping的預設閘道。</p>
+</li>
+<li>
+<p>虛擬應用裝置的有效DNS主機名稱。</p>
+</li>
+<li>
+<p>如果OnCommand 您想要檢視vVols儀表板、請下載並安裝ONTAP 適用於更新版本9.6或更新版本的《for the 32：如果您使用的是NetApp®產品、則不需要向OnCommand VASA供應商註冊此產品的不更新API服務ONTAP 。</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="sra的選用需求">SRA的選用需求</h3>
+<div class="paragraph">
+<p>如果您要部署虛擬應用裝置以搭配VMware Site Recovery Manager使用、則必須具備：</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>僅當您要設定Site Recovery Manager（SRM）災難恢復解決方案時、才下載SRA外掛程式的「.msi」檔案。</p>
+</li>
+<li>
+<p>如果您使用的是SRM應用裝置、請下載SRA的「.tar.gz」檔案。</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="部署vscvasa-provider和sra的虛擬應用裝置">部署VSC、VASA Provider和SRA的虛擬應用裝置</h2>
+<div class="sectionbody">
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>從下載「.ova」檔案 <a href="https://mysupport.netapp.com/site/products/all/details/otv/downloads-tab" target="_blank" rel="noopener">"NetApp 支援網站"</a> 至vSphere Client系統以部署ONTAP 這些功能。</p>
+<div class="paragraph">
+<p>如果要部署SRA、您必須在來源和目的地站台上部署「.ova」檔案。</p>
+</div>
+</li>
+<li>
+<p>登入vSphere Web Client、選取功能表：首頁[主機與叢集]。</p>
+</li>
+<li>
+<p>以滑鼠右鍵按一下所需的資料中心、然後按一下*部署OVF範本*。</p>
+</li>
+<li>
+<p>您可以輸入「.ova」檔案的URL、或瀏覽至儲存「.ova」檔案的資料夾、然後按「<strong>下一步</strong>」。</p>
+</li>
+<li>
+<p>輸入完成部署所需的詳細資料。</p>
+<div class="paragraph">
+<p>您可以從*工作*索引標籤檢視部署進度、然後等待部署完成。</p>
+</div>
+</li>
+<li>
+<p>確認VSC、VASA Provider及SRA服務在部署完成後仍在執行。</p>
+</li>
+</ol>
+</div>
+<div class="sect2">
+<h3 id="在srm上部署sra">在SRM上部署SRA</h3>
+<div class="paragraph">
+<p>您可以在Windows SRM伺服器或8.2 SRM設備上部署SRA。</p>
+</div>
+<div class="sect3">
+<h4 id="在windows-srm伺服器上安裝sra">在Windows SRM伺服器上安裝SRA</h4>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>從NetApp支援網站下載SRA外掛程式的「.msi-」安裝程式。</p>
+</li>
+<li>
+<p>按兩下下載的SRA外掛程式「.msi-」安裝程式、然後依照螢幕上的指示操作。</p>
+</li>
+<li>
+<p>輸入已部署虛擬應用裝置的IP位址和密碼、以完成在SRM伺服器上安裝SRA外掛程式。</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect3">
+<h4 id="在srm設備上上傳及設定sra">在SRM設備上上傳及設定SRA</h4>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>從下載「.tar.gz」檔案 <a href="https://mysupport.netapp.com/site/products/all/details/otv/downloads-tab" target="_blank" rel="noopener">"NetApp 支援網站"</a>。</p>
+</li>
+<li>
+<p>在「SRM應用裝置」畫面上、按一下功能表：儲存複寫介面卡[新增介面卡]。</p>
+</li>
+<li>
+<p>將「.tar.gz」檔案上傳至SRM。</p>
+</li>
+<li>
+<p>重新掃描介面卡、確認「SRM儲存複寫介面卡」頁面中的詳細資料已更新。</p>
+</li>
+<li>
+<p>使用管理員帳戶登入SRM設備、並使用該工具登入。</p>
+</li>
+<li>
+<p>切換至root使用者：「u root」</p>
+</li>
+<li>
+<p>在記錄位置輸入命令以取得SRA泊塢視窗所使用的Docker ID：「Docker ps -l」</p>
+</li>
+<li>
+<p>登入容器ID：「Docker執行-it -u SRM &lt;container id&gt; sh」</p>
+</li>
+<li>
+<p>使用ONTAP 下列功能設定SRM：「Perl command.pl -I &lt;VA-IP&gt;系統管理員&lt;VA-password&gt;」。畫面會顯示一則成功訊息、確認儲存認證資料已儲存。</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect3">
+<h4 id="更新sra認證資料">更新SRA認證資料</h4>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>使用下列方法刪除/SRM/SRA/confDirectory的內容：</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>"CD /SRM/SRA/conf"</p>
+</li>
+<li>
+<p>「rm -RF *」</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>執行perl命令以新認證設定SRA：</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>「CD /SRM/SRA/」</p>
+</li>
+<li>
+<p>「perl command.pl -I &lt;VA-IP&gt;系統管理員&lt;VA-password&gt;」</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect3">
+<h4 id="啟用vasa-provider和sra">啟用VASA Provider和SRA</h4>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>使用您在部署期間指定的IP位址登入vSphere Web用戶端。</p>
+</li>
+<li>
+<p>按一下*虛擬儲存主控台*圖示、然後輸入部署期間指定的使用者名稱和密碼、再按一下*登入*。</p>
+</li>
+<li>
+<p>在OTV的左窗格中、功能表：設定[管理設定&gt;管理功能]、並啟用所需功能。</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/vsc-vasa-provider-sra-97/images/note.svg" alt="註">
+</td>
+<td class="content">
+預設會啟用Vasa Provider。如果您要使用vVols資料存放區的複寫功能、請使用*啟用vVols複寫*切換按鈕。
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>輸入VSC、VASA Provider和SRA的e虛擬應用裝置IP位址和管理員密碼、然後按一下「<strong>套用</strong>」。</p>
+<div class="paragraph">
+<p>如需vSphere物件的其他組態、新增儲存系統及設定角色型存取控制的詳細資訊、請參閱《Virtual Storage Console、VASA Provider及Storage Replication Adapter for VMware vSphere部署與設定指南》。</p>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="何處可找到其他資訊">何處可找到其他資訊</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://www.netapp.com/support-and-training/documentation/ontap-tools-for-vmware-vsphere-documentation/?&amp;access=a" target="_blank" rel="noopener">"Virtual Storage Console、VASA Provider及Storage Replication Adapter for VMware vSphere資源頁面"</a></p>
+</li>
+<li>
+<p><a href="https://docs.netapp.com/vapp-97/index.jsp" target="_blank" rel="noopener">"Virtual Storage Console、VASA Provider及Storage Replication Adapter for VMware vSphere文件"</a></p>
+</li>
+<li>
+<p><a href="https://docs.vmware.com/en/Site-Recovery-Manager/8.2/com.vmware.srm.install_config.doc/GUID-B3A49FFF-E3B9-45E3-AD35-093D896596A0.html" target="_blank" rel="noopener">"VMware Site Recovery Manager 8.2"</a></p>
+</li>
+<li>
+<p><a href="https://docs.netapp.com/us-en/ontap/" target="_blank" rel="noopener">"供應說明文件ONTAP"</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+
+
+
+
+    </article>
+    <!-- Page Container -->
+  </div>
+
+  
+  <!-- Start Page Toolbar -->
+<div id="ie-right-navbar-collapse" class="close">
+  <img id="navbar-expand" class="ie-searchbox-icon" src="/zh-tw/vsc-vasa-provider-sra-97/images/double_arrow.svg" alt="" />
+</div>
+<div id="ie-right-navbar" class="open">
+  <div id="right-navbar-collapse">
+    <img src="/zh-tw/vsc-vasa-provider-sra-97/images/double_arrow.svg" alt="" />
+  </div>
+  <div class="page-nav-container">
+    <nav class="page-nav-fixed">
+      <div class="page-nav-title">在本頁</div>
+      <div class="page-nav-links">
+        <ul class="page-nav-inner" id="page-menu"></ul>
+      </div>
+    </nav>
+  </div>
+</div>
+
+
+<script>
+  resizeContent();
+  function setRightBarHeight() {
+    var h = 0;
+
+    // header 1
+    h += PXinViewport($('.n-footer'));
+    h += PXinViewport($('#ie-new-header'));
+
+    if ($('#ie-right-navbar').length) {
+      $('#ie-right-navbar').css({ height: `calc(100vh - ${h}px)` });
+    }
+    if ($('.page-nav-links').length) {
+      h += 98;
+      $('.page-nav-links').css({ height: `calc(100vh - ${h}px)` });
+    }
+  }
+
+  $(document).ready(function () {
+    // PAGE NAV - Click
+    const MASTHEAD_OFFSET = 65;
+    const SECTIONS = $("main h2, main h3");
+    let calculateActiveSection = false;
+    setTimeout(() => {
+      calculateActiveSection = true;
+    }, 100)
+
+    $(".page-nav__link").click(function (event) {
+      calculateActiveSection = false;
+      $(".page-nav__link").removeClass('page-nav__link--active');
+      var target = $(event.target);
+      target.addClass('page-nav__link--active');
+      location.hash = event.target.hash;
+      setTimeout(() => {
+        calculateActiveSection = true;
+      }, 100)
+
+    });
+
+    // PAGE NAV - Scroll
+    $(window).on('resize scroll', function () {
+      if (calculateActiveSection) {
+        var activeSection = getActiveSection(SECTIONS, MASTHEAD_OFFSET);
+        if (activeSection) {
+          var activeHref = $(activeSection).attr('id');
+          $(".page-nav__link").removeClass('page-nav__link--active');
+          $("#page-menu a[href=#" + activeHref + "]").addClass('page-nav__link--active');
+          if (location.hash != "#" + activeHref) {
+            if (history.replaceState) {
+              history.replaceState(null, null, "#" + activeHref);
+            }
+          }
+        }
+      }
+    });
+
+    $(".n-pdf-button").click(function () {
+      $(this).toggleClass("active");
+    });
+
+    $.fn.isVisibleAndInViewport = function () {
+      var elementTop = $(this).offset().top;
+      var elementBottom = elementTop + $(this).outerHeight();
+
+      var viewportTop = $(window).scrollTop();
+      var viewportBottom = viewportTop + $(window).height();
+
+      return elementBottom > viewportTop && elementTop < viewportBottom && $(this).is(":visible");
+    };
+
+
+    $(window).on('resize scroll', function () {
+      setRightBarHeight();
+    });
+
+    $(window).trigger('resize');
+
+
+  });
+
+  $("#right-navbar-collapse").click(function (e) {
+    const rightNavbarWidth = $("#ie-right-navbar").width() - $("#ie-right-navbar-collapse").width();
+    e.preventDefault();
+    const width = $(".ie-content-pane").width();
+
+    $("#ie-right-navbar").animate({ width: 'toggle' }, 350, function () {
+      $("#ie-right-navbar-collapse").removeClass("close")
+      $("#ie-right-navbar-collapse").addClass("open")
+      $("#ie-right-navbar").removeClass("open")
+      $("#ie-right-navbar").addClass("close")
+    });
+    $(".ie-content-pane").animate({ width: (width + rightNavbarWidth) }, 350, function () {
+      resizeContent()
+      setSidebarBottom();
+    })
+
+  });
+  $("#navbar-expand").click(function (e) {
+    const rightNavbarWidth = $("#ie-right-navbar").width() - $("#ie-right-navbar-collapse").width();
+    e.preventDefault();
+    const width = $(".ie-content-pane").width();
+    $("#ie-right-navbar").animate({ width: 'toggle' }, 250, function () {
+      $("#ie-right-navbar-collapse").removeClass("open")
+      $("#ie-right-navbar-collapse").addClass("close")
+      $("#ie-right-navbar").removeClass("close")
+      $("#ie-right-navbar").addClass("open")
+      setRightBarHeight();
+      setSidebarBottom();
+    });
+    $(".ie-content-pane").animate({ width: (width - rightNavbarWidth) }, 250, function () {
+      resizeContent()
+    })
+  });
+
+  function navbarResize() {
+    const rightNavbarResized = $("#ie-right-navbar-collapse").hasClass('resized');
+    if (window.innerWidth < 1024) {
+      $("#ie-right-navbar").removeClass("open")
+      $("#ie-right-navbar").addClass("close")
+      $("#ie-right-navbar").removeAttr("style")
+      $("#ie-right-navbar-collapse").removeClass("close")
+      $("#ie-right-navbar-collapse").addClass("open")
+      $("#ie-right-navbar-collapse").addClass("resized")
+    } else {
+      if (rightNavbarResized) {
+        $('#ie-right-navbar').removeClass('close');
+        $('#ie-right-navbar').addClass('open');
+        $("#ie-right-navbar-collapse").removeClass("resized")
+        $("#ie-right-navbar-collapse").removeClass("open")
+        $("#ie-right-navbar-collapse").addClass("close")
+      }
+    }
+    resizeContent()
+  }
+  navbarResize();
+  $(window).on('resize load', function () {
+    navbarResize()
+  });
+
+  function getActiveSection(sections, offset) {
+    var scrollPosition = $(window).scrollTop() + offset + 5;
+    var activeSection;
+    for (var i = 0; i < sections.length; i++) {
+      var el = $(sections[i]);
+      var activePosition = el.offset().top;
+      if (activePosition > scrollPosition) {
+        break;
+      }
+
+      activeSection = sections[i];
+    }
+
+    return activeSection;
+  }
+
+  $("a[href*=#]:not([href=#])").click(function () {
+    setTimeout(() => {
+      $(window).trigger('scroll');
+    }, 105)
+  })
+
+  const hashOnLoad = location.href.split("#")[1];
+  setTimeout(function () {
+    if (hashOnLoad) {
+      $(".page-nav__link").removeClass('page-nav__link--active');
+      $("#page-menu a[href=#" + hashOnLoad + "]").addClass('page-nav__link--active');
+    }
+  }, 100)
+
+</script>
+
+
+  <div style="clear: both"></div><!-- Main needs to have height --></div>
+
+        </main>
+
+        <footer class="n-footer">
+  <div class="n-footer__bottom">
+    <div class="n-container">
+        <div class="n-footer__left">
+          <li class="n-footer__copyright-link">
+                    <a href="https://www.netapp.com/company/legal/copyright/">© 2024 NetApp, Inc.</a>
+          </li>
+        </div>
+        <div class="n-footer__center">
+          <ul class="n-footer__copyright-list">
+            <li class="n-footer__copyright-link">
+              <a href="https://www.netapp.com/company/legal/terms-of-use/">使用條款</a>
+            </li>
+            <li class="n-footer__copyright-link">
+              <a href="https://www.netapp.com/company/legal/privacy-policy/">隱私權政策</a>
+            </li>
+            <li class="n-footer__copyright-link">
+              <a href="https://www.netapp.com/company/legal/cookie-policy/">Cookie 政策</a>
+            </li>
+            <li class="n-footer__copyright-link">
+              <a class="ot-sdk-show-settings">Cookie 設定</a>
+            </li>
+          </ul>
+       </div>
+        <div class="n-footer__right">
+              <li class="n-footer__copyright-link">
+                <a target="_self" href="javascript:netapp_mailto()">傳送有關本網頁的意見反應</a>
+              </li>
+        </div>
+     </div>
+  </div>
+</footer>
+
+      </div><!-- Elasticsearch JS -->
+      <script type="text/javascript" src='/zh-tw/vsc-vasa-provider-sra-97/js/bundle.js'></script>
+
+      <!-- Syntax Highlighting -->
+      <script type="text/javascript" src='/zh-tw/vsc-vasa-provider-sra-97/js/prism.js'></script>
+      <script type="text/javascript" src='/zh-tw/vsc-vasa-provider-sra-97/js/prism-curl.js'></script>
+    </div>
+    <script>
+      document.body.offsetWidth=1903;
+      cookieLaw = {}
+      cookieLaw.euCountry = "US";
+      cookieLaw.invoke = function(){return false;}
+    </script>
+    <script src='/zh-tw/vsc-vasa-provider-sra-97/js/ie-tabbed-blocks.js'></script>
+    <script src='/zh-tw/vsc-vasa-provider-sra-97/js/ie-sidebar.js'></script>
+  </body>
+
+</html>
