@@ -248,8 +248,7 @@ NOTE: 預設會啟用Vasa Provider。如果您要使用vVols資料存放區的�
 
 == 何處可找到其他資訊
 
-* https://www.netapp.com/support-and-training/documentation/ontap-tools-for-vmware-vsphere-documentation/?&access=a["Virtual Storage Console、VASA Provider及Storage Replication Adapter for VMware vSphere資源頁面"^]
-* https://docs.netapp.com/vapp-97/index.jsp["Virtual Storage Console、VASA Provider及Storage Replication Adapter for VMware vSphere文件"^]
+* https://docs.netapp.com/us-en/ontap-tools-vmware-vsphere-10/index.html["適用於 VMware vSphere 的 ONTAP 工具文件"^]
 * https://docs.vmware.com/en/Site-Recovery-Manager/8.2/com.vmware.srm.install_config.doc/GUID-B3A49FFF-E3B9-45E3-AD35-093D896596A0.html["VMware Site Recovery Manager 8.2"^]
 * https://docs.netapp.com/us-en/ontap/["供應說明文件ONTAP"^]
 
